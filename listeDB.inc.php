@@ -10,21 +10,15 @@ error_reporting(E_ALL);
 
         private function __construct()
         {
-        // Connexion à la base de données
-        $connStr = 'pgsql:host=woody port=5432 dbname=hr202541'; // A MODIFIER ! 
-        try
-        {
-            // Connexion à la base
-            $this->connect = new PDO($connStr, 'hr202541', 'aled'); //A MODIFIER !
-            // Configuration facultative de la connexion
-            $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
-            $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
-        }
-        catch (PDOException $e)
-        {
-            echo "probleme de connexion :".$e->getMessage();
-            return null;    
-        }
+            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
+        
+            try {
+                $this->connect = new PDO($connStr, 'hr202541', 'aled');
+                $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
+                $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
+            } catch (PDOException $e) {
+                echo "Erreur de connexion : " . $e->getMessage();
+            }
         }
 
         public static function getInstance()
