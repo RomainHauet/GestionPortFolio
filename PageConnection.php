@@ -12,7 +12,19 @@
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
     // generation d'une vue a partir du template
+<<<<<<< HEAD
     echo $tpl->render( array(
         "titre" => "Accueil du site",
         "page" => "")); // a remplacer
+=======
+    echo $tpl->render( array( "titre" => "Accueil du site")); // a remplacer ("" = acueuil du site)
+
+    echo "<form> <div class="row"> <div class="six columns">";
+    echo "label for="identifiant">Identifiant</label>";
+    echo "input class="u-full-width" type="text" placeholder="identifiant" id="identifiant">";
+    echo "</div> </div> <div class="row"> <div class="six columns">";
+    echo "label for="motdepasse">Mot de passe</label>";
+    echo "input class="u-full-width" type="password" placeholder="mot de passe" id="motdepasse">";
+    echo "</div> </div> <input class="button-primary" type="submit" value="Se connecter"> </form>";
+>>>>>>> 1c15744b5d0a0f5a68435912fcb0cf2c19854871
 ?>

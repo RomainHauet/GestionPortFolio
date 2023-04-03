@@ -52,7 +52,7 @@
             $tab = array();
             $tuple = $stmt->fetch();
             
-            if($tulple)
+            if($tuple)
             {
                 while ($tuple != null) {
                     $tab[] = $tuple;
