@@ -12,5 +12,7 @@
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
     // generation d'une vue a partir du template
-    echo $tpl->render( array( "titre" => "Accueil du site")); // a remplacer ("" = acueuil du site)
+    echo $tpl->render( array(
+        "titre" => "Accueil du site",
+        "page" => "")); // a remplacer
 ?>

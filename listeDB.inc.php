@@ -1,9 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
     class DB
     {
+        
         private static $instance = null;
         private $connect = null;
+        private $db = null;
 
         private function __construct()
         {
@@ -11,7 +17,8 @@
         
             try {
                 $this->db = new PDO($connStr, 'hr202541', 'aled');
-                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
+                $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo "probleme de connexion :".$e->getMessage();
                 return null;
