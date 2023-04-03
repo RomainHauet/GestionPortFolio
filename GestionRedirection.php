@@ -13,9 +13,9 @@
     session_start();
 
     // pour pouvoir utiliser le loader de twig
-    require_once( "../Twig/lib/Twig/Autoloader.php" );
+    require_once( "../../Twig/lib/Twig/Autoloader.php" );
 
-    include '../listeDB.inc.php';
+    include './listeDB.inc.php';
 
     Twig_Autoloader::register();
     // On indique que les templates seront charges depuis ./tpl/ 
@@ -29,7 +29,7 @@
     
     // On récupère les produits de la base de données
     
-    $utilisateur = unserialize($_SESSION['utilisateur']);
+    //$utilisateur = unserialize($_SESSION['utilisateur']);
 
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // lecture seule

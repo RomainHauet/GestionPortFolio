@@ -2,7 +2,7 @@
     // Path: PageConnection.php
 
     // pour pouvoir utiliser le loader de twig
-    require_once( "../Twig/lib/Twig/Autoloader.php" );
+    require_once( "../../Twig/lib/Twig/Autoloader.php" );
 
     Twig_Autoloader::register();
     // On indique que les templates seront charges depuis ./tpl/
@@ -12,5 +12,7 @@
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
     // generation d'une vue a partir du template
-    echo $tpl->render( array( "titre" => "Accueil du site")); // a remplacer ("" = acueuil du site)
+    echo $tpl->render( array(
+        "titre" => "Accueil du site",
+        "page" => "")); // a remplacer
 ?>

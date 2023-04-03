@@ -11,8 +11,7 @@
         
             try {
                 $this->db = new PDO($connStr, 'hr202541', 'aled');
-                $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
-                $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
+                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 echo "probleme de connexion :".$e->getMessage();
                 return null;
