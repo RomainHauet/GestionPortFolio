@@ -18,7 +18,6 @@
             </form>
         </div>
         
-    1
     {% for projet in projets %}
         passage
         <h3>{{projet.getUtilisateur()}}</h3>

@@ -27,8 +27,9 @@
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
     
+
     // On récupère les projet de la base de données
-    //$projet = $db->getProjets();
+    $projet = $db->getProjets();
 
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // lecture seule
@@ -42,6 +43,6 @@
     else // ecriture
     {
         echo $tpl->render( array(
-            "titre" => "Site ecriture")); // a remplacer
+            "titre" => "Site edition")); // a remplacer
     }
 ?>

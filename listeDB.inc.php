@@ -5,28 +5,47 @@ error_reporting(E_ALL);
 
     class DB
     {
-        
         private static $instance = null;
         private $connect = null;
-        private $db = null;
 
         private function __construct()
         {
-            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
-        
-            try {
-                $this->connect = new PDO($connStr, 'hr202541', 'aled');
-                $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
-                $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
-            } catch (PDOException $e) {
-                echo "Erreur de connexion : " . $e->getMessage();
-            }
+        // Connexion à la base de données
+        $connStr = 'pgsql:host=woody port=5432 dbname=hr202541'; // A MODIFIER ! 
+        try
+        {
+            // Connexion à la base
+            $this->connect = new PDO($connStr, 'hr202541', 'aled'); //A MODIFIER !
+            // Configuration facultative de la connexion
+            $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
+            $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
+        }
+        catch (PDOException $e)
+        {
+            echo "probleme de connexion :".$e->getMessage();
+            return null;    
+        }
         }
 
         public static function getInstance()
         {
-            if (is_null(self::$instance)) {
-                self::$instance = new DB();
+            if (is_null(self::$instance))
+            {
+                  try
+                { 
+                  self::$instance = new DB();
+                } 
+                catch (PDOException $e)
+                {
+                    echo $e;
+                }
+            } //fin IF
+             
+            $obj = self::$instance;
+    
+            if (($obj->connect) == null)
+            {
+               self::$instance=null;
             }
             return self::$instance;
         }
@@ -42,22 +61,23 @@ error_reporting(E_ALL);
             $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $nomClasse); 
             
             //on exécute la requête
-            if ($tparam != null) { $stmt->execute($tparam); }
-            else { $stmt->execute(); }
-            
+            $stmt->execute();
+
             //récupération du résultat de la requête sous forme d'un tableau d'objets
             $tab = array();
-            $tuple = $stmt->fetch(); //on récupère le premier tuple sous forme d'objet
+            print_r($stmt);
             
-            if ($tuple) //au moins un tuple a été renvoyé
+            $tuple = $stmt->fetch(); //on récupère le premier tuple sous forme d'objet
+            if ($tuple)
             {
-                while ($tuple != false) {
+                //au moins un tuple a été renvoyé
+                while ($tuple != false)
+                {
                     $tab[]=$tuple; //on ajoute l'objet en fin de tableau
-                    $tuple = $stmt->fetch(); //on récupère un tuple sous la forme
-                    //d'un objet instance de la classe $nomClasse	       
-                }	           	     
+                    $tuple = $stmt->fetch(); //on récupère un tuple sous la forme d'un objet instance de la classe $nomClasse	       
+                } //fin du while	           	     
             }
-            return $tab;    
+            return $tab;     
         }
 
         private function execMaj($ordreSQL,$tparam)
@@ -69,8 +89,8 @@ error_reporting(E_ALL);
 
         public function getProjets()
         {
-            $requete = "select * from projet";
-            return $this->execQuery($requete,null,'projet');
+            $requete = 'select * from projet';
+            return $this->execQuery($requete,null,'Projet');
         }
 
     }
@@ -104,8 +124,5 @@ error_reporting(E_ALL);
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
-        public function getImage() { return $this->image; }
-        public function getDescription() { return $this->description; }
-        public function getCompetence() { return $this->competence; }
     }
 ?>
