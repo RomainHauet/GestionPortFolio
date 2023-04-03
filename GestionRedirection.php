@@ -43,6 +43,6 @@
     else // ecriture
     {
         echo $tpl->render( array(
-            "titre" => "titre CV")); // a remplacer
+            "titre" => "Site ecriture")); // a remplacer
     }
 ?>
