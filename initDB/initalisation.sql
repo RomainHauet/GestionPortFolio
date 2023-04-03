@@ -1,11 +1,13 @@
-drop table if exists utilisateur cascade;
-drop table if exists projet cascade;
+DROP TABLE IF EXISTS Utilisateur CASCADE;
+DROP TABLE IF EXISTS Projet CASCADE;
 
-create table utilisateur(
-    nom varchar(20),
-    password varchar(20)
+CREATE TABLE Utilisateur
+(
+  nom VARCHAR(20),
+  password VARCHAR(20)
 );
 
+<<<<<<< HEAD
 create table projet(
     utilisateur varchar(20),
     nom varchar(50),
@@ -39,3 +41,19 @@ insert into projet values(
     'creer le jeu prefere de plp ou se tailler les veines',
     'dessin et compter jusque 21'
 );
+=======
+CREATE TABLE Projet
+(
+  utilisateur VARCHAR(20),
+  nom VARCHAR(20),
+  image VARCHAR(500),
+  description VARCHAR(500),
+  competence VARCHAR(500)
+);
+
+INSERT INTO Utilisateur VALUES('LIAM',   '123');
+INSERT INTO utilisateur VALUES('ROMAIN', '123');
+
+INSERT INTO Projet VALUES('LIAM',   'Les Aventuriers du rail', 'Lia.txt',     'creer le jeu les aventurier du rail', 'massage');
+INSERT INTO Projet VALUES('ROMAIN', 'Serpent numérique',       'Serpent.txt', 'creer le jeu prefere de plp.',        'dessin et compter jusqu’a 21');
+>>>>>>> fb533578361259dee26ad84318801442afae2275
