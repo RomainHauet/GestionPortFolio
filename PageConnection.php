@@ -11,7 +11,15 @@
     // Chargement du template TemplateBase.tpl
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
+    // Generer db
+    include './listeDB.inc.php';
+    $db = DB::getInstance();
+
+    // Recupère projet
+    $projets = $db->getProjets();
+
     // generation d'une vue a partir du template
     echo $tpl->render( array(
-        "titre" => "Accueil du site")); // a remplacer
+        "titre" => "Accueil du site",
+        "projets" => $projets)); // a remplacer
 ?>

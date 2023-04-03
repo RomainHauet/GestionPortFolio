@@ -3,7 +3,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
     class DB
     {
         
@@ -16,57 +15,49 @@ error_reporting(E_ALL);
             $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
         
             try {
-                $this->db = new PDO($connStr, 'hr202541', 'aled');
-                $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $this->connect = new PDO($connStr, 'hr202541', 'aled');
+                $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
+                $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
             } catch (PDOException $e) {
-                echo "probleme de connexion :".$e->getMessage();
-                return null;
+                echo "Erreur de connexion : " . $e->getMessage();
             }
         }
 
         public static function getInstance()
         {
-            if (is_null(self::$instance))
-            {
-                try {  self::$instance = new DB(); } 
-                catch (PDOException $e) { echo $e; }
+            if (is_null(self::$instance)) {
+                self::$instance = new DB();
             }
-
-            $obj = self::$instance;
-
-            if (($obj->connect) == null) { self::$instance=null; }
             return self::$instance;
         }
 
         public function close() { $this->connect = null; }
 
-        private function execQuery($requete,$tparam,$nomClasse) {
-            
+        private function execQuery($requete,$tparam,$nomClasse)
+        {
             //on prépare la requête
             $stmt = $this->connect->prepare($requete);
-
+            
+            //on indique que l'on va récupére les tuples sous forme d'objets instance de Client
             $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $nomClasse); 
-        
+            
             //on exécute la requête
             if ($tparam != null) { $stmt->execute($tparam); }
-	        else { $stmt->execute(); }
-
-            // on récupère les résultats
-            $tab = array();
-	        $tuple = $stmt->fetch();
-
-            $tab = array();
-            $tuple = $stmt->fetch();
+            else { $stmt->execute(); }
             
-            if($tuple)
+            //récupération du résultat de la requête sous forme d'un tableau d'objets
+            $tab = array();
+            $tuple = $stmt->fetch(); //on récupère le premier tuple sous forme d'objet
+            
+            if ($tuple) //au moins un tuple a été renvoyé
             {
-                while ($tuple != null) {
-                    $tab[] = $tuple;
-                    $tuple = $stmt->fetch();
-                }
+                while ($tuple != false) {
+                    $tab[]=$tuple; //on ajoute l'objet en fin de tableau
+                    $tuple = $stmt->fetch(); //on récupère un tuple sous la forme
+                    //d'un objet instance de la classe $nomClasse	       
+                }	           	     
             }
-
-            return $tab;
+            return $tab;    
         }
 
         private function execMaj($ordreSQL,$tparam)
@@ -78,11 +69,12 @@ error_reporting(E_ALL);
 
         public function getProjets()
         {
-            $requete = 'select * from projet';
+            $requete = "select * from projet";
             return $this->execQuery($requete,null,'projet');
         }
 
     }
+    
     class Utilisateur
     {
         private $nom;
@@ -112,6 +104,8 @@ error_reporting(E_ALL);
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
-
+        public function getImage() { return $this->image; }
+        public function getDescription() { return $this->description; }
+        public function getCompetence() { return $this->competence; }
     }
 ?>

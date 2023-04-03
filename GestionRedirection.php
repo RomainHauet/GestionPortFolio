@@ -27,8 +27,8 @@
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
     
-    // On récupère les produits de la base de données
-    //$utilisateur = unserialize($_SESSION['utilisateur']);
+    // On récupère les projet de la base de données
+    //$projet = $db->getProjets();
 
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // lecture seule
