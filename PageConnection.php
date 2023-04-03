@@ -19,10 +19,8 @@
     // On récupère les projet de la base de données
     $projet = $db->getProjets();
 
-    print_r($projet);
-
     // generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre" => "Accueil du site",
-        "data" => $projet)); // a remplacer
+        "data" => $db)); // a remplacer
 ?>

@@ -18,7 +18,7 @@
             </form>
         </div>
         
-    {% for projet in projets %}
+    {% for projet in db.getProjets() %}
         passage
         <h3>{{projet.getUtilisateur()}}</h3>
         <h3>{{projet.getNom()}}</h3>

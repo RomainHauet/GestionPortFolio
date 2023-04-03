@@ -108,7 +108,7 @@ error_reporting(E_ALL);
         private $description;
         private $competence;
 
-        public function __construct($utilisateur, $nom, $image, $description, $competence) {
+        public function __construct($utilisateur="", $nom="", $image="", $description="", $competence="") {
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->image = $image;
@@ -118,5 +118,8 @@ error_reporting(E_ALL);
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
+        public function getImage() { return $this->image; }
+        public function getDescription() { return $this->description; }
+        public function getCompetence() { return $this->competence; }
     }
 ?>
