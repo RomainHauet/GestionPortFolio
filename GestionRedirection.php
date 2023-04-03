@@ -13,7 +13,7 @@
     session_start();
 
     // pour pouvoir utiliser le loader de twig
-    require_once( "../../Twig/lib/Twig/Autoloader.php" );
+    require_once( "./Twig/lib/Twig/Autoloader.php" );
 
     include './listeDB.inc.php';
 
