@@ -13,6 +13,5 @@
 
     // generation d'une vue a partir du template
     echo $tpl->render( array(
-        "titre" => "Accueil du site",
-        "page" => "")); // a remplacer
+        "titre" => "Accueil du site")); // a remplacer
 ?>
