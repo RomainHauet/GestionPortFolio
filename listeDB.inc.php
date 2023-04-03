@@ -1,9 +1,15 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
     class DB
     {
+        
         private static $instance = null;
         private $connect = null;
+        private $db = null;
 
         private function __construct()
         {
