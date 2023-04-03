@@ -10,7 +10,7 @@ CREATE TABLE Utilisateur
 CREATE TABLE Projet
 (
   utilisateur VARCHAR(20),
-  nom VARCHAR(20),
+  nom VARCHAR(30),
   image VARCHAR(500),
   description VARCHAR(500),
   competence VARCHAR(500)
