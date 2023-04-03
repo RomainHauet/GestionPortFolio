@@ -427,9 +427,7 @@ th {
 }
 
 #connection {
-  /* se met à droite */
-  position: relative;
-  float: right;
+
   
   /* taille de la bordure*/
   border: 1px solid #000;
@@ -444,4 +442,7 @@ th {
   /*dimension*/
   width: 30%;
   height: 10%;
+
+  position: absolute;
+  left : 35%;
 }
