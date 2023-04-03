@@ -59,7 +59,6 @@ error_reporting(E_ALL);
 
             //récupération du résultat de la requête sous forme d'un tableau d'objets
             $tab = array();
-            print_r($stmt);
             
             $tuple = $stmt->fetch(); //on récupère le premier tuple sous forme d'objet
             if ($tuple)

@@ -18,8 +18,7 @@
             </form>
         </div>
         
-    {% for projet in db.getProjets() %}
-        passage
+    {% for projet in projets %}
         <h3>{{projet.getUtilisateur()}}</h3>
         <h3>{{projet.getNom()}}</h3>
         <p>{{projet.getDescription()}}</p>

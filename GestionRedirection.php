@@ -26,7 +26,6 @@
 
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
-    
 
     // On récupère les projet de la base de données
     $projet = $db->getProjets();

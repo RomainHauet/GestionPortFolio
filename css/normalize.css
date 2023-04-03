@@ -427,8 +427,6 @@ th {
 }
 
 #connection {
-
-  
   /* taille de la bordure*/
   border: 1px solid #000;
   
@@ -444,5 +442,5 @@ th {
   height: 10%;
 
   position: absolute;
-  left : 35%;
+  right: 0;
 }
