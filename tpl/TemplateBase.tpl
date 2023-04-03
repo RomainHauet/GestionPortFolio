@@ -2,7 +2,7 @@
 
 {% block contenu %}
 
-    {% if page == "" %} {% include "Acceuilportfolio.tpl" %} {% endif %}
+    {% if page == "" %} {% include "AcceuilSite.tpl" %} {% endif %}
 
     {% if identifiant == "" %} <!-- mode lecture -->
 
