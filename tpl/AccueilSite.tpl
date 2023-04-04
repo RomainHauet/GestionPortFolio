@@ -11,6 +11,7 @@
                         <td><input type="password" name="motdepasse" required></td>
                     </tr>
                     <tr>
+                        <input type="hidden" name="page" value="accueil">
                         <td><input type="reset" value="Annuler"></td>
                         <td><input type="submit" value="Valider"></td>
                     </tr>
