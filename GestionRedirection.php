@@ -70,7 +70,7 @@
     {
         $titre = "Lecture " + $titre;
         echo $tpl->render( array(
-            "titre"       => "Accueil site", // a remplacer
+            "titre"       => $titre, // a remplacer
             "typeLecture" => "lecture",
             "identifiant" => $identifiant,
             "page"        => "", // a remplacer
