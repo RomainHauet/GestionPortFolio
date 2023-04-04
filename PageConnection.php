@@ -17,7 +17,31 @@
     $db = DB::getInstance();
 
     // On récupère les projet de la base de données
-    $projet = $db->getProjets();
+    switch($_REQUEST)
+    {
+        case isset($_REQUEST['projet']):
+            $projet = $db->getProjets();
+            break;
+
+        case isset($_REQUEST['cv']):
+            $CV = $db->getCV();
+            break;
+
+        case isset($_REQUEST['contact']):
+            $projet = $db->getContact();
+            break;
+
+        case isset($_REQUEST['accueil']):
+            $projet = $db->getAccueil();
+            break;
+
+        case isset($_REQUEST['competence']):
+            $projet = $db->getCompetence();
+            break;
+        case isset($_REQUEST['credit']):
+            $projet = $db->getCredit();
+            break;
+    }
 
     // generation d'une vue a partir du template
     echo $tpl->render( array(

@@ -15,15 +15,11 @@ CREATE TABLE Projet (
 	competence VARCHAR(500)
 );
 
-INSERT INTO
-	Utilisateur
-VALUES
-(1, 'LIAM', '123');
+INSERT INTO	Utilisateur	VALUES	(1, 'LIAM', '123');
+INSERT INTO	utilisateur	VALUES	(2, 'ROMAIN', '123');
+INSERT INTO	utilisateur	VALUES	(3, 'LOGANN', '123');
+INSERT INTO	utilisateur	VALUES	(4, 'HUGO', '123');
 
-INSERT INTO
-	utilisateur
-VALUES
-(2, 'ROMAIN', '123');
 
 INSERT INTO
 	Projet
@@ -45,4 +41,26 @@ VALUES
 		'Serpent.txt',
 		'creer le jeu prefere de plp.',
 		'dessin et compter jusqu’a 21'
+	);
+
+INSERT INTO
+	Projet
+VALUES	
+(
+		SELECT id FROM Utilisateur WHERE nom = 'LOGANN',
+		'Le jeu de la vie',
+		'JeuDeLaVie.txt',
+		'creer le jeu de la vie',
+		'compter jusqu’a 8'
+	);
+
+INSERT INTO
+	Projet
+VALUES
+(
+		SELECT id FROM Utilisateur WHERE nom = 'HUGO',
+		'Anoui',
+		'Anoui.txt',
+		'creer le jeu Anoui',
+		'compter jusqu’a 2'
 	);
