@@ -24,10 +24,6 @@
         {% elseif page == "contact" %}
         {% endif %}
 
-    {% else %} <!-- erreur -->
-
-        {% include "Erreur.tpl" %}
-
     {% endif %}
 
 {% endblock %}
