@@ -23,6 +23,7 @@
         <h3>{{projet.getNom()}}</h3>
         <p>{{projet.getDescription()}}</p>
         <form action="GestionRedirection.php" method="POST">
-            <input type="submit" value="Voir le projet">
+            <input type="hidden" name="identifiant" value="{{projet.getUtilisateur()}}">
+            <input type="submit" value="Voir PortFolio">
         </form>
     {% endfor %}

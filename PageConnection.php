@@ -22,5 +22,6 @@
     // generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre" => "Accueil du site",
+        "typeLecture" => "lecture",
         "projets" => $projet)); // a remplacer
 ?>
