@@ -17,7 +17,7 @@ CREATE TABLE Competence(
 CREATE TABLE Projet (
 	id DECIMAL(10,0) PRIMARY KEY,
 	utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
-	nom VARCHAR(20),
+	nom VARCHAR(30),
 	image VARCHAR(500),
 	description VARCHAR(500)
 );
