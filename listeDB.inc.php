@@ -101,6 +101,7 @@ error_reporting(E_ALL);
         public function getUtilisateur($identifiant, $motDePasse)
         {
             $requete = 'select * from competence where id = '+$identifiant+' and password = '+$motDePasse;
+            return $requete;
         }
 
         public function getAccueil()
