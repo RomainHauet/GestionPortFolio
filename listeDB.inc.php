@@ -86,6 +86,28 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,null,'Projet');
         }
 
+        public function getUtilisateurs()
+        {
+            $requete = 'select * from utilisateur';
+            return $this->execQuery($requete,null,'Utilisateur');
+        }
+
+        public function getCompetences()
+        {
+            $requete = 'select * from competence';
+            return $this->execQuery($requete,null,'Competence');
+        }
+
+        public function getUtilisateur($identifiant, $motDePasse)
+        {
+            $requete = 'select * from competence where id = '+$identifiant+' and password = '+$motDePasse;
+        }
+
+        public function getAccueil()
+        {
+            return '';
+        }
+
     }
     
     class Utilisateur
