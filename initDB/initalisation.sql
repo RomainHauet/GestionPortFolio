@@ -14,7 +14,6 @@ CREATE TABLE Competence(
 	description VARCHAR(500)
 );
 
-
 CREATE TABLE Projet (
 	id DECIMAL(10,0) PRIMARY KEY,
 	utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
@@ -33,7 +32,6 @@ INSERT INTO	Utilisateur	VALUES	(1, 'LIAM', '123');
 INSERT INTO	utilisateur	VALUES	(2, 'ROMAIN', '123');
 INSERT INTO	utilisateur	VALUES	(3, 'LOGANN', '123');
 INSERT INTO	utilisateur	VALUES	(4, 'HUGO', '123');
-
 
 INSERT INTO
 	Projet
