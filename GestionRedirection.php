@@ -27,53 +27,62 @@
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
 
+    // On récupère l'identifiant
+    $identifiant = $_GET['identifiant'];
+
     // On récupère les projet de la base de données à remplacer
-    switch($_REQUEST)
+    if(isset($_REQUEST['projet']))
     {
-        case isset($_REQUEST['projet']):
-            $donnee = $db->getProjets();
-            break;
-
-        case isset($_REQUEST['cv']):
-            $donnee = $db->getCV();
-            break;
-
-        case isset($_REQUEST['contact']):
-            $donnee = $db->getContact();
-            break;
-
-        case isset($_REQUEST['accueil']):
-            $donnee = $db->getAccueil();
-            break;
-
-        case isset($_REQUEST['competence']):
-            $donnee = $db->getCompetence();
-            break;
-
-        case isset($_REQUEST['credit']):
-            $donnee = $db->getCredit();
-            break;
-        default:
-            header('Location: PageConnection.php');
-            exit();
+        $donnee = $db->getProjets();
+        $titre = "Projet : "+$identifiant;
+    }
+    elseif (isset($_REQUEST['cv']))
+    {
+        $donnee = $db->getCV();
+        $titre = "CV : "+$identifiant;
+    }
+    elseif (isset($_REQUEST['contact']))
+    {
+        $donnee = $db->getContact();
+        $titre = "Contact : "+$identifiant;
+    }
+    elseif (isset($_REQUEST['accueil']))
+    {
+        $donnee = $db->getAccueil();
+        $titre = "Accueil : "+$identifiant;
+    }
+    elseif (isset($_REQUEST['competence']))
+    {
+        $donnee = $db->getCompetence();
+        $titre = "Competence : "+$identifiant;
+    }
+    elseif (isset($_REQUEST['credit'])){
+        $donnee = $db->getCredit();
+        $titre = "Credit : "+$identifiant;
+    }
+    else{
+        $donnee = $db->getAccueil();
+        $titre = "Accueil : "+$identifiant;
     }
 
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // lecture seule
     {
+        $titre = "Lecture " + $titre;
         echo $tpl->render( array(
             "titre"       => "Accueil site", // a remplacer
             "typeLecture" => "lecture",
-            "identifiant" => "", // a remplacer
+            "identifiant" => $identifiant,
             "page"        => "", // a remplacer
             "data"        => $donnee)); 
     }
     else // ecriture
     {
+        $titre = "Edition " + $titre;
         echo $tpl->render( array(
-            "titre" => "Site edition", // a remplacer
+            "titre"       => $titre, // a remplacer
             "typeLecture" => "edition",
-            "identifiant" => "", // a remplacer
+            "identifiant" => $identifiant,
             "page"        => "", // a remplacer
             "data"        => $donnee));
     }
