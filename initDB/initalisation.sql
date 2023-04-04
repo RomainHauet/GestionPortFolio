@@ -33,10 +33,12 @@ INSERT INTO	utilisateur	VALUES	(2, 'ROMAIN', '123');
 INSERT INTO	utilisateur	VALUES	(3, 'LOGANN', '123');
 INSERT INTO	utilisateur	VALUES	(4, 'HUGO', '123');
 
+
 INSERT INTO
 	Projet
 VALUES
 (
+		1
 		SELECT id FROM Utilisateur WHERE nom = 'LIAM',
 		'Les Aventuriers du rail',
 		'Lia.txt',
@@ -48,6 +50,7 @@ INSERT INTO
 	Projet
 VALUES
 (
+		1,
 		SELECT id FROM Utilisateur WHERE nom = 'ROMAIN',
 		'Serpent numérique',
 		'Serpent.txt',
@@ -59,6 +62,7 @@ INSERT INTO
 	Projet
 VALUES	
 (
+		2,
 		SELECT id FROM Utilisateur WHERE nom = 'LOGANN',
 		'Le jeu de la vie',
 		'JeuDeLaVie.txt',
@@ -70,9 +74,99 @@ INSERT INTO
 	Projet
 VALUES
 (
+		3,
 		SELECT id FROM Utilisateur WHERE nom = 'HUGO',
 		'Anoui',
 		'Anoui.txt',
 		'creer le jeu Anoui',
 		'compter jusqu’a 2'
+	);
+
+INSERT INTO
+	Competence
+VALUES
+(
+		1,
+		SELECT id FROM Utilisateur WHERE nom = 'LIAM',
+		'Java',
+		'creer le jeu les aventurier du rail',
+		'massage'
+	);
+
+INSERT INTO
+	Competence
+VALUES
+(
+		2,
+		SELECT id FROM Utilisateur WHERE nom = 'ROMAIN',
+		'Java',
+		'creer le jeu prefere de plp.',
+		'dessin et compter jusqu’a 21'
+	);
+
+INSERT INTO
+	Competence
+VALUES
+(
+		3,
+		SELECT id FROM Utilisateur WHERE nom = 'LOGANN',
+		'Java',
+		'creer le jeu de la vie',
+		'compter jusqu’a 8'
+	);
+
+
+INSERT INTO
+	Tache
+VALUES
+(
+		1,
+		SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail',
+		SELECT id FROM Competence WHERE nom = 'Java'
+	);
+
+INSERT INTO
+	Tache
+VALUES
+(
+		2,
+		SELECT id FROM Projet WHERE nom = 'Serpent numérique',
+		SELECT id FROM Competence WHERE nom = 'Java'
+	);
+
+INSERT INTO
+	Tache
+VALUES
+(
+		3,
+		SELECT id FROM Projet WHERE nom = 'Le jeu de la vie',
+		SELECT id FROM Competence WHERE nom = 'Java'
+	);
+
+
+INSERT INTO
+	Tache
+VALUES
+(
+		4,
+		SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail',
+		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+	);
+
+INSERT INTO
+	Tache
+VALUES
+(
+		5,
+		SELECT id FROM Projet WHERE nom = 'Serpent numérique',
+		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+	);
+
+INSERT INTO
+	Tache
+VALUES
+(
+		6,
+		SELECT id FROM Projet WHERE nom = 'Le jeu de la vie',
+		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
 	);
