@@ -35,7 +35,7 @@
             break;
 
         case isset($_REQUEST['cv']):
-            $CV = $db->getCV();
+            $donnee = $db->getCV();
             break;
 
         case isset($_REQUEST['contact']):
@@ -49,7 +49,7 @@
         case isset($_REQUEST['competence']):
             $donnee = $db->getCompetence();
             break;
-            
+
         case isset($_REQUEST['credit']):
             $donnee = $db->getCredit();
             break;
