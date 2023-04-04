@@ -86,11 +86,8 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,null,'Projet');
         }
 
-        public function getUtilisateurs()
-        {
-            $requete = 'select * from utilisateur';
-            return $this->execQuery($requete,null,'Utilisateur');
-        }
+        
+        public function getUtilisateur($identifiant, $motDePasse ) { return $this; }
     }
 
     class Utilisateur
