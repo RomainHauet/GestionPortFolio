@@ -86,6 +86,11 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,null,'Projet');
         }
 
+        public function getUtilisateurs()
+        {
+            $requete = 'select * from utilisateur';
+            return $this->execQuery($requete,null,'Utilisateur');
+        }
     }
     
     class Utilisateur
@@ -120,5 +125,85 @@ error_reporting(E_ALL);
         public function getImage() { return $this->image; }
         public function getDescription() { return $this->description; }
         public function getCompetence() { return $this->competence; }
+    }
+
+    class Page
+    {
+        // Attributs global
+        private $utilisateur;
+        private $type;
+
+        // Attributs pour la page Accueil
+        private $photoProfil;
+        private $images;
+        private $liens;
+        private $etudes;
+
+        // Attributs pour la page CV
+        private $photoCv;
+        private $experience;
+        private $competence;
+        private $diplome;
+
+        // Attributs pour la page accueil et CV
+        private $nom;
+        private $prenom;
+        private $description;
+
+        // Attributs pour la page Contact
+        private $mail;
+        private $tel;
+        private $linkedin;
+
+        // Attributs pour la page credits
+        private $lstnom;
+        private $lstprenom;
+        private $copyright;
+
+        // Attributs pour la page projet
+        private $lstprojet;
+
+        // Attributs pour la page competences
+        private $lstcompetence;
+
+        private function __construct($utilisateur, $type)
+        {
+            $this->utilisateur = $utilisateur;
+            $this->type = $type;
+        }
+
+        public static function getInstance($utilisateur, $type)
+        {
+            if ($type == "Accueil")
+            {
+                return new Accueil($utilisateur, $type);
+            }
+            else if ($type == "CV")
+            {
+                return new CV($utilisateur, $type);
+            }
+            else if ($type == "Contact")
+            {
+                return new Contact($utilisateur, $type);
+            }
+            else if ($type == "Credits")
+            {
+                return new Credits($utilisateur, $type);
+            }
+            else if ($type == "Projet")
+            {
+                return new Projet($utilisateur, $type);
+            }
+            else if ($type == "Competences")
+            {
+                return new Competences($utilisateur, $type);
+            }
+        }
+    }
+
+    class Accueil extends Page
+    {
+        
+        // echo parent::something(); // parent::something()
     }
 ?>

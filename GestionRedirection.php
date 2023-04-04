@@ -69,6 +69,11 @@
                 $titre = "Contact : "+$identifiant;
                 $page = "contact";
                 break;
+            case 'credit':
+                $donnee = $db->getCredit();
+                $titre = "Credit : "+$identifiant;
+                $page = "credit";
+                break;
         }
     }
 
