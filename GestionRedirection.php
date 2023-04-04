@@ -53,6 +53,9 @@
         case isset($_REQUEST['credit']):
             $donnee = $db->getCredit();
             break;
+        default:
+            header('Location: PageConnection.php');
+            exit();
     }
 
     // generation d'une vue a partir du template
