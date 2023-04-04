@@ -2,10 +2,13 @@ DROP TABLE IF EXISTS Utilisateur CASCADE;
 
 DROP TABLE IF EXISTS Projet CASCADE;
 
-CREATE TABLE Utilisateur (nom VARCHAR(20), password VARCHAR(20));
+CREATE TABLE Utilisateur (
+	id DECIMAL(10,0) PRIMARY KEY,
+	nom VARCHAR(20),
+	password VARCHAR(20));
 
 CREATE TABLE Projet (
-	utilisateur VARCHAR(20),
+	utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
 	nom VARCHAR(20),
 	image VARCHAR(500),
 	description VARCHAR(500),
@@ -15,18 +18,18 @@ CREATE TABLE Projet (
 INSERT INTO
 	Utilisateur
 VALUES
-('LIAM', '123');
+(1, 'LIAM', '123');
 
 INSERT INTO
 	utilisateur
 VALUES
-('ROMAIN', '123');
+(2, 'ROMAIN', '123');
 
 INSERT INTO
 	Projet
 VALUES
 (
-		'LIAM',
+		SELECT id FROM Utilisateur WHERE nom = 'LIAM',
 		'Les Aventuriers du rail',
 		'Lia.txt',
 		'creer le jeu les aventurier du rail',
@@ -37,7 +40,7 @@ INSERT INTO
 	Projet
 VALUES
 (
-		'ROMAIN',
+		SELECT id FROM Utilisateur WHERE nom = 'ROMAIN',
 		'Serpent numérique',
 		'Serpent.txt',
 		'creer le jeu prefere de plp.',
