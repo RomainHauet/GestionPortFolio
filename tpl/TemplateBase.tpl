@@ -6,7 +6,7 @@
 
     {% if typeLecture == "lecture" %} <!-- mode lecture -->
 
-        {% if page == "acceuil" %}
+        {% if page == "acceuil" %} {% include "./lecture/Acceuil.tpl" %}
         {% elseif page == "cv" %}
         {% elseif page == "competence" %}
         {% elseif page == "projet" %}
@@ -29,7 +29,7 @@
         {% include "Erreur.tpl" %}
 
     {% endif %}
-    
+
 {% endblock %}
 
 {% include "Pied.tpl" %}

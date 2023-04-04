@@ -31,7 +31,7 @@
     switch($_REQUEST)
     {
         case isset($_REQUEST['projet']):
-            $projet = $db->getProjets();
+            $donnee = $db->getProjets();
             break;
 
         case isset($_REQUEST['cv']):
@@ -39,18 +39,18 @@
             break;
 
         case isset($_REQUEST['contact']):
-            $projet = $db->getContact();
+            $donnee = $db->getContact();
             break;
 
         case isset($_REQUEST['accueil']):
-            $projet = $db->getAccueil();
+            $donnee = $db->getAccueil();
             break;
 
         case isset($_REQUEST['competence']):
-            $projet = $db->getCompetence();
+            $donnee = $db->getCompetence();
             break;
         case isset($_REQUEST['credit']):
-            $projet = $db->getCredit();
+            $donnee = $db->getCredit();
             break;
     }
 
@@ -62,7 +62,7 @@
             "identifiant" => "", // a remplacer
             "typeLecture" => "lecture",
             "page"        => "", // a remplacer
-            "data"        => $db)); 
+            "data"        => $donnee)); 
     }
     else // ecriture
     {
@@ -71,6 +71,7 @@
             "typeLecture" => "edition",
             "identifiant" => "", // a remplacer
             "page"        => "", // a remplacer
-            "typeLecture" => "edition"));
+            "typeLecture" => "edition",
+            "data"        => $donnee));
     }
 ?>
