@@ -122,6 +122,7 @@ error_reporting(E_ALL);
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
+        public function getUtilisateur($identifiant, $motDePasse ) { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
         public function getImage() { return $this->image; }
         public function getDescription() { return $this->description; }
