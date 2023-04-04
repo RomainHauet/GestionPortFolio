@@ -27,7 +27,7 @@
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
 
-    // On récupère les projet de la base de données
+    // On récupère les projet de la base de données à remplacer
     $projet = $db->getProjets();
 
     // generation d'une vue a partir du template
@@ -36,12 +36,17 @@
         echo $tpl->render( array(
             "titre"       => "Accueil site", // a remplacer
             "identifiant" => "", // a remplacer
-            "page"        => "",
-            "data"        => $db)); // a remplacer ("" = acueuil)
+            "typeLecture" => "lecture",
+            "page"        => "", // a remplacer
+            "data"        => $db)); 
     }
     else // ecriture
     {
         echo $tpl->render( array(
-            "titre" => "Site edition")); // a remplacer
+            "titre" => "Site edition", // a remplacer
+            "typeLecture" => "edition",
+            "identifiant" => "", // a remplacer
+            "page"        => "", // a remplacer
+            "typeLecture" => "edition"));
     }
 ?>

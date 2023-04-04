@@ -4,7 +4,7 @@
 
     {% if page == "" %} {% include "AcceuilSite.tpl" %} {% endif %}
 
-    {% if identifiant == "" %} <!-- mode lecture -->
+    {% if typeLecture == "lecture" %} <!-- mode lecture -->
 
         {% if page == "acceuil" %}
         {% elseif page == "cv" %}
@@ -14,7 +14,7 @@
         {% elseif page == "contact" %}
         {% endif %}
 
-    {% else %} <!-- mode edition -->
+    {% elseif typelecture == "edition" %} <!-- mode edition -->
 
         {% if page == "acceuil" %}
         {% elseif page == "cv" %}
@@ -23,8 +23,13 @@
         {% elseif page == "credits" %}
         {% elseif page == "contact" %}
         {% endif %}
+
+    {% else %} <!-- erreur -->
+
+        {% include "Erreur.tpl" %}
 
     {% endif %}
+    
 {% endblock %}
 
 {% include "Pied.tpl" %}
