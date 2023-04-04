@@ -7,12 +7,26 @@ CREATE TABLE Utilisateur (
 	nom VARCHAR(20),
 	password VARCHAR(20));
 
+CREATE TABLE Competence(
+	id DECIMAL(10,0) PRIMARY KEY,
+	Utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
+	nom VARCHAR(20),
+	description VARCHAR(500)
+);
+
+
 CREATE TABLE Projet (
+	id DECIMAL(10,0) PRIMARY KEY,
 	utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
 	nom VARCHAR(20),
 	image VARCHAR(500),
-	description VARCHAR(500),
-	competence VARCHAR(500)
+	description VARCHAR(500)
+);
+
+CREATE TABLE Tache(
+	id DECIMAL(10,0) PRIMARY KEY,
+	projet DECIMAL(10,0) REFERENCES Projet(id),
+	competence DECIMAL(10,0) REFERENCES Competence(id)
 );
 
 INSERT INTO	Utilisateur	VALUES	(1, 'LIAM', '123');
