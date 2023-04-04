@@ -2,11 +2,11 @@
 
 {% block contenu %}
 
-    {% if page == "" %} {% include "AcceuilSite.tpl" %} {% endif %}
+    {% if page == "" %} {% include "AccueilSite.tpl" %} {% endif %}
 
     {% if typeLecture == "lecture" %} <!-- mode lecture -->
 
-        {% if page == "acceuil" %} {% include "./lecture/Acceuil.tpl" %}
+        {% if page == "accueil" %} {% include "./lecture/Accueil.tpl" %}
         {% elseif page == "cv" %}
         {% elseif page == "competence" %}
         {% elseif page == "projet" %}
@@ -16,7 +16,7 @@
 
     {% elseif typelecture == "edition" %} <!-- mode edition -->
 
-        {% if page == "acceuil" %}
+        {% if page == "accueil" %}
         {% elseif page == "cv" %}
         {% elseif page == "competence" %}
         {% elseif page == "projet" %}
