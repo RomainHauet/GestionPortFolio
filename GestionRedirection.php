@@ -49,6 +49,7 @@
         case isset($_REQUEST['competence']):
             $donnee = $db->getCompetence();
             break;
+            
         case isset($_REQUEST['credit']):
             $donnee = $db->getCredit();
             break;
@@ -59,8 +60,8 @@
     {
         echo $tpl->render( array(
             "titre"       => "Accueil site", // a remplacer
-            "identifiant" => "", // a remplacer
             "typeLecture" => "lecture",
+            "identifiant" => "", // a remplacer
             "page"        => "", // a remplacer
             "data"        => $donnee)); 
     }
@@ -71,7 +72,6 @@
             "typeLecture" => "edition",
             "identifiant" => "", // a remplacer
             "page"        => "", // a remplacer
-            "typeLecture" => "edition",
             "data"        => $donnee));
     }
 ?>
