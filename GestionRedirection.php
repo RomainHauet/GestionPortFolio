@@ -27,42 +27,49 @@
     // On récupère l'instance de la base de données
     $db = DB::getInstance();
 
-    // On récupère l'identifiant
-    $identifiant = $_GET['identifiant'];
+    // On récupère l'identifiant et si on peut récupérer un mot de passe alors on sérialise l'utilisateur
+    $identifiant = $_REQUEST['identifiant'];
+    if(isset($_REQUEST['motDePasse']))
+    {
+        $motDePasse = $_REQUEST['motDePasse'];
+        $utilisateur = $db->getUtilisateur($identifiant, $motDePasse);
+        if($utilisateur != null)
+        {
+            $_SESSION['utilisateur'] = serialize($utilisateur);
+        }
+    }
 
     // On récupère les projet de la base de données à remplacer
-    if(isset($_REQUEST['projet']))
+    if(isset($_REQUEST['page']))
     {
-        $donnee = $db->getProjets();
-        $titre = "Projet : "+$identifiant;
-    }
-    elseif (isset($_REQUEST['cv']))
-    {
-        $donnee = $db->getCV();
-        $titre = "CV : "+$identifiant;
-    }
-    elseif (isset($_REQUEST['contact']))
-    {
-        $donnee = $db->getContact();
-        $titre = "Contact : "+$identifiant;
-    }
-    elseif (isset($_REQUEST['accueil']))
-    {
-        $donnee = $db->getAccueil();
-        $titre = "Accueil : "+$identifiant;
-    }
-    elseif (isset($_REQUEST['competence']))
-    {
-        $donnee = $db->getCompetence();
-        $titre = "Competence : "+$identifiant;
-    }
-    elseif (isset($_REQUEST['credit'])){
-        $donnee = $db->getCredit();
-        $titre = "Credit : "+$identifiant;
-    }
-    else{
-        $donnee = $db->getAccueil();
-        $titre = "Accueil : "+$identifiant;
+        switch ($_REQUEST['page'])
+        {
+            case 'accueil':
+                $donnee = $db->getAccueil();
+                $titre = "Accueil : "+$identifiant;
+                $page = "accueil";
+                break;
+            case 'competence':
+                $donnee = $db->getCompetence();
+                $titre = "Competence : "+$identifiant;
+                $page = "competences";
+                break;
+            case 'projet':
+                $donnee = $db->getProjets();
+                $titre = "Projet : "+$identifiant;
+                $page = "projet";
+                break;
+            case 'cv':
+                $donnee = $db->getCV();
+                $titre = "CV : "+$identifiant;
+                $page = "cv";
+                break;
+            case 'contact':
+                $donnee = $db->getContact();
+                $titre = "Contact : "+$identifiant;
+                $page = "contact";
+                break;
+        }
     }
 
     // generation d'une vue a partir du template
@@ -70,20 +77,20 @@
     {
         $titre = "Lecture " + $titre;
         echo $tpl->render( array(
-            "titre"       => $titre, // a remplacer
+            "titre"       => $titre,
             "typeLecture" => "lecture",
             "identifiant" => $identifiant,
-            "page"        => "", // a remplacer
+            "page"        => $page,
             "data"        => $donnee)); 
     }
     else // ecriture
     {
         $titre = "Edition " + $titre;
         echo $tpl->render( array(
-            "titre"       => $titre, // a remplacer
+            "titre"       => $titre,
             "typeLecture" => "edition",
             "identifiant" => $identifiant,
-            "page"        => "", // a remplacer
+            "page"        => $page,
             "data"        => $donnee));
     }
 ?>

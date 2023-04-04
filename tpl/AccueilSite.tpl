@@ -4,13 +4,14 @@
                 <table>
                     <tr>
                         <td>Nom</td>
-                        <td><input name="nom" required ></td>
+                        <td><input name="identifiant" required ></td>
                     </tr>
                     <tr>
                         <td>Mot de passe</td>
-                        <td><input type="password" name="password" required></td>
+                        <td><input type="password" name="motdepasse" required></td>
                     </tr>
                     <tr>
+                        <input type="hidden" name="page" value="accueil">
                         <td><input type="reset" value="Annuler"></td>
                         <td><input type="submit" value="Valider"></td>
                     </tr>
