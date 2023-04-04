@@ -3,20 +3,21 @@ DROP TABLE IF EXISTS Utilisateur CASCADE;
 DROP TABLE IF EXISTS Projet CASCADE;
 
 CREATE TABLE Utilisateur (
-	id DECIMAL(10,0) PRIMARY KEY,
-	nom VARCHAR(20),
-	password VARCHAR(20));
+	nom VARCHAR(20) PRIMARY KEY,
+	password VARCHAR(20)),
+	description VARCHAR(500),
+	etude VARCHAR(50),;
 
 CREATE TABLE Competence(
 	id DECIMAL(10,0) PRIMARY KEY,
-	Utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
+	Utilisateur VARCHAR REFERENCES Utilisateur(nom),
 	nom VARCHAR(20),
 	description VARCHAR(500)
 );
 
 CREATE TABLE Projet (
 	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur DECIMAL(10,0) REFERENCES Utilisateur(id),
+	utilisateur VARCHAR REFERENCES Utilisateur(nom),
 	nom VARCHAR(30),
 	image VARCHAR(500),
 	description VARCHAR(500)
@@ -28,10 +29,10 @@ CREATE TABLE Tache(
 	competence DECIMAL(10,0) REFERENCES Competence(id)
 );
 
-INSERT INTO	Utilisateur	VALUES	(1, 'LIAM', '123');
-INSERT INTO	utilisateur	VALUES	(2, 'ROMAIN', '123');
-INSERT INTO	utilisateur	VALUES	(3, 'LOGANN', '123');
-INSERT INTO	utilisateur	VALUES	(4, 'HUGO', '123');
+INSERT INTO	Utilisateur	VALUES	( 'LIAM', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'ROMAIN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'LOGANN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'HUGO', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
 
 
 INSERT INTO
@@ -39,7 +40,7 @@ INSERT INTO
 VALUES
 (
 		1
-		SELECT id FROM Utilisateur WHERE nom = 'LIAM',
+		'LIAM',
 		'Les Aventuriers du rail',
 		'Lia.txt',
 		'creer le jeu les aventurier du rail',
@@ -51,7 +52,7 @@ INSERT INTO
 VALUES
 (
 		1,
-		SELECT id FROM Utilisateur WHERE nom = 'ROMAIN',
+		'ROMAIN',
 		'Serpent numérique',
 		'Serpent.txt',
 		'creer le jeu prefere de plp.',
@@ -63,7 +64,7 @@ INSERT INTO
 VALUES	
 (
 		2,
-		SELECT id FROM Utilisateur WHERE nom = 'LOGANN',
+		'LOGANN',
 		'Le jeu de la vie',
 		'JeuDeLaVie.txt',
 		'creer le jeu de la vie',
@@ -75,7 +76,7 @@ INSERT INTO
 VALUES
 (
 		3,
-		SELECT id FROM Utilisateur WHERE nom = 'HUGO',
+		'HUGO',
 		'Anoui',
 		'Anoui.txt',
 		'creer le jeu Anoui',
@@ -87,7 +88,7 @@ INSERT INTO
 VALUES
 (
 		1,
-		SELECT id FROM Utilisateur WHERE nom = 'LIAM',
+		'LIAM',
 		'Java',
 		'creer le jeu les aventurier du rail',
 		'massage'
@@ -98,7 +99,7 @@ INSERT INTO
 VALUES
 (
 		2,
-		SELECT id FROM Utilisateur WHERE nom = 'ROMAIN',
+		'ROMAIN',
 		'Java',
 		'creer le jeu prefere de plp.',
 		'dessin et compter jusqu’a 21'
@@ -109,7 +110,7 @@ INSERT INTO
 VALUES
 (
 		3,
-		SELECT id FROM Utilisateur WHERE nom = 'LOGANN',
+		'LOGANN',
 		'Java',
 		'creer le jeu de la vie',
 		'compter jusqu’a 8'
