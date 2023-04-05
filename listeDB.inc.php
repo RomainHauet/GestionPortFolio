@@ -138,7 +138,6 @@ error_reporting(E_ALL);
 
         public function addUtilisateur($nom, $password) {
             $requete = 'insert into utilisateur values (?, ?)';
-            print_r("j'ai mis a jour");
             $this->execMaj($requete,array($nom, $password));
         }
     }
