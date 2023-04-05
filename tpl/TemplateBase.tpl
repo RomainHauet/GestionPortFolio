@@ -2,10 +2,9 @@
 
 {% block contenu %}
 
-    {% if page == "" %}
-        {% include "AccueilSite.tpl" %}
+    {% if page == "" %} {% include "AccueilSite.tpl" %} {% endif %}
 
-    {% elseif typeLecture == "lecture" %}
+    {% if typeLecture == "lecture" %} <!-- mode lecture -->
 
         {% include "Bandeau.tpl" %}
         {% if page == "accueil" %} {% include "./lecture/Accueil.tpl" %}
@@ -16,7 +15,7 @@
         {% elseif page == "contact" %}
         {% endif %}
 
-    {% elseif typelecture == "edition" %}
+    {% elseif typelecture == "edition" %} <!-- mode edition -->
 
         {% if page == "accueil" %}
         {% elseif page == "cv" %}
