@@ -81,6 +81,7 @@
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // edition
     {
+        $titre = "Edition ".$titre;
         echo $tpl->render( array(
             "titre"       => $titre,
             "typeLecture" => "edition",
@@ -95,7 +96,6 @@
     else // lecture seule
     {
         $titre = "Lecture ".$titre;
-        $titre = "Edition ".$titre;
         echo $tpl->render( array(
             "titre"       => $titre,
             "typeLecture" => "lecture",
