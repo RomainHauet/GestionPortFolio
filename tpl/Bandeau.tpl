@@ -46,9 +46,7 @@
 		</li>
 
 		<li>
-			<form action="GestionRedirection.php" method="POST">
-				<input type="hidden" name="identifiant" value="{{identifiant}}">
-				<input type="hidden" name="page" value="">
+			<form action="GestionRedirection.php" method="get">
 				<button class="c5">Quitter</button>
 			</form>
 		</li>
