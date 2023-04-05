@@ -4,7 +4,7 @@
         {% endfor %}
 
         <p> portfolio cree par : </p>
-        <p> - </p>
+        <p> - {{identifiant}} </p>
 
         <p> Application crée par : </p>
         <ul>
