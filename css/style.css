@@ -1,0 +1,125 @@
+*
+{
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+a {text-decoration: none;}
+
+body {background: LIGHTGREY;}
+
+div
+{
+  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+}
+
+div.cadre
+{
+  width: 80%;
+  height: 95%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 1.25%;
+  padding: 1.25%;
+  background-color: WHITE;
+  margin-bottom : 130px;
+  padding-top: 8%;
+}
+
+div.cv
+{
+  display: flex;
+  background-color: GRAY;
+}
+
+div.flex
+{
+  flex-grow: 1;
+  background-color: ORANGE;
+  width: 50%;
+  height: 100%;
+  margin: 1%;
+  padding: 5%;
+}
+
+div.photo
+{
+  background-color: GOLD;
+  padding: 5%;
+  margin-bottom: 20%;
+  text-align: center;
+}
+
+div.age, div.competences, div.description, div.formation, div.nom, div.prenom, div.projets
+{
+  margin-bottom: 15%;
+  padding: 2%;
+  background-color: GOLD;
+}
+
+header
+{
+  padding: 8px;
+  position: fixed;
+  width: 100%;
+  background-color: GREY;
+  height: 8%;
+  box-shadow : 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
+}
+
+img
+{
+  width: 50%;
+  border-radius: 10px;
+}
+
+ol {column-count: 2;}
+
+ol li
+{
+  list-style: none;
+  text-align: center;
+  padding: 1.25%;
+  margin: 1.25%;
+  border-radius: 10px;
+}
+
+ul
+{
+  width: 97.5%;
+  margin: 0.9%;
+  text-align: center;
+}
+
+ul.header li
+{
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  padding: 0.75%;
+  width: 9.6%;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+ul.header li:hover {transform: scale(1.3);}
+
+ul.infos {padding: 20px;}
+
+ul.infos li {padding: 12px;}
+
+li.c5 {margin-left: 10%;}
+
+textarea {resize: none;}
+
+.accueil {background-color: #00CEFF; color: BLACK;}
+.c1      {background-color: #C00000; color: WHITE;}
+.c2      {background-color: #F79152; color: BLACK;}
+.c3      {background-color: #FFC000; color: BLACK;}
+.c4      {background-color: #92D050; color: BLACK;}
+.c5      {background-color: #07348F; color: WHITE;}
+.c6      {background-color: #7C01BE; color: WHITE;}
+
+/*#AC266D*/
