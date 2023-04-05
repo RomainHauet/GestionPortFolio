@@ -1,12 +1,16 @@
 DROP TABLE IF EXISTS Utilisateur CASCADE;
-
 DROP TABLE IF EXISTS Projet CASCADE;
+DROP TABLE IF EXISTS Competence CASCADE;
+DROP TABLE IF EXISTS Tache CASCADE;
+DROP TABLE IF EXISTS CV CASCADE;
+DROP TABLE IF EXISTS Contact CASCADE;
 
 CREATE TABLE Utilisateur (
 	nom VARCHAR(20) PRIMARY KEY,
-	password VARCHAR(20)),
+	password VARCHAR(20),
 	description VARCHAR(500),
-	etude VARCHAR(50),;
+	etude VARCHAR(50)
+);
 
 CREATE TABLE Competence(
 	id DECIMAL(10,0) PRIMARY KEY,
@@ -29,58 +33,75 @@ CREATE TABLE Tache(
 	competence DECIMAL(10,0) REFERENCES Competence(id)
 );
 
-INSERT INTO	Utilisateur	VALUES	( 'LIAM', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	Utilisateur	VALUES	( 'ROMAIN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	Utilisateur	VALUES	( 'LOGANN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	Utilisateur	VALUES	( 'HUGO', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+CREATE TABLE CV (
+	id DECIMAL(10,0) PRIMARY KEY,
+	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	lienPhotoCV VARCHAR(100),
+	experience VARCHAR(100),
+	competence VARCHAR(100),
+	diplome VARCHAR(100)
+);
+
+CREATE TABLE Contact (
+	id DECIMAL(10,0) PRIMARY KEY,
+	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	numerotel NUMERIC(100),
+	lienLinkedin VARCHAR(100)
+);
+
+CREATE TABLE Credit (
+	id DECIMAL(10,0) PRIMARY KEY,
+	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	noms VARCHAR(100),
+	prenom VARCHAR(100),
+	listeCopyright VARCHAR(500)
+);
+
+INSERT INTO	utilisateur	VALUES	( 'LIAM', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'ROMAIN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'LOGANN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'HUGO', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
 
 
-INSERT INTO
-	Projet
-VALUES
-(
-		1
+INSERT INTO Projet VALUES (
+		1,
 		'LIAM',
 		'Les Aventuriers du rail',
 		'Lia.txt',
-		'creer le jeu les aventurier du rail',
-		'massage'
+		'creer le jeu les aventurier du rail massage'
 	);
 
 INSERT INTO
 	Projet
 VALUES
 (
-		1,
+		2,
 		'ROMAIN',
 		'Serpent numérique',
 		'Serpent.txt',
-		'creer le jeu prefere de plp.',
-		'dessin et compter jusqu’a 21'
+		'creer le jeu prefere de plp dessin et compter jusqu’a 21'
 	);
 
 INSERT INTO
 	Projet
 VALUES	
 (
-		2,
+		3,
 		'LOGANN',
 		'Le jeu de la vie',
 		'JeuDeLaVie.txt',
-		'creer le jeu de la vie',
-		'compter jusqu’a 8'
+		'creer le jeu de la vie compter jusqu’a 8'
 	);
 
 INSERT INTO
 	Projet
 VALUES
 (
-		3,
+		4,
 		'HUGO',
 		'Anoui',
 		'Anoui.txt',
-		'creer le jeu Anoui',
-		'compter jusqu’a 2'
+		'creer le jeu Anoui compter jusqu’a 2'
 	);
 
 INSERT INTO
@@ -90,8 +111,7 @@ VALUES
 		1,
 		'LIAM',
 		'Java',
-		'creer le jeu les aventurier du rail',
-		'massage'
+		'creer le jeu les aventurier du rail massage'
 	);
 
 INSERT INTO
@@ -101,8 +121,7 @@ VALUES
 		2,
 		'ROMAIN',
 		'Java',
-		'creer le jeu prefere de plp.',
-		'dessin et compter jusqu’a 21'
+		'creer le jeu prefere de plp. dessin et compter jusqu’a 21'
 	);
 
 INSERT INTO
@@ -112,8 +131,7 @@ VALUES
 		3,
 		'LOGANN',
 		'Java',
-		'creer le jeu de la vie',
-		'compter jusqu’a 8'
+		'creer le jeu de la vie compter jusqu’a 8'
 	);
 
 
@@ -170,4 +188,70 @@ VALUES
 		6,
 		SELECT id FROM Projet WHERE nom = 'Le jeu de la vie',
 		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+	);
+
+INSERT INTO
+	CV
+VALUES
+(
+		1,
+		'LIAM',
+		'lienPhotoCV',
+		'experience',
+		'competence',
+		'diplome'
+	);
+
+INSERT INTO
+	CV
+VALUES
+(
+		2,
+		'ROMAIN',
+		'lienPhotoCV',
+		'experience',
+		'competence',
+		'diplome'
+	);
+
+INSERT INTO
+	Contact
+VALUES
+(
+		1,
+		'LIAM',
+		0656565656,
+		'lienLinkedin'
+	);
+
+INSERT INTO
+	Contact
+VALUES
+(
+		2,
+		'ROMAIN',
+		0656565656,
+		'lienLinkedin'
+	);
+
+INSERT INTO
+	Credit
+VALUES
+(
+		1,
+		'LIAM',
+		'nom',
+		'prenom',
+		'listeCopyright'
+	);
+
+INSERT INTO
+	Credit
+VALUES
+(
+		2,
+		'ROMAIN',
+		'nom',
+		'prenom',
+		'listeCopyright'
 	);
