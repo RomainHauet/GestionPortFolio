@@ -29,7 +29,7 @@
 
 		<div class="flex">
 			<div class="photo">
-				<img src="photo_CV.jpg" alt="photo du CV, quelqu'un de magnifique">
+				<img src="./images/photo_CV.jpg" alt="photo du CV, quelqu'un de magnifique">
 			</div>
 			<div class="competences">
 				<h3>
