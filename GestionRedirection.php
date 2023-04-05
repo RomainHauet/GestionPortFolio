@@ -39,44 +39,47 @@
         }
     }
 
-    // On récupère les projet de la base de données à remplacer
+    // On récupère les données de la base de données à remplacer
+    $projet = $db->getProjet($identifiant);
+    $competence = $db->getCompetence($identifiant);
+    $cv = $db->getCV($identifiant);
+    $contact = $db->getContact($identifiant);
+    $credit = $db->getCredit($identifiant);
+
+    // On renomme les variables titre et page
     if(isset($_REQUEST['page']))
     {
         switch ($_REQUEST['page'])
         {
             case 'accueil':
-                $donnee = $db->getAccueil();
                 $titre = "Accueil : "+$identifiant;
                 $page = "accueil";
                 break;
             case 'competence':
-                $donnee = $db->getCompetence();
                 $titre = "Competence : "+$identifiant;
                 $page = "competences";
                 break;
             case 'projet':
-                $donnee = $db->getProjets();
                 $titre = "Projet : "+$identifiant;
                 $page = "projet";
                 break;
             case 'cv':
-                $donnee = $db->getCV();
                 $titre = "CV : "+$identifiant;
                 $page = "cv";
                 break;
             case 'contact':
-                $donnee = $db->getContact();
                 $titre = "Contact : "+$identifiant;
                 $page = "contact";
                 break;
             case 'credit':
-                $donnee = $db->getCredit();
                 $titre = "Credit : "+$identifiant;
                 $page = "credit";
                 break;
         }
     }
 
+
+    
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // lecture seule
     {
@@ -86,7 +89,11 @@
             "typeLecture" => "lecture",
             "identifiant" => $identifiant,
             "page"        => $page,
-            "data"        => $donnee)); 
+            "projet"      => $projet,
+            "competence"  => $competence,
+            "cv"          => $cv,
+            "contact"     => $contact,
+            "credit"      => $credit)); 
     }
     else // ecriture
     {
@@ -96,6 +103,10 @@
             "typeLecture" => "edition",
             "identifiant" => $identifiant,
             "page"        => $page,
-            "data"        => $donnee));
+            "projet"      => $projet,
+            "competence"  => $competence,
+            "cv"          => $cv,
+            "contact"     => $contact,
+            "credit"      => $credit));
     }
 ?>

@@ -55,7 +55,8 @@ error_reporting(E_ALL);
             $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, $nomClasse); 
 
             //on exécute la requête
-            $stmt->execute();
+            if($tparam == null) { $stmt->execute();}
+            else { $stmt->execute($tparam); }
 
             //récupération du résultat de la requête sous forme d'un tableau d'objets
             $tab = array();
@@ -84,6 +85,18 @@ error_reporting(E_ALL);
         {
             $requete = 'select * from projet';
             return $this->execQuery($requete,null,'Projet');
+        }
+
+        public function getProjet($identifiant)
+        {
+            $requete = 'select * from projet where utilisateur = ?';
+            return $this->execQuery($requete,array($identifiant),'Projet');
+        }
+
+        public function getCompetences()
+        {
+            $requete = 'select * from competence';
+            return $this->execQuery($requete,null,'Competence');
         }
 
         
