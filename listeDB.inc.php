@@ -124,6 +124,9 @@ error_reporting(E_ALL);
             $this->nom = $nom;
             $this->password = $password;
         }
+
+        public function getNom() { return $this->nom; }
+        public function getPassword() { return $this->password; }
     }
 
     class Projet

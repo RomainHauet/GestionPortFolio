@@ -8,6 +8,9 @@
             <td><hr></td>
         </tr>
         <tr>
+            <h1>{{titre}}</h1>
+            <h1>{{projet.getNom()}}</h1>
+            <p>{{projet.getDescription()}}</p>  
             <td>A propos de moi</td>
         </tr>
         <tr>
@@ -24,5 +27,5 @@
         </tr> 
         <tr>
             <td><a href="">lien vers je sait pas quoi</a></td>
-        </tr>  
+        </tr>
     </table>
