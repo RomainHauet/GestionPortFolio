@@ -7,7 +7,7 @@
     {% if typeLecture == "lecture" %} <!-- mode lecture -->
 
         {% include "Bandeau.tpl" %}
-        {% if page == "accueil" %} {% include "./lecture/Acceuil.tpl" %}
+        {% if page == "accueil" %} {% include "./lecture/Accueil.tpl" %}
         {% elseif page == "cv" %}
         {% elseif page == "competence" %}
         {% elseif page == "projet" %}
