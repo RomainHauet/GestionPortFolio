@@ -71,9 +71,9 @@
                 $titre = "Contact : ".$identifiant;
                 $page = "contact";
                 break;
-            case 'credit':
-                $titre = "Credit : ".$identifiant;
-                $page = "credit";
+            case 'credits':
+                $titre = "Credits : ".$identifiant;
+                $page = "credits";
                 break;
         }
     }
