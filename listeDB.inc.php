@@ -126,7 +126,7 @@ error_reporting(E_ALL);
         }
 
         public function getNom() { return $this->nom; }
-        public function getPassword() { return $this->password; }
+        
     }
 
     class Projet

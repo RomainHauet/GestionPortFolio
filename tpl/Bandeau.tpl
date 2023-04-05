@@ -46,7 +46,7 @@
 		</li>
 
 		<li>
-			<form action="GestionRedirection.php" method="get">
+			<form action="deconnection.php" method="POST">
 				<button class="c5">Quitter</button>
 			</form>
 		</li>
