@@ -1,5 +1,4 @@
 <?php
-
     // Affiche les erreurs
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
@@ -29,15 +28,18 @@
 
     // On récupère l'identifiant et si on peut récupérer un mot de passe alors on sérialise l'utilisateur
     $identifiant = $_REQUEST['identifiant'];
-    if(isset($_REQUEST['motDePasse']))
+    if(isset($_REQUEST['motdepasse']))
     {
-        $motDePasse = $_REQUEST['motDePasse'];
+        $motDePasse = $_REQUEST['motdepasse'];
+        
+        $titre = "Edition ";
+        $typeLecture = "edition";
 
-        // On vérifie si l'utilisateur n'est pas dans la base de données
-        if (!ifExist($identifiant))
+        // On verifie qu'il existe et on verifie que le mot de passe et valide
+        if(!$db->verifierUtilisateur($identifiant, $motDePasse))
         {
-            // on crée l'utilisateur
-            addUtilisateur($identifiant, $motDePasse);
+            header('Location: PageConnection.php');
+            exit();
         }
 
         // On récupère l'utilisateur
@@ -45,46 +47,32 @@
 
         $_SESSION['utilisateur'] = serialize($utilisateur);
     }
+    else
+    {
+        $titre = "Lecture ".$titre;
+        $typeLecture = "lecture";
+    }
 
     // On récupère les données de la base de données à remplacer
-    $projet = $db->getProjet($identifiant);
-    $competence = $db->getCompetence($identifiant);
+    $projets = $db->getProjet($identifiant);
+    $competences = $db->getCompetence($identifiant);
     $cv = $db->getCV($identifiant);
-    $contact = $db->getContact($identifiant);
-    $credit = $db->getCredit($identifiant);
+    $contacts = $db->getContact($identifiant);
+    $credits = $db->getCredit($identifiant);
 
     // On renomme les variables titre et page
     $page = $_REQUEST['page'];
-    $titre = $page." : ".$identifiant;
-
+    $titre = $titre.$page." : ".$identifiant;
     
-    // generation d'une vue a partir du template
-    if ( isset($_SESSION['utilisateur']) ) // edition
-    {
-        $titre = "Edition ".$titre;
-        echo $tpl->render( array(
-            "titre"       => $titre,
-            "typeLecture" => "edition",
-            "identifiant" => $identifiant,
-            "page"        => $page,
-            "Projets"      => $projet,
-            "Competences"  => $competence,
-            "CV"          => $cv,
-            "Contacts"     => $contact,
-            "Credits"      => $credit)); 
-    }
-    else // lecture seule
-    {
-        $titre = "Lecture ".$titre;
-        echo $tpl->render( array(
-            "titre"       => $titre,
-            "typeLecture" => "lecture",
-            "identifiant" => $identifiant,
-            "page"        => $page,
-            "Projets"      => $projet,
-            "Competences"  => $competence,
-            "CV"          => $cv,
-            "Contacts"     => $contact,
-            "Credits"      => $credit));
-    }
+    // Generation d'une vue a partir du template
+    echo $tpl->render( array(
+        "titre"       => $titre,
+        "typeLecture" => $typeLecture,
+        "identifiant" => $identifiant,
+        "page"        => $page,
+        "Projets"      => $projets,
+        "Competences"  => $competences,
+        "CV"          => $cv,
+        "Contacts"     => $contacts,
+        "Credits"      => $credits)); 
 ?>

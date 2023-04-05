@@ -81,6 +81,12 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
+        public function getUtilisateur($identifiant)
+        {
+            $requete = 'select * from utilisateur where nom = ?';
+            return $this->execQuery($requete,array($identifiant),'Utilisateur');
+        }
+
         public function getProjets()
         {
             $requete = 'select * from projet';
@@ -113,6 +119,11 @@ error_reporting(E_ALL);
             $requete = 'select * from credit where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'Credit');
         }
+
+        public function verifierUtilisateur($utilisateur, $motdepasse) {
+            $requete = 'select * from utilisateur where nom = ? and password = ?';
+            if($this->execQuery($requete,array($utilisateur, $motdepasse),'Utilisateur')) {return true;} else {return false;}
+        }
     }
 
     class Utilisateur
@@ -120,7 +131,7 @@ error_reporting(E_ALL);
         private $nom;
         private $password;
 
-        public function __construct($nom, $password) {
+        public function __construct($nom ="", $password ="") {
             $this->nom = $nom;
             $this->password = $password;
         }
@@ -130,18 +141,6 @@ error_reporting(E_ALL);
             print_r("j'ai mis a jour");
             $this->execMaj($requete,array($nom, $password));
         }
-
-        public function ifExist($utilisateur) {
-            // verifie dans la base de données si l'utilisateur existe
-            $requete = 'select * from utilisateur where nom = ?';
-            if($this->execQuery($requete,array($utilisateur),'Utilisateur')) {return true;} else {return false;}
-        }
-
-        public function motDePasseValide($nom, $password) {
-            $requete = 'select * from utilisateur where nom = ? and password = ?';
-            if($this->execQuery($requete,array($nom, $password),'Utilisateur')) {return true;} else {return false;}
-        }
-        
     }
 
     class Projet

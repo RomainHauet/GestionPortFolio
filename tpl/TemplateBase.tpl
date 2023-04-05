@@ -4,7 +4,7 @@
 
     {% if page == "" %} {% include "AccueilSite.tpl" %}
 
-    {% elseif typeLecture == "lecture" %} <!-- mode lecture -->
+    {% elseif typeLecture == "lecture" %}
 
         {% include "Bandeau.tpl" %}
         {% if page == "Accueil" %} {% include "./lecture/Accueil.tpl" %}
@@ -15,7 +15,7 @@
         {% elseif page == "Contacts" %} {% include "./lecture/Contact.tpl" %}
         {% endif %}
 
-    {% elseif typelecture == "edition" %} <!-- mode edition -->
+    {% elseif typelecture == "edition" %}
 
         {% include "Bandeau.tpl" %}
         {% if page == "Accueil" %} {% include "./edition/Accueil.tpl" %}
