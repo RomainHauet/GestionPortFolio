@@ -1,6 +1,6 @@
 <table>
         <tr>
-            <td><img src="images/favicon.png"></td>
+            <td><img src="images/plp.png"></td>
             <td>NOM<br>PRENOM</td>
             <td>BAC+3</td>
         </tr>
