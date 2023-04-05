@@ -52,41 +52,38 @@
         switch ($_REQUEST['page'])
         {
             case 'accueil':
-                $titre = "Accueil : "+$identifiant;
+                $titre = "Accueil : ".$identifiant;
                 $page = "accueil";
                 break;
             case 'competence':
-                $titre = "Competence : "+$identifiant;
+                $titre = "Competence : ".$identifiant;
                 $page = "competences";
                 break;
             case 'projet':
-                $titre = "Projet : "+$identifiant;
+                $titre = "Projet : ".$identifiant;
                 $page = "projet";
                 break;
             case 'cv':
-                $titre = "CV : "+$identifiant;
+                $titre = "CV : ".$identifiant;
                 $page = "cv";
                 break;
             case 'contact':
-                $titre = "Contact : "+$identifiant;
+                $titre = "Contact : ".$identifiant;
                 $page = "contact";
                 break;
             case 'credit':
-                $titre = "Credit : "+$identifiant;
+                $titre = "Credit : ".$identifiant;
                 $page = "credit";
                 break;
         }
     }
-
-
     
     // generation d'une vue a partir du template
-    if ( isset($_SESSION['utilisateur']) ) // lecture seule
+    if ( isset($_SESSION['utilisateur']) ) // edition
     {
-        $titre = "Lecture " + $titre;
         echo $tpl->render( array(
             "titre"       => $titre,
-            "typeLecture" => "lecture",
+            "typeLecture" => "edition",
             "identifiant" => $identifiant,
             "page"        => $page,
             "projet"      => $projet,
@@ -95,12 +92,13 @@
             "contact"     => $contact,
             "credit"      => $credit)); 
     }
-    else // ecriture
+    else // lecture seule
     {
-        $titre = "Edition " + $titre;
+        $titre = "Lecture ".$titre;
+        $titre = "Edition ".$titre;
         echo $tpl->render( array(
             "titre"       => $titre,
-            "typeLecture" => "edition",
+            "typeLecture" => "lecture",
             "identifiant" => $identifiant,
             "page"        => $page,
             "projet"      => $projet,
