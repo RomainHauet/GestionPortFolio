@@ -32,11 +32,18 @@
     if(isset($_REQUEST['motDePasse']))
     {
         $motDePasse = $_REQUEST['motDePasse'];
-        $utilisateur = $db->getUtilisateur($identifiant, $motDePasse);
-        if($utilisateur != null)
+
+        // On vérifie si l'utilisateur n'est pas dans la base de données
+        if (!ifExist($identifiant))
         {
-            $_SESSION['utilisateur'] = serialize($utilisateur);
+            // on crée l'utilisateur
+            addUtilisateur($identifiant, $motDePasse);
         }
+
+        // On récupère l'utilisateur
+        $utilisateur = $db->getUtilisateur($identifiant, $motDePasse);
+
+        $_SESSION['utilisateur'] = serialize($utilisateur);
     }
 
     // On récupère les données de la base de données à remplacer
@@ -47,36 +54,9 @@
     $credit = $db->getCredit($identifiant);
 
     // On renomme les variables titre et page
-    if(isset($_REQUEST['page']))
-    {
-        switch ($_REQUEST['page'])
-        {
-            case 'accueil':
-                $titre = "Accueil : ".$identifiant;
-                $page = "accueil";
-                break;
-            case 'competence':
-                $titre = "Competence : ".$identifiant;
-                $page = "competences";
-                break;
-            case 'projet':
-                $titre = "Projet : ".$identifiant;
-                $page = "projet";
-                break;
-            case 'cv':
-                $titre = "CV : ".$identifiant;
-                $page = "cv";
-                break;
-            case 'contact':
-                $titre = "Contact : ".$identifiant;
-                $page = "contact";
-                break;
-            case 'credits':
-                $titre = "Credits : ".$identifiant;
-                $page = "credits";
-                break;
-        }
-    }
+    $page = $_REQUEST['page'];
+    $titre = $page." : ".$identifiant;
+
     
     // generation d'une vue a partir du template
     if ( isset($_SESSION['utilisateur']) ) // edition
@@ -87,11 +67,11 @@
             "typeLecture" => "edition",
             "identifiant" => $identifiant,
             "page"        => $page,
-            "projet"      => $projet,
-            "competence"  => $competence,
-            "cv"          => $cv,
-            "contact"     => $contact,
-            "credit"      => $credit)); 
+            "Projets"      => $projet,
+            "Competences"  => $competence,
+            "CV"          => $cv,
+            "Contacts"     => $contact,
+            "Credits"      => $credit)); 
     }
     else // lecture seule
     {
@@ -101,10 +81,10 @@
             "typeLecture" => "lecture",
             "identifiant" => $identifiant,
             "page"        => $page,
-            "projet"      => $projet,
-            "competence"  => $competence,
-            "cv"          => $cv,
-            "contact"     => $contact,
-            "credit"      => $credit));
+            "Projets"      => $projet,
+            "Competences"  => $competence,
+            "CV"          => $cv,
+            "Contacts"     => $contact,
+            "Credits"      => $credit));
     }
 ?>

@@ -17,10 +17,10 @@
     $db = DB::getInstance();
 
     // On récupère les projet de la base de données
-    $donnee = $db->getProjets();
+    $projets = $db->getProjets();
 
     // generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre" => "Accueil du site",
-        "projets" => $donnee)); // a remplacer
+        "Projets" => $projets)); // a remplacer
 ?>

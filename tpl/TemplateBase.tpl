@@ -7,23 +7,23 @@
     {% elseif typeLecture == "lecture" %} <!-- mode lecture -->
 
         {% include "Bandeau.tpl" %}
-        {% if page == "accueil" %} {% include "./lecture/Accueil.tpl" %}
-        {% elseif page == "cv" %} {% include "./lecture/CV.tpl" %}
-        {% elseif page == "competence" %} {% include "./lecture/Competence.tpl" %}
-        {% elseif page == "projet" %} {% include "./lecture/Projet.tpl" %} 
-        {% elseif page == "credits" %} {% include "./lecture/Credit.tpl" %}
-        {% elseif page == "contact" %} {% include "./lecture/Contact.tpl" %}
+        {% if page == "Accueil" %} {% include "./lecture/Accueil.tpl" %}
+        {% elseif page == "CV" %} {% include "./lecture/CV.tpl" %}
+        {% elseif page == "Competences" %} {% include "./lecture/Competence.tpl" %}
+        {% elseif page == "Projets" %} {% include "./lecture/Projet.tpl" %} 
+        {% elseif page == "Credits" %} {% include "./lecture/Credit.tpl" %}
+        {% elseif page == "Contacts" %} {% include "./lecture/Contact.tpl" %}
         {% endif %}
 
     {% elseif typelecture == "edition" %} <!-- mode edition -->
 
         {% include "Bandeau.tpl" %}
-        {% if page == "accueil" %} {% include "./edition/Accueil.tpl" %}
-        {% elseif page == "cv" %} {% include "./edition/CV.tpl" %}
-        {% elseif page == "competence" %} {% include "./edition/Competence.tpl" %}
-        {% elseif page == "projet" %} {% include "./edition/Projet.tpl" %} 
-        {% elseif page == "credits" %} {% include "./edition/Credit.tpl" %}
-        {% elseif page == "contact" %} {% include "./edition/Contact.tpl" %}
+        {% if page == "Accueil" %} {% include "./edition/Accueil.tpl" %}
+        {% elseif page == "CV" %} {% include "./edition/CV.tpl" %}
+        {% elseif page == "Competences" %} {% include "./edition/Competence.tpl" %}
+        {% elseif page == "Projets" %} {% include "./edition/Projet.tpl" %} 
+        {% elseif page == "Credits" %} {% include "./edition/Credit.tpl" %}
+        {% elseif page == "Contacts" %} {% include "./edition/Contact.tpl" %}
         {% endif %}
 
     {% endif %}

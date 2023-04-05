@@ -125,7 +125,22 @@ error_reporting(E_ALL);
             $this->password = $password;
         }
 
-        public function getNom() { return $this->nom; }
+        public function addUtilisateur($nom, $password) {
+            $requete = 'insert into utilisateur values (?, ?)';
+            print_r("j'ai mis a jour");
+            $this->execMaj($requete,array($nom, $password));
+        }
+
+        public function ifExist($utilisateur) {
+            // verifie dans la base de données si l'utilisateur existe
+            $requete = 'select * from utilisateur where nom = ?';
+            if($this->execQuery($requete,array($utilisateur),'Utilisateur')) {return true;} else {return false;}
+        }
+
+        public function motDePasseValide($nom, $password) {
+            $requete = 'select * from utilisateur where nom = ? and password = ?';
+            if($this->execQuery($requete,array($nom, $password),'Utilisateur')) {return true;} else {return false;}
+        }
         
     }
 
