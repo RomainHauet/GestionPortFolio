@@ -31,9 +31,6 @@
     if(isset($_REQUEST['motdepasse']))
     {
         $motDePasse = $_REQUEST['motdepasse'];
-        
-        $titre = "Edition ";
-        $typeLecture = "edition";
 
         // On verifie qu'il existe et on verifie que le mot de passe et valide
         if(!$db->verifierUtilisateur($identifiant, $motDePasse))
@@ -42,6 +39,10 @@
             exit();
         }
 
+        // Vu qu'il y a un mot de passe on est en mode edition
+        $titre = "Edition ";
+        $typeLecture = "edition";
+
         // On récupère l'utilisateur
         $utilisateur = $db->getUtilisateur($identifiant, $motDePasse);
 
@@ -49,7 +50,8 @@
     }
     else
     {
-        $titre = "Lecture ".$titre;
+        // il n'y a pas de tentative de connection on est donc en mode lecture
+        $titre = "Lecture ";
         $typeLecture = "lecture";
     }
 
