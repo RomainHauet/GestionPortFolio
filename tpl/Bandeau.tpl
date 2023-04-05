@@ -1,16 +1,56 @@
 <header>
 	<ul class="header">
-    <form action="GestionRedirection.php" method="POST">
-        <input type="hidden" name="identifiant" value="{{identifiant}}">
-        <input type="hidden" name="page" value="accueil">
-        <input type="submit" value="Accueil">
-    </form>
-		<!--<li class="accueil"><a href="exemple_page_ecriture_CV.html" class="accueil">Accueil</a></li>-->
-		<li class="c6"><a href="GestionRedirection.php" class="c6">CV</a></li>
-		<li class="c1"><a href="exemple_page_ecriture_CV.html" class="c1">Compétences</a></li>
-		<li class="c2"><a href="exemple_page_ecriture_CV.html" class="c2">Projets</a></li>
-		<li class="c3"><a href="exemple_page_ecriture_CV.html" class="c3">Crédits</a></li>
-		<li class="c4"><a href="exemple_page_ecriture_CV.html" class="c4">Contact</a></li>
-		<li class="c5"><a href="PageConnection.php" class="c5">Quitter</a></li>
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="accueil">
+				<button class="accueil">Accueil</button>
+			</form>
+		</li>
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="cv">
+				<button class="c6">CV</button>
+			</form>
+		</li>
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="competence">
+				<button class="c1">Compétences</button>
+			</form>
+		</li>
+
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="projet">
+				<button class="c2">Projets</button>
+			</form>
+		</li>
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="credits">
+				<button class="c3">Crédits</button>
+			</form>
+		</li>
+
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="contact">
+				<button class="c4">Contact</button>
+			</form>
+		</li>
+
+		<li>
+			<form action="GestionRedirection.php" method="POST">
+				<input type="hidden" name="identifiant" value="{{identifiant}}">
+				<input type="hidden" name="page" value="">
+				<button class="c5">Quitter</button>
+			</form>
+		</li>
 	</ul>
 </header>
