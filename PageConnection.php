@@ -1,5 +1,7 @@
 <?php
-    // Path: PageConnection.php
+    // Affiche les erreurs
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
 
     // pour pouvoir utiliser le loader de twig
     require_once( "./Twig/lib/Twig/Autoloader.php" );
@@ -22,5 +24,5 @@
     // generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre" => "Accueil du site",
-        "Projets" => $projets)); // a remplacer
+        "Projets" => $projets));
 ?>

@@ -35,8 +35,11 @@
         // On verifie qu'il existe et on verifie que le mot de passe et valide
         if(!$db->verifierUtilisateur($identifiant, $motDePasse))
         {
-            header('Location: PageConnection.php');
-            exit();
+            $projets = $db->getProjets();
+            echo $tpl->render( array(
+                "titre" => "Accueil du site",
+                "Projets" => $projets,
+                "erreur" => "Identifiant ou mot de passe invalide"));
         }
 
         // Vu qu'il y a un mot de passe on est en mode edition

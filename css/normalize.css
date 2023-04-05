@@ -444,3 +444,7 @@ th {
   position: absolute;
   right: 0;
 }
+
+#red {
+  color: red;
+}
