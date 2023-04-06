@@ -40,7 +40,7 @@
 		<li>
 			<form action="GestionRedirection.php" method="POST">
 				<input type="hidden" name="identifiant" value="{{identifiant}}">
-				<input type="hidden" name="page" value="Contact">
+				<input type="hidden" name="page" value="Contacts">
 				<button class="c4">Contact</button>
 			</form>
 		</li>
