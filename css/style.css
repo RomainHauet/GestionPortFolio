@@ -37,6 +37,10 @@ div.cv
 div.flex
 {
   flex-grow: 1;
+}
+
+div.cv div.flex
+{
   background-color: ORANGE;
   width: 50%;
   height: 100%;
@@ -44,9 +48,48 @@ div.flex
   padding: 5%;
 }
 
+div.infos, div.infos_2
+{
+  display: flex;
+}
+
+/*div.infos  div.flex
+{
+
+}*/
+
+div.parties
+{
+  text-align: center;
+}
+
+div.pageAc
+{
+  background-color: #00ceff;
+  margin: 1%;
+  padding: 5%;
+}
+
+div.imgA
+{
+  width: 50%;
+  border-radius: 10px;
+}
+
+
 div.photo
 {
   background-color: GOLD;
+  padding: 5%;
+  margin-bottom: 20%;
+  text-align: center;
+}
+
+div.photo_2
+{
+  background-color: BLUE;
+  width: 50%;
+  height: 100%;
   padding: 5%;
   margin-bottom: 20%;
   text-align: center;
@@ -112,7 +155,18 @@ ul.infos li {padding: 12px;}
 
 li.c5 {margin-left: 10%;}
 
+table
+{
+  width: 25%;
+}
+
 textarea {resize: none;}
+
+table tr td
+{
+  text-align: center;
+  border: none;
+}
 
 .accueil {background-color: #00CEFF; color: BLACK;}
 .c1      {background-color: #C00000; color: WHITE;}
