@@ -1,3 +1,5 @@
+        <br/>
+        <br/>
         <h2>Les images suivantes ne nous appartiennent pas et ne peuvent pas être librement utilisée.</h2>
         {% for image in credit%}
             <p>{{image.nom}}</p>
