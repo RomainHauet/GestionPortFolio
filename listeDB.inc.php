@@ -181,5 +181,4 @@ error_reporting(E_ALL);
         public function getNom() { return $this->nom; }
         public function getNiveau() { return $this->niveau; }
     }
-d
 ?>
