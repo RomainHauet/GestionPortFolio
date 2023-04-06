@@ -141,7 +141,7 @@ VALUES
 (
 		1,
 		(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),
-		(SELECT id FROM Competence WHERE nom = 'Java')
+		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
 	);
 
 INSERT INTO
@@ -150,7 +150,7 @@ VALUES
 (
 		2,
 		(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),
-		(SELECT id FROM Competence WHERE nom = 'Java')
+		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
 	);
 
 INSERT INTO
@@ -159,7 +159,7 @@ VALUES
 (
 		3,
 		(SELECT id FROM Projet WHERE nom = 'Le jeu de la vie'),
-		(SELECT id FROM Competence WHERE nom = 'Java')
+		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
 	);
 
 
