@@ -140,8 +140,8 @@ INSERT INTO
 VALUES
 (
 		1,
-		SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail',
-		SELECT id FROM Competence WHERE nom = 'Java'
+		(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),
+		(SELECT id FROM Competence WHERE nom = 'Java')
 	);
 
 INSERT INTO
@@ -149,8 +149,8 @@ INSERT INTO
 VALUES
 (
 		2,
-		SELECT id FROM Projet WHERE nom = 'Serpent numérique',
-		SELECT id FROM Competence WHERE nom = 'Java'
+		(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),
+		(SELECT id FROM Competence WHERE nom = 'Java')
 	);
 
 INSERT INTO
@@ -158,8 +158,8 @@ INSERT INTO
 VALUES
 (
 		3,
-		SELECT id FROM Projet WHERE nom = 'Le jeu de la vie',
-		SELECT id FROM Competence WHERE nom = 'Java'
+		(SELECT id FROM Projet WHERE nom = 'Le jeu de la vie'),
+		(SELECT id FROM Competence WHERE nom = 'Java')
 	);
 
 
@@ -168,8 +168,8 @@ INSERT INTO
 VALUES
 (
 		4,
-		SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail',
-		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+		(SELECT id FROM Projet WHERE nom LIKE 'Les Aventuriers du rail'),
+		(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe')
 	);
 
 INSERT INTO
@@ -177,8 +177,8 @@ INSERT INTO
 VALUES
 (
 		5,
-		SELECT id FROM Projet WHERE nom = 'Serpent numérique',
-		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+		(SELECT id FROM Projet WHERE nom LIKE 'Serpent numérique'),
+		(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe')
 	);
 
 INSERT INTO
@@ -186,8 +186,8 @@ INSERT INTO
 VALUES
 (
 		6,
-		SELECT id FROM Projet WHERE nom = 'Le jeu de la vie',
-		SELECT id FROM Competence WHERE nom = 'Travail en équipe'
+		(SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vie'),
+		(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe')
 	);
 
 INSERT INTO
