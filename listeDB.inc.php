@@ -181,4 +181,36 @@ error_reporting(E_ALL);
         public function getNom() { return $this->nom; }
         public function getNiveau() { return $this->niveau; }
     }
+
+    class CV
+    {
+        private $nom;
+        private $prenom;
+        private $age;
+        private $description;
+        private $etudes;
+        private $photoCV;
+        private $competence;
+        private $projets;
+
+        public function __construct($nom="", $prenom="", $age="", $description="", $etudes="", $photoCV="", $competence="", $projets="") {
+            $this->nom = $nom;
+            $this->prenom = $prenom;
+            $this->age = $age;
+            $this->description = $description;
+            $this->etudes = $etudes;
+            $this->photoCV = $photoCV;
+            $this->competence = $competence;
+            $this->projets = $projets;
+        }
+
+        public function getNom() { return $this->nom; }
+        public function getPrenom() { return $this->prenom; }
+        public function getAge() { return $this->age; }
+        public function getDescription() { return $this->description; }
+        public function getEtudes() { return $this->etudes; }
+        public function getPhotoCV() { return $this->photoCV; }
+        public function getCompetence() { return $this->competence; }   
+        public function getProjets() { return $this->projets; } 
+    }
 ?>

@@ -53,9 +53,20 @@
     }
     else
     {
-        // il n'y a pas de tentative de connection on est donc en mode lecture
-        $titre = "Lecture ";
-        $typeLecture = "lecture";
+        // On verifie qu'il y a un une variable typelecture présente
+        if(isset($_REQUEST['typeLecture']))
+        {
+            $titre = "Edition ";
+            $typeLecture = $_REQUEST['typeLecture'];
+
+        }
+        else
+        {
+            // il n'y a pas de tentative de connection on est donc en mode lecture
+            $titre = "Lecture ";
+            $typeLecture = "lecture";
+        }
+
     }
 
     // On récupère les données de la base de données à remplacer
