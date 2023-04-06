@@ -164,4 +164,22 @@ error_reporting(E_ALL);
         public function getDescription() { return $this->description; }
         public function getCompetence() { return $this->competence; }
     }
+
+    class Competence
+    {
+        private $utilisateur;
+        private $nom;
+        private $niveau;
+
+        public function __construct($utilisateur="", $nom="", $niveau="") {
+            $this->utilisateur = $utilisateur;
+            $this->nom = $nom;
+            $this->niveau = $niveau;
+        }
+
+        public function getUtilisateur() { return $this->utilisateur; }
+        public function getNom() { return $this->nom; }
+        public function getNiveau() { return $this->niveau; }
+    }
+d
 ?>
