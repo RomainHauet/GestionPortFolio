@@ -1,6 +1,7 @@
         {% for competence in Competence %}
-            <h3>competence.nom</h3>
-            <p>competence.description</p>
+            <h3>{{competence.getNom()}}</h3>
+            <p>{{competence.getDescription()}}</p>
             {% for projet in Competence %}
                 <button name="button">projet.nom</button>
+            {% endfor %}
         {% endfor %}

@@ -15,3 +15,4 @@
                     <a href="https://www.linkedin.com/in/test/"> Un mec random </a>
                 </td>
             </tr>
+        </table>
