@@ -15,7 +15,7 @@
         {% elseif page == "Contacts" %} {% include "./lecture/Contact.tpl" %}
         {% endif %}
 
-    {% elseif typelecture == "edition" %}
+    {% elseif typeLecture == "edition" %}
 
         {% include "Bandeau.tpl" %}
         {% if page == "Accueil" %} {% include "./edition/Accueil.tpl" %}
@@ -26,6 +26,7 @@
         {% elseif page == "Contacts" %} {% include "./edition/Contact.tpl" %}
         {% endif %}
 
+    {% else %} { erreur }
     {% endif %}
 
 {% endblock %}
