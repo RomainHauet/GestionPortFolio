@@ -19,7 +19,7 @@
 		<li>
 			<form action="GestionRedirection.php" method="POST">
 				<input type="hidden" name="identifiant" value="{{identifiant}}">
-				<input type="hidden" name="page" value="Competence">
+				<input type="hidden" name="page" value="Competences">
 				<input type="hidden" name="typeLecture" value="{{typeLecture}}">
 				<button class="c1">Compétences</button>
 			</form>

@@ -12,7 +12,7 @@
             </div>
             <div class="age">
               <h3>Âge :</h3>
-              <textarea name="prenom" rows="1" cols="60"></textarea>
+              <textarea name="age" rows="1" cols="60"></textarea>
             </div>
             <div class="description">
               <h3>Votre description :</h3>
