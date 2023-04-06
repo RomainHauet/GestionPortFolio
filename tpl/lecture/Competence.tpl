@@ -1,3 +1,7 @@
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         {% for competence in Competences %}
             <h3>{{competence.getNom()}}</h3>
             <p>{{competence.getDescription()}}</p>
