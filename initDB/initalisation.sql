@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Competence CASCADE;
 DROP TABLE IF EXISTS Tache CASCADE;
 DROP TABLE IF EXISTS CV CASCADE;
 DROP TABLE IF EXISTS Contact CASCADE;
+DROP TABLE IF EXISTS Credit CASCADE;
 
 CREATE TABLE Utilisateur (
 	nom VARCHAR(20) PRIMARY KEY,
@@ -141,7 +142,7 @@ VALUES
 (
 		1,
 		(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),
-		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
+		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 1)
 	);
 
 INSERT INTO
@@ -150,7 +151,7 @@ VALUES
 (
 		2,
 		(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),
-		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
+		(SELECT id FROM Competence WHERE nom = 'Java' and id = 2)
 	);
 
 INSERT INTO
@@ -159,7 +160,7 @@ VALUES
 (
 		3,
 		(SELECT id FROM Projet WHERE nom = 'Le jeu de la vie'),
-		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java')
+		(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 3)
 	);
 
 
