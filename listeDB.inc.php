@@ -234,4 +234,5 @@ error_reporting(E_ALL);
         public function getLinkedin() { return $this->linkedin; }
         public function getEmail() { return $this->email; }
     }
+    
 ?>
