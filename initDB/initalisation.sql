@@ -37,8 +37,7 @@ CREATE TABLE Tache(
 );
 
 CREATE TABLE CV (
-	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(id),
+	utilisateur VARCHAR REFERENCES Utilisateur(id) PRIMARY KEY,
 	lienPhotoCV VARCHAR(100),
 	experience VARCHAR(100),
 	competence VARCHAR(100),
@@ -198,7 +197,6 @@ INSERT INTO
 	CV
 VALUES
 (
-		1,
 		'LIAM',
 		'lienPhotoCV',
 		'experience',
@@ -210,7 +208,6 @@ INSERT INTO
 	CV
 VALUES
 (
-		2,
 		'ROMAIN',
 		'lienPhotoCV',
 		'experience',
