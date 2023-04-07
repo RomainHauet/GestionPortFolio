@@ -35,7 +35,7 @@ CREATE TABLE CV (
 	nom VARCHAR(30),
 	prenom VARCHAR(30),
 	age DECIMAL(10,0),
-	descriptions VARCHAR(500),
+	description VARCHAR(500),
 	lienPhotoCV VARCHAR(100),
 	experience VARCHAR(100),
 	competence VARCHAR(100),
@@ -74,9 +74,10 @@ INSERT INTO	Projet VALUES (3,'LOGANN','Le jeu de la vie'       ,'JeuDeLaVie.txt'
 INSERT INTO Projet VALUES (4,'HUGO'  ,'Anoui'                  ,'Anoui.txt'     ,'creer le jeu Anoui compter jusqu’a 2'                    );
 
 INSERT INTO Competence VALUES (1,'LIAM'  ,'Java','creer le jeu les aventurier du rail massage'              );
-INSERT INTO Competence VALUES (2,'ROMAIN','Java','creer le jeu prefere de plp. dessin et compter jusqu’a 21');
-INSERT INTO Competence VALUES (3,'LOGANN','Java','creer le jeu de la vie compter jusqu’a 8'                 );
-INSERT INTO Competence VALUES (4,'HUGO'  ,'Java','creer le jeu Anoui compter jusqu’a 2'                     );
+INSERT INTO Competence VALUES (2,'LIAM'  ,'C#','creer un jeu bien'                                          );
+INSERT INTO Competence VALUES (3,'ROMAIN','Java','creer le jeu prefere de plp. dessin et compter jusqu’a 21');
+INSERT INTO Competence VALUES (4,'LOGANN','Java','creer le jeu de la vie compter jusqu’a 8'                 );
+INSERT INTO Competence VALUES (5,'HUGO'  ,'Java','creer le jeu Anoui compter jusqu’a 2'                     );
 
 INSERT INTO Tache VALUES (1,(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 1));
 INSERT INTO Tache VALUES (2,(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),(SELECT id FROM Competence WHERE nom = 'Java' and id = 2));
@@ -85,7 +86,7 @@ INSERT INTO Tache VALUES (4,(SELECT id FROM Projet WHERE nom LIKE 'Les Aventurie
 INSERT INTO Tache VALUES (5,(SELECT id FROM Projet WHERE nom LIKE 'Serpent numérique'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
 INSERT INTO Tache VALUES (6,(SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vie'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
 
-INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam','formation liam','photo liam','competence liam','projet liam');
+INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam genre toute ma vie c est incroyable je suis le boss ca marche whouhou yes trop bien c est genial','formation liam','photo liam','competence liam','projet liam');
 INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','formation romain','photo romain','competence romain','projet romain');
 
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
