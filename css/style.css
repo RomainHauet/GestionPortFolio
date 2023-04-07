@@ -14,10 +14,7 @@ div
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
 }
-h1.centrage
-{
-  text-align: center;
-}
+
 div.cadre
 {
   width: 80%;
@@ -150,13 +147,22 @@ ul.infos li {padding: 12px;}
 
 li.c5 {margin-left: 10%;}
 
+table.accueil
+{
+  width: 25%;
+  border-radius: 10px;
+}
+
+table.propos
+{
+  width: 100%;
+}
+
 textarea
 {
   resize: none;
   width: 100%;
 }
-
-table.accueil {width: 25%;}
 
 table tr td
 {
