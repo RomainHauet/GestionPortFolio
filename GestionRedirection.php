@@ -28,6 +28,7 @@
 
     // On récupère l'identifiant et si on peut récupérer un mot de passe alors on sérialise l'utilisateur
     $identifiant = $_REQUEST['identifiant'];
+    
     if(isset($_REQUEST['motdepasse']))
     {
         $motDePasse = $_REQUEST['motdepasse'];
@@ -41,7 +42,6 @@
                 "Projets" => $projets,
                 "erreur" => "Identifiant ou mot de passe invalide"));
         }
-
         
         // Vu qu'il y a un mot de passe on est en mode edition
         $titre = "Edition ";
@@ -49,26 +49,12 @@
 
         // On récupère l'utilisateur
         $utilisateur = $db->getUtilisateur($identifiant, $motDePasse);
-
         $_SESSION['utilisateur'] = serialize($utilisateur);
     }
     else
     {
-        switch($_REQUEST['typeLecture'])
-        {
-            case "lecture":
-                $titre = "Lecture ";
-                $typeLecture = "lecture";
-                break;
-            case "edition":
-                $titre = "Edition ";
-                $typeLecture = "edition";
-                break;
-            default:
-                $titre = "Lecture ";
-                $typeLecture = "lecture";
-                break;
-        }
+        $titre = "Lecture ";
+        $typeLecture = "lecture";
     }
 
     // On récupère les données de la base de données à remplacer
