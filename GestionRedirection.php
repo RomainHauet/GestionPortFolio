@@ -53,8 +53,23 @@
     }
     else
     {
-        $titre = "Lecture ";
-        $typeLecture = "lecture";
+        if(isset($_REQUEST['typeLecture']))
+        {
+            switch($_REQUEST['typeLecture'])
+            {
+                case "lecture":
+                    $titre = "Lecture ";
+                    break;
+                case "edition":
+                    $titre = "Edition ";
+            }
+            $typeLecture = $_REQUEST['typeLecture'];
+        }
+        else
+        {
+            $titre = "Lecture ";
+            $typeLecture = "lecture";
+        }
     }
 
     // On récupère les données de la base de données à remplacer
