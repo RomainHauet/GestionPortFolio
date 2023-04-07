@@ -21,16 +21,19 @@
 
     switch($_POST['page'])
     {
-        case "page" :
+        case "CV" :
             {
-                addCV($_REQUEST['nom'],
-                $_REQUEST['prenom'],
-                $_REQUEST['age'],
-                $_REQUEST['description'],
-                $_REQUEST['formation'],
-                $_REQUEST['photo'],
-                $_REQUEST['competences'],
-                $_REQUEST['projets']);
+                $db->addCV(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['prenom'],
+                    $_REQUEST['age'],
+                    $_REQUEST['description'],
+                    $_REQUEST['formation'],
+                    $_REQUEST['photo'],
+                    $_REQUEST['competences'],
+                    $_REQUEST['projets']
+                );
                 break;
             }
     }

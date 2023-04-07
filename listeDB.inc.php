@@ -10,10 +10,10 @@ error_reporting(E_ALL);
 
         private function __construct()
         {
-            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
+            $connStr = 'pgsql:host=woody port=5432 dbname=dl201710';
 
             try {
-                $this->connect = new PDO($connStr, 'hr202541', 'aled');
+                $this->connect = new PDO($connStr, 'dl201710', '25052002');
                 $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
                 $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
             } catch (PDOException $e) {
@@ -77,7 +77,10 @@ error_reporting(E_ALL);
         private function execMaj($ordreSQL,$tparam)
         {
             $stmt = $this->connect->prepare($ordreSQL);
-            $res = $stmt->execute($tparam); //execution de l'ordre SQL      	     
+            if($tparam == null)
+                $res = $stmt->execute();
+            else
+                $res = $stmt->execute($tparam);
             return $stmt->rowCount();
         }
 
@@ -110,6 +113,12 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'CV');
         }
 
+        public function addCV($identifiant, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
+            $utilisateur = $this->getUtilisateur($identifiant);
+            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
+            $this->execMaj($requete,array($utilisateur, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
+        }
+
         public function getContact($identifiant) {
             $requete = 'select * from contact where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'Contact');
@@ -128,17 +137,31 @@ error_reporting(E_ALL);
 
     class Utilisateur
     {
-        private $nom;
+        private $id;
         private $password;
 
-        public function __construct($nom ="", $password ="") {
-            $this->nom = $nom;
+        private $nom;
+
+        private $prenom;
+
+        public function __construct($id ="", $password ="") {
+            $this->id = $id;
             $this->password = $password;
         }
 
-        public function addUtilisateur($nom, $password) {
+        public function addUtilisateur($id, $password) {
             $requete = 'insert into utilisateur values (?, ?)';
-            $this->execMaj($requete,array($nom, $password));
+            $this->execMaj($requete,array($id, $password));
+        }
+
+        public function setNom($nom) {
+            $requete = 'update utilisateur set nom = ? where id = ?';
+            $this->execMaj($requete,array($nom, $this->id));
+        }
+
+        public function setPrenom($prenom) {
+            $requete = 'update utilisateur set prenom = ? where id = ?';
+            $this->execMaj($requete,array($prenom, $this->id));
         }
     }
 
@@ -203,11 +226,6 @@ error_reporting(E_ALL);
             $this->photoCV = $photoCV;
             $this->competence = $competence;
             $this->projets = $projets;
-        }
-
-        public function addCV($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
-            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
-            $this->execMaj($requete,array($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
         }
 
         public function getNom() { return $this->nom; }
