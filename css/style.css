@@ -97,6 +97,13 @@ div.age, div.competences, div.description, div.formation, div.nom, div.prenom, d
   background-color: GOLD;
 }
 
+h1.contact
+{
+  text-align: center;
+  margin: 5%;
+  font-weight: bold;
+}
+
 header
 {
   position: fixed;
@@ -155,7 +162,7 @@ table.accueil
   border-radius: 10px;
 }
 
-table.propos
+table.propos, table.contact
 {
   width: 100%;
 }

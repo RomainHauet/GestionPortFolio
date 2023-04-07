@@ -10,10 +10,10 @@ error_reporting(E_ALL);
 
         private function __construct()
         {
-            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
+            $connStr = 'pgsql:host=woody port=5432 dbname=dl201710';
 
             try {
-                $this->connect = new PDO($connStr, 'hr202541', 'aled');
+                $this->connect = new PDO($connStr, 'dl201710', '25052002');
                 $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
                 $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
             } catch (PDOException $e) {
@@ -128,17 +128,31 @@ error_reporting(E_ALL);
 
     class Utilisateur
     {
-        private $nom;
+        private $id;
         private $password;
 
-        public function __construct($nom ="", $password ="") {
-            $this->nom = $nom;
+        private $nom;
+
+        private $prenom;
+
+        public function __construct($id ="", $password ="") {
+            $this->id = $id;
             $this->password = $password;
         }
 
-        public function addUtilisateur($nom, $password) {
+        public function addUtilisateur($id, $password) {
             $requete = 'insert into utilisateur values (?, ?)';
-            $this->execMaj($requete,array($nom, $password));
+            $this->execMaj($requete,array($id, $password));
+        }
+
+        public function setNom($nom) {
+            $requete = 'update utilisateur set nom = ? where id = ?';
+            $this->execMaj($requete,array($nom, $this->id));
+        }
+
+        public function setPrenom($prenom) {
+            $requete = 'update utilisateur set prenom = ? where id = ?';
+            $this->execMaj($requete,array($prenom, $this->id));
         }
     }
 
