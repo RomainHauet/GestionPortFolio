@@ -19,6 +19,27 @@
                     
                 </table>
             </form>
+
+            <h1>Inscription</h1>
+            <form action="GestionRedirection.php" method="POST">
+                <table>
+                    <tr>
+                        <td>Nom</td>
+                        <td><input name="identifiant" required ></td>
+                    </tr>
+                    <tr>
+                        <td>Mot de passe</td>
+                        <td><input type="password" name="motdepasse" required></td>
+                        <td id=red>{{erreur}}</td>                        
+                    </tr>
+                    <tr>
+                        <td><input type="hidden" name="page" value="Accueil"></td>
+                        <td><input type="reset" value="Annuler"></td>
+                        <td><input type="submit" value="Valider"></td>
+                    </tr>
+                    
+                </table>
+            </form>
         </div>
         
     {% for projet in Projets %}
