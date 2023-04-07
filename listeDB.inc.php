@@ -169,17 +169,18 @@ error_reporting(E_ALL);
     {
         private $utilisateur;
         private $nom;
+        private $description;
         private $niveau;
 
-        public function __construct($utilisateur="", $nom="", $niveau="") {
+        public function __construct($utilisateur="", $nom="", $description="") {
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
-            $this->niveau = $niveau;
+            $this->description = $description;
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
-        public function getNiveau() { return $this->niveau; }
+        public function getDescription() { return $this->description; }
     }
 
     class CV
