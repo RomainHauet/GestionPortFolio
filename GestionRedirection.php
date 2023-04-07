@@ -76,19 +76,21 @@
     $contacts = $db->getContact($identifiant);
     $credits = $db->getCredit($identifiant);
 
+    print_r($projets);
+    print_r($contacts);
     // On renomme les variables titre et page
     $page = $_REQUEST['page'];
     $titre = $titre.$page." : ".$identifiant;
     
     // Generation d'une vue a partir du template
     echo $tpl->render( array(
-        "titre"       => $titre,
-        "typeLecture" => $typeLecture,
-        "identifiant" => $identifiant,
-        "page"        => $page,
+        "titre"        => $titre,
+        "typeLecture"  => $typeLecture,
+        "identifiant"  => $identifiant,
+        "page"         => $page,
         "Projets"      => $projets,
         "Competences"  => $competences,
-        "CV"          => $cv,
+        "CV"           => $cv,
         "Contacts"     => $contacts,
         "Credits"      => $credits)); 
 ?>

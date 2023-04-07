@@ -84,6 +84,12 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
+        public function getUtilisateur($identifiant)
+        {
+            $requete = 'select * from utilisateur where nom = ?';
+            return $this->execQuery($requete,array($identifiant),'Utilisateur');
+        }
+        
         public function getProjets()
         {
             $requete = 'select * from projet';
