@@ -27,7 +27,7 @@
           <div class="flex">
             <div class="photo">
               <img src="" alt="Ajouter une photo au CV">
-              <input type="file" id="myfile" name="myfile" accept="image/png, image/jpeg, image/jpg, image/gif">
+              <input type="file" id="myfile" name="photo" accept="image/png, image/jpeg, image/jpg, image/gif">
             </div>
             <div class="competences">
               <h3>Liste de vos compétences :</h3>
@@ -37,6 +37,7 @@
               <h3>Liste de vos projets :</h3>
               <textarea name="projets" rows="10" cols="60"></textarea>
             </div>
+            <input type="hidden" name="identifiant" value="{{identifiant}}">
             <input type="hidden" name="page" value="CV">
             <button>Valider</button>
           </form>

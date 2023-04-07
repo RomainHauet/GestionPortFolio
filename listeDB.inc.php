@@ -77,7 +77,10 @@ error_reporting(E_ALL);
         private function execMaj($ordreSQL,$tparam)
         {
             $stmt = $this->connect->prepare($ordreSQL);
-            $res = $stmt->execute($tparam); //execution de l'ordre SQL      	     
+            if($tparam == null)
+                $res = $stmt->execute();
+            else
+                $res = $stmt->execute($tparam);
             return $stmt->rowCount();
         }
 
@@ -108,6 +111,12 @@ error_reporting(E_ALL);
         public function getCV($identifiant) {
             $requete = 'select * from cv where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'CV');
+        }
+
+        public function addCV($identifiant, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
+            $utilisateur = $this->getUtilisateur($identifiant);
+            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
+            $this->execMaj($requete,array($utilisateur, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
         }
 
         public function getContact($identifiant) {
@@ -203,11 +212,6 @@ error_reporting(E_ALL);
             $this->photoCV = $photoCV;
             $this->competence = $competence;
             $this->projets = $projets;
-        }
-
-        public function addCV($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
-            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
-            $this->execMaj($requete,array($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
         }
 
         public function getNom() { return $this->nom; }
