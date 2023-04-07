@@ -37,10 +37,10 @@ CREATE TABLE CV (
 	prenom VARCHAR(30),
 	age DECIMAL(10,0),
 	description VARCHAR(500),
-	lienPhotoCV VARCHAR(100),
-	experience VARCHAR(100),
-	competence VARCHAR(100),
-	diplome VARCHAR(100)
+	formation VARCHAR(500),
+	lienPhotoCV VARCHAR(500),
+	competence VARCHAR(500),
+	projet VARCHAR(500)
 );
 
 CREATE TABLE Contact (

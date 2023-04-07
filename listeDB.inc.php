@@ -114,6 +114,10 @@ error_reporting(E_ALL);
         }
 
         public function addCV($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome) {
+            // suprimer les anciens CV
+            $this->execMaj('delete from cv where utilisateur = ?',array($identifiant));
+
+            //rajoute le nouveau
             $requete = 'insert into cv values (?,?,?,?,?,?,?,?,?)';
             $this->execMaj($requete,array($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome));
         }
@@ -208,21 +212,21 @@ error_reporting(E_ALL);
         private $prenom;
         private $age;
         private $description;
+        private $formation;
         private $lienPhotoCV;
-        private $experience;
         private $competence;
-        private $diplome;
+        private $projet;
 
-        public function __construct($utilisateur="", $nom="", $prenom="", $age="", $description="", $lienPhotoCV="", $experience="", $competence="", $diplome="") {
+        public function __construct($utilisateur="", $nom="", $prenom="", $age="", $description="", $formation="", $lienPhotoCV="", $competence="", $projet="") {
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->age = $age;
             $this->description = $description;
+            $this->formation = $formation;
             $this->lienPhotoCV = $lienPhotoCV;
-            $this->experience = $experience;
             $this->competence = $competence;
-            $this->diplome = $diplome;
+            $this->projet = $projet;
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
@@ -230,11 +234,10 @@ error_reporting(E_ALL);
         public function getPrenom() { return $this->prenom; }
         public function getAge() { return $this->age; }
         public function getDescription() { return $this->description; }
+        public function getFormation() { return $this->formation; }
         public function getLienPhotoCV() { return $this->lienPhotoCV; }
-        public function getExperience() { return $this->experience; }
         public function getCompetence() { return $this->competence; }
-        public function getDiplome() { return $this->diplome; }
-
+        public function getProjet() { return $this->projet; }
     }
 
     class Contact
