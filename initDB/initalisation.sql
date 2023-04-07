@@ -120,8 +120,8 @@ INSERT INTO
 VALUES
 (
 		2,
-		'LIAM',
-		'Pas java',
+		'ROMAIN',
+		'Java',
 		'creer le jeu prefere de plp. dessin et compter jusqu’a 21'
 	);
 
@@ -130,8 +130,8 @@ INSERT INTO
 VALUES
 (
 		3,
-		'LIAM',
-		'Peut etre java',
+		'LOGANN',
+		'Java',
 		'creer le jeu de la vie compter jusqu’a 8'
 	);
 
