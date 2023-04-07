@@ -214,4 +214,24 @@ error_reporting(E_ALL);
         public function getCompetence() { return $this->competence; }   
         public function getProjets() { return $this->projets; } 
     }
+
+    class Contact
+    {
+        private $utilisateur;
+        private $telephone;
+        private $linkedin;
+        private $email;
+
+        public function __construct($utilisateur="", $telephone="", $linkedin="", $email="") {
+            $this->utilisateur = $utilisateur;
+            $this->telephone = $telephone;
+            $this->linkedin = $linkedin;
+            $this->email = $email;
+        }
+
+        public function getUtilisateur() { return $this->utilisateur; }
+        public function getTelephone() { return $this->telephone; }
+        public function getLinkedin() { return $this->linkedin; }
+        public function getEmail() { return $this->email; }
+    }
 ?>

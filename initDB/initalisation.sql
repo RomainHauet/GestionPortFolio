@@ -48,6 +48,7 @@ CREATE TABLE Contact (
 	utilisateur VARCHAR REFERENCES Utilisateur(nom),
 	numerotel NUMERIC(100),
 	lienLinkedin VARCHAR(100)
+	mail VARCHAR(100)
 );
 
 CREATE TABLE Credit (
@@ -221,8 +222,9 @@ VALUES
 (
 		1,
 		'LIAM',
-		0656565656,
-		'lienLinkedin'
+		0771613722,
+		'lienLinkedinL'
+		'Liam.deniau@free.fr'
 	);
 
 INSERT INTO
@@ -232,7 +234,8 @@ VALUES
 		2,
 		'ROMAIN',
 		0656565656,
-		'lienLinkedin'
+		'lienLinkedinR'
+		'Romainh@free.fr'
 	);
 
 INSERT INTO
