@@ -4,7 +4,7 @@
             <div class="photo_2">
                 <img src="images/photo_CV.jpg">
             </div>
-            <table>
+            <table class="accueil">
                 <tr>
                     <td>NOM</td>
                 </tr>
@@ -12,14 +12,14 @@
                     <td>PRENOM</td>
                 </tr>
             </table>
-            <table>
+            <table class="accueil">
                 <tr>
                     <td>BAC+3</td>
                 </tr>
             </table>
         </div>
 
-        <table>
+        <table class="accueil">
             <tr>
                 <td><hr></td>
             </tr>

@@ -147,16 +147,13 @@ ul.infos li {padding: 12px;}
 
 li.c5 {margin-left: 10%;}
 
-table
-{
-  width: 25%;
-}
-
 textarea
 {
   resize: none;
   width: 100%;
 }
+
+table.accueil {width: 25%;}
 
 table tr td
 {
