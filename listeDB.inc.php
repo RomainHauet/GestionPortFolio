@@ -113,10 +113,10 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'CV');
         }
 
-        public function addCV($identifiant, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
+        public function addCV($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome) {
             $utilisateur = $this->getUtilisateur($identifiant);
             $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
-            $this->execMaj($requete,array($utilisateur, $nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
+            $this->execMaj($requete,array($utilisateur, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome));
         }
 
         public function getContact($identifiant) {
