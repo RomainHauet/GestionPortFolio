@@ -10,10 +10,10 @@ error_reporting(E_ALL);
 
         private function __construct()
         {
-            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
+            $connStr = 'pgsql:host=woody port=5432 dbname=dl201710';
 
             try {
-                $this->connect = new PDO($connStr, 'hr202541', 'aled');
+                $this->connect = new PDO($connStr, 'dl201710', '25052002');
                 $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
                 $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
             } catch (PDOException $e) {
@@ -169,17 +169,18 @@ error_reporting(E_ALL);
     {
         private $utilisateur;
         private $nom;
+        private $description;
         private $niveau;
 
-        public function __construct($utilisateur="", $nom="", $niveau="") {
+        public function __construct($utilisateur="", $nom="", $description="") {
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
-            $this->niveau = $niveau;
+            $this->description = $description;
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
-        public function getNiveau() { return $this->niveau; }
+        public function getDescription() { return $this->description; }
     }
 
     class CV

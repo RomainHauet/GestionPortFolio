@@ -6,6 +6,7 @@
             <h3>{{competence.getNom()}}</h3>
             <p>{{competence.getDescription()}}</p>
             {% for projet in Competences %}
-                <button name="button">projet.nom</button>
+                <button name="button">{{projet.getNom()}}</button>
             {% endfor %}
         {% endfor %}
+        

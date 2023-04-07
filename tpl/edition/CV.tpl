@@ -27,6 +27,7 @@
           <div class="flex">
             <div class="photo">
               <img src="" alt="Ajouter une photo au CV">
+              <input type="file" id="myfile" name="myfile" accept="image/png, image/jpeg, image/jpg, image/gif">
             </div>
             <div class="competences">
               <h3>Liste de vos compétences :</h3>
