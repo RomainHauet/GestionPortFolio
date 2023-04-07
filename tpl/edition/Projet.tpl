@@ -1,8 +1,4 @@
 <div class="cadre">
-            <br />
-            <br />
-            <br />
-            <br />
             <h1> Mes projets </h1>
             {% for projet in Projet %}
             <h3>{{projet.getNom()}}</h3>

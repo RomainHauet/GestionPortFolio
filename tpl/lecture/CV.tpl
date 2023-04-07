@@ -14,7 +14,7 @@
 					<center>Formation</center>
 				</h3>
 				<ul class="infos">
-					<p>{{cv.getFormation()}}</p>
+					<p>{{cv.getDiplome()}}</p>
 				</ul>
 			</div>
 		</div>
