@@ -112,7 +112,8 @@ error_reporting(E_ALL);
 
         public function getContact($identifiant) {
             $requete = 'select * from contact where utilisateur = ?';
-            return $this->execQuery($requete,array($identifiant),'Contact');
+            $utilisateur = $this->getUtilisateur($identifiant);
+            return $this->execQuery($requete,array($utilisateur),'Contact');
         }
 
         public function getCredit($identifiant) {

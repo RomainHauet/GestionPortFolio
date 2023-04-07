@@ -46,8 +46,7 @@ CREATE TABLE CV (
 );
 
 CREATE TABLE Contact (
-	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(id),
+	utilisateur VARCHAR REFERENCES Utilisateur(id) PRIMARY KEY,
 	numerotel NUMERIC(100),
 	lienLinkedin VARCHAR(100),
 	mail VARCHAR(100)
