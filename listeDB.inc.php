@@ -128,17 +128,31 @@ error_reporting(E_ALL);
 
     class Utilisateur
     {
-        private $nom;
+        private $id;
         private $password;
 
-        public function __construct($nom ="", $password ="") {
-            $this->nom = $nom;
+        private $nom;
+
+        private $prenom;
+
+        public function __construct($id ="", $password ="") {
+            $this->id = $id;
             $this->password = $password;
         }
 
-        public function addUtilisateur($nom, $password) {
+        public function addUtilisateur($id, $password) {
             $requete = 'insert into utilisateur values (?, ?)';
-            $this->execMaj($requete,array($nom, $password));
+            $this->execMaj($requete,array($id, $password));
+        }
+
+        public function setNom($nom) {
+            $requete = 'update utilisateur set nom = ? where id = ?';
+            $this->execMaj($requete,array($nom, $this->id));
+        }
+
+        public function setPrenom($prenom) {
+            $requete = 'update utilisateur set prenom = ? where id = ?';
+            $this->execMaj($requete,array($prenom, $this->id));
         }
     }
 
