@@ -42,6 +42,7 @@
                 "erreur" => "Identifiant ou mot de passe invalide"));
         }
 
+        
         // Vu qu'il y a un mot de passe on est en mode edition
         $titre = "Edition ";
         $typeLecture = "edition";
@@ -53,20 +54,21 @@
     }
     else
     {
-        // On verifie qu'il y a un une variable typelecture présente
-        if(isset($_REQUEST['typeLecture']))
+        switch($_REQUEST['typeLecture'])
         {
-            $titre = "Edition ";
-            $typeLecture = $_REQUEST['typeLecture'];
-
+            case "lecture":
+                $titre = "Lecture ";
+                $typeLecture = "lecture";
+                break;
+            case "edition":
+                $titre = "Edition ";
+                $typeLecture = "edition";
+                break;
+            default:
+                $titre = "Lecture ";
+                $typeLecture = "lecture";
+                break;
         }
-        else
-        {
-            // il n'y a pas de tentative de connection on est donc en mode lecture
-            $titre = "Lecture ";
-            $typeLecture = "lecture";
-        }
-
     }
 
     // On récupère les données de la base de données à remplacer
@@ -76,7 +78,6 @@
     $contacts = $db->getContact($identifiant);
     $credits = $db->getCredit($identifiant);
     
-    print_r($contacts);
     // On renomme les variables titre et page
     $page = $_REQUEST['page'];
     $titre = $titre.$page." : ".$identifiant;
