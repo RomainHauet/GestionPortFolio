@@ -1,3 +1,5 @@
+{% for contact in Contacts %}
+
 <div class="cadre">
     <h1 class="contact"> Contact </h1>
 
@@ -7,7 +9,7 @@
                 <img src="images/mail.png" alt="mail">
             </td>
             <td>
-                <a href={{Contact.getLinkedin()}}><img src="images/linkedin.png" alt="linkedin"></a>
+                <a href={{contact.getLinkedin()}}><img src="images/linkedin.png" alt="linkedin"></a>
             </td>
             <td> 
                 <img src="images/phone.png" alt="phone">
@@ -15,14 +17,16 @@
         </tr>
         <tr>
             <td> 
-                <p> {{Contact.getEmail()}} </p>
+                <p> {{contact.getEmail()}} </p>
             </td>
             <td>
                 <p>LinkedIn</p>
             </td>
             <td> 
-                <p> {{Contact.getTelephone()}} </p>
+                <p> {{contact.getTelephone()}} </p>
             </td>
         </tr>
     </table>
 </div>
+
+{% endfor %}
