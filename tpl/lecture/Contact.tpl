@@ -8,7 +8,7 @@
                     <img src="images/mail.png" alt="mail">
                 </td>
                 <td>
-                    <a href={{contact.getLinkedin()}}><img src="images/linkedin.png" alt="linkedin"></a>
+                    <a href={{contact.getLienLinkedin()}}><img src="images/linkedin.png" alt="linkedin"></a>
                 </td>
                 <td> 
                     <img src="images/phone.png" alt="phone">
@@ -16,13 +16,13 @@
             </tr>
             <tr>
                 <td> 
-                    <p> {{contact.getEmail()}} </p>
+                    <p> {{contact.getMail()}} </p>
                 </td>
                 <td>
                     <p>LinkedIn</p>
                 </td>
                 <td> 
-                    <p> {{contact.getTelephone()}} </p>
+                    <p> {{contact.getNumerotel()}} </p>
                 </td>
             </tr>
         </table>

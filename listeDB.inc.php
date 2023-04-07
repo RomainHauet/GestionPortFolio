@@ -86,10 +86,10 @@ error_reporting(E_ALL);
 
         public function getUtilisateur($identifiant)
         {
-            $requete = 'select * from utilisateur where nom = ?';
+            $requete = 'select * from utilisateur where id = ?';
             return $this->execQuery($requete,array($identifiant),'Utilisateur');
         }
-        
+
         public function getProjets()
         {
             $requete = 'select * from projet';
@@ -128,9 +128,9 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Credit');
         }
 
-        public function verifierUtilisateur($utilisateur, $motdepasse) {
-            $requete = 'select * from utilisateur where nom = ? and password = ?';
-            if($this->execQuery($requete,array($utilisateur, $motdepasse),'Utilisateur')) {return true;} else {return false;}
+        public function verifierUtilisateur($identifiant, $motdepasse) {
+            $requete = 'select * from utilisateur where id = ? and password = ?';
+            if($this->execQuery($requete,array($identifiant, $motdepasse),'Utilisateur')) {return true;} else {return false;}
         }
     }
 
@@ -236,20 +236,20 @@ error_reporting(E_ALL);
     class Contact
     {
         private $utilisateur;
-        private $telephone;
-        private $linkedin;
-        private $email;
+        private $numerotel;
+        private $lienLinkedin;
+        private $mail;
 
-        public function __construct($utilisateur="", $telephone="", $linkedin="", $email="") {
+        public function __construct($utilisateur="", $numerotel="", $lienLinkedin="", $mail="") {
             $this->utilisateur = $utilisateur;
-            $this->telephone = $telephone;
-            $this->linkedin = $linkedin;
-            $this->email = $email;
+            $this->numerotel = $numerotel;
+            $this->lienLinkedin = $lienLinkedin;
+            $this->mail = $mail;
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
-        public function getTelephone() { return $this->telephone; }
-        public function getLinkedin() { return $this->linkedin; }
-        public function getEmail() { return $this->email; }
+        public function getNumerotel() { return $this->numerotel; }
+        public function getLienLinkedin() { return $this->lienLinkedin; }
+        public function getMail() { return $this->mail; }
     }
 ?>
