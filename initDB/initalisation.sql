@@ -49,14 +49,8 @@ CREATE TABLE CV (
 );
 
 CREATE TABLE Contact (
-<<<<<<< HEAD
 	utilisateur VARCHAR REFERENCES Utilisateur(id) PRIMARY KEY,
-	numerotel NUMERIC(100),
-=======
-	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	numerotel DECIMAL(10,0),
->>>>>>> e1a3fe45d2b8e1e09adfa8833d0ef7b5f2ce3313
 	lienLinkedin VARCHAR(100),
 	mail VARCHAR(100)
 );
