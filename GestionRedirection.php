@@ -73,11 +73,13 @@
     }
 
     // On récupère les données de la base de données à remplacer
+    $utilisateur = $db->getUtilisateur($identifiant);
     $projets = $db->getProjet($identifiant);
     $competences = $db->getCompetence($identifiant);
     $cv = $db->getCV($identifiant);
     $contacts = $db->getContact($identifiant);
     $credits = $db->getCredit($identifiant);
+    
     
     // On renomme les variables titre et page
     $page = $_REQUEST['page'];
@@ -93,5 +95,7 @@
         "Competences"  => $competences,
         "CV"           => $cv,
         "Contacts"     => $contacts,
-        "Credits"      => $credits)); 
+        "Credits"      => $credits,
+        "Utilisateur"  => $utilisateur
+    )); 
 ?>

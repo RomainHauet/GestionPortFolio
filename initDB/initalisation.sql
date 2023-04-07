@@ -12,7 +12,8 @@ CREATE TABLE Utilisateur (
 	prenom VARCHAR(20),
 	password VARCHAR(20),
 	description VARCHAR(500),
-	etude VARCHAR(50)
+	etude VARCHAR(50),
+	liens VARCHAR(500)
 );
 
 CREATE TABLE Projet (
@@ -62,10 +63,10 @@ CREATE TABLE Credit (
 	listeCopyright VARCHAR(500)
 );
 
-INSERT INTO	utilisateur	VALUES	( 'LIAM', 'Deniau', 'Liam', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'ROMAIN', 'Hauet', 'Romain', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'LOGANN', 'Gouley', 'Logann', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'HUGO', 'Tassery', 'Hugo', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'LIAM', 'Deniau', 'Liam', '123', 'je suis un etudiant en informatique', 'je suis en machin année', 'https://www.linkedin.com/in/liam-deniau-1b1b3a1a3/');
+INSERT INTO	utilisateur	VALUES	( 'ROMAIN', 'Hauet', 'Romain', '123', 'je suis un etudiant en informatique', 'je suis en machin année', 'https://www.linkedin.com/in/romain-hauet-1b1b3a1a3/');
+INSERT INTO	utilisateur	VALUES	( 'LOGANN', 'Gouley', 'Logann', '123', 'je suis un etudiant en informatique', 'je suis en machin année', 'https://www.linkedin.com/in/logann-gouley-1b1b3a1a3/');
+INSERT INTO	utilisateur	VALUES	( 'HUGO', 'Tassery', 'Hugo', '123', 'je suis un etudiant en informatique', 'je suis en machin année', 'https://www.linkedin.com/in/hugo-tassery-1b1b3a1a3/');
 
 
 INSERT INTO Projet VALUES (1,'LIAM'  ,'Les Aventuriers du rail','Lia.txt'       ,'creer le jeu les aventurier du rail massage'             );

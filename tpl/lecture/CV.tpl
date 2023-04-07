@@ -28,12 +28,7 @@
 					<center>Compétences</center>
 				</h3>
 				<ul class="infos">
-					<li>Réaliser un développement d’application</li>
-					<li>Optimiser des Applications informatiques</li>
-					<li>Administrer des Systèmes informatiques communicants complexes</li>
-					<li>Gérer des Données de l'information</li>
-					<li>Conduire un projet</li>
-					<li>Travailler dans une équipe informatique</li>
+					<p> {{cv.getCompetence()}} </p>
 				</ul>
 			</div>
 			<div class="projets">
@@ -41,12 +36,7 @@
 					<center>Projets</center>
 				</h3>
 				<ul class="infos">
-					<li>Serpent numérique</li>
-					<li>Les aventuriers du rail</li>
-					<li>Administrer des Systèmes informatiques communicants complexes</li>
-					<li>Gérer des Données de l'information</li>
-					<li>Conduire un projet</li>
-					<li>Travailler dans une équipe informatique</li>
+					<p>{{cv.getExperience()}}</p>
 				</ul>
 			</div>
 		</div>

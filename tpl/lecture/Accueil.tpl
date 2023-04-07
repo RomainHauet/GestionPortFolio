@@ -1,3 +1,5 @@
+{% for utilisateur in Utilisateur %}
+
 <div class="cadre">
     <div class="pageAc">
         <div class ="infos">
@@ -6,15 +8,15 @@
             </div>
             <table class="accueil">
                 <tr>
-                    <td><h3>NOM</h3></td>
+                    <td><h3>{{utilisateur.getNom()}}</h3></td>
                 </tr>
                 <tr>
-                    <td><h3>PRENOM</h3></td>
+                    <td><h3>{{utilisateur.getPrenom()}}</h3></td>
                 </tr>
             </table>
             <table class="accueil">
                 <tr>
-                    <td><h3>BAC+3</h3></td>
+                    <td><h3>{{utilisateur.getEtude()}}</h3></td>
                 </tr>
             </table>
         </div>
@@ -27,20 +29,16 @@
                 <td><h3>À propos de moi</h3></td>
             </tr>
             <tr>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut  dignissim neque, in porttitor orci. Vestibulum finibus scelerisque  lectus sed facilisis. Nunc in rutrum mi. Donec venenatis arcu vitae mi  pellentesque congue. Morbi suscipit nisi quis lectus posuere, at  suscipit velit posuere. Pellentesque euismod posuere mauris. Vestibulum  in neque eleifend risus malesuada rhoncus. Duis quam est, sollicitudin  nec diam a, ultrices malesuada ligula.</td>
+                <td>{{utilisateur.getDescription()}}</td>
             </tr>
             <tr>
                 <td><h3>Pour plus d'informations :</h3></td>
             </tr>
             <tr>
-                <td><a href="">lien</a></td>
+                <td><a href="">{{utilisateur.getLiens()}}</a></td>
             </tr> 
-            <tr>
-                <td><a href="">ho un lien</a></td>
-            </tr> 
-            <tr>
-                <td><a href="">lien vers je sait pas quoi</a></td>
-            </tr>
         </table>
     </div>
 </div>
+
+{% endfor %}

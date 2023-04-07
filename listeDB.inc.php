@@ -142,14 +142,17 @@ error_reporting(E_ALL);
         private $password;
         private $description;
         private $etude;
+        private $liens;
 
-        public function __construct($id ="", $nom="", $prenom="", $password="", $description="", $etude="") {
+
+        public function __construct($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="") {
             $this->id = $id;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->password = $password;
             $this->description = $description;
             $this->etude = $etude;
+            $this->liens = $liens;
         }
 
         public function getNom() { return $this->nom; }
@@ -157,6 +160,7 @@ error_reporting(E_ALL);
         public function getPassword() { return $this->password; }
         public function getDescription() { return $this->description; }
         public function getEtude() { return $this->etude; }
+        public function getLiens() { return $this->liens; }
 
     }
 
