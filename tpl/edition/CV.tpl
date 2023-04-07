@@ -40,7 +40,7 @@
               </div>
               <input type="hidden" name="identifiant" value="{{identifiant}}">
               <input type="hidden" name="page" value="CV">
-              <button>Valider</button>
+              <button>Enregistrer</button>
             </form>
           {% endfor %}
         </div>

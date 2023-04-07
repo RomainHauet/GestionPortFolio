@@ -97,6 +97,20 @@ div.age, div.competences, div.description, div.formation, div.nom, div.prenom, d
   background-color: #AD2EF1;
 }
 
+div.competence, div.description_c, div.langages
+{
+  margin-bottom: 15%;
+  padding: 2%;
+  background-color: #C00000;
+}
+
+div.projet, div.description_p
+{
+  margin-bottom: 15%;
+  padding: 2%;
+  background-color: #F79152;
+}
+
 div.noms, div.lien
 {
   margin-bottom: 15%;
