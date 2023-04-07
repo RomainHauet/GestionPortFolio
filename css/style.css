@@ -14,10 +14,7 @@ div
   box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.75);
   border-radius: 10px;
 }
-h1.centrage
-{
-  text-align: center;
-}
+
 div.cadre
 {
   width: 80%;
@@ -100,6 +97,13 @@ div.age, div.competences, div.description, div.formation, div.nom, div.prenom, d
   background-color: GOLD;
 }
 
+h1.contact
+{
+  text-align: center;
+  margin: 5%;
+  font-weight: bold;
+}
+
 header
 {
   position: fixed;
@@ -150,13 +154,22 @@ ul.infos li {padding: 12px;}
 
 li.c5 {margin-left: 10%;}
 
+table.accueil
+{
+  width: 25%;
+  border-radius: 10px;
+}
+
+table.propos, table.contact
+{
+  width: 100%;
+}
+
 textarea
 {
   resize: none;
   width: 100%;
 }
-
-table.accueil {width: 25%;}
 
 table tr td
 {
