@@ -86,8 +86,8 @@ INSERT INTO Tache VALUES (4,(SELECT id FROM Projet WHERE nom LIKE 'Les Aventurie
 INSERT INTO Tache VALUES (5,(SELECT id FROM Projet WHERE nom LIKE 'Serpent numérique'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
 INSERT INTO Tache VALUES (6,(SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vie'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
 
-INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam genre toute ma vie c est incroyable je suis le boss ca marche whouhou yes trop bien c est genial','formation liam','photo liam','competence liam','projet liam');
-INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','formation romain','photo romain','competence romain','projet romain');
+INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam genre toute ma vie c est incroyable je suis le boss ca marche whouhou yes trop bien c est genial','photo liam','experience Liam','competence liam','diplome Liam');
+INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','photo Romain','experience Romain','competence romain','diplome romain');
 
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
 INSERT INTO Contact VALUES ('ROMAIN',0656565656,'lienLinkedinR','Romainh@free.fr');
