@@ -7,7 +7,9 @@ DROP TABLE IF EXISTS Contact CASCADE;
 DROP TABLE IF EXISTS Credit CASCADE;
 
 CREATE TABLE Utilisateur (
-	nom VARCHAR(20) PRIMARY KEY,
+	id VARCHAR(20) PRIMARY KEY,
+	nom VARCHAR(20),
+	prenom VARCHAR(20),
 	password VARCHAR(20),
 	description VARCHAR(500),
 	etude VARCHAR(50)
@@ -15,14 +17,14 @@ CREATE TABLE Utilisateur (
 
 CREATE TABLE Competence(
 	id DECIMAL(10,0) PRIMARY KEY,
-	Utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	Utilisateur VARCHAR REFERENCES Utilisateur(id),
 	nom VARCHAR(20),
 	description VARCHAR(500)
 );
 
 CREATE TABLE Projet (
 	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	nom VARCHAR(30),
 	image VARCHAR(500),
 	description VARCHAR(500)
@@ -36,7 +38,7 @@ CREATE TABLE Tache(
 
 CREATE TABLE CV (
 	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	lienPhotoCV VARCHAR(100),
 	experience VARCHAR(100),
 	competence VARCHAR(100),
@@ -45,7 +47,7 @@ CREATE TABLE CV (
 
 CREATE TABLE Contact (
 	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	numerotel NUMERIC(100),
 	lienLinkedin VARCHAR(100),
 	mail VARCHAR(100)
@@ -53,16 +55,16 @@ CREATE TABLE Contact (
 
 CREATE TABLE Credit (
 	id DECIMAL(10,0) PRIMARY KEY,
-	utilisateur VARCHAR REFERENCES Utilisateur(nom),
+	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	noms VARCHAR(100),
 	prenom VARCHAR(100),
 	listeCopyright VARCHAR(500)
 );
 
-INSERT INTO	utilisateur	VALUES	( 'LIAM', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'ROMAIN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'LOGANN', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
-INSERT INTO	utilisateur	VALUES	( 'HUGO', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'LIAM', 'Deniau', 'Liam', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'ROMAIN', 'Hauet', 'Romain', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'LOGANN', 'Gouley', 'Logann', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
+INSERT INTO	utilisateur	VALUES	( 'HUGO', 'Tassery', 'Hugo', '123', 'je suis un etudiant en informatique', 'je suis en machin année');
 
 
 INSERT INTO Projet VALUES (
