@@ -1,4 +1,4 @@
-
+{% for cv in CV %}
 <div class="cadre">
 	<div class="cv">
 		<div class="flex">
@@ -6,17 +6,15 @@
 				<h1>GOULEY<br />Logann<br />20 ans</h1>
 			</div>
 			<div class="description">
-				<h4>{{CV.getDescription()}}</h4>
+				<h4>description</h4>
+				<p>{{cv.getDescription()}}</p>
 			</div>
 			<div class="formation">
 				<h3>
 					<center>Formation</center>
 				</h3>
 				<ul class="infos">
-					<li>2021-2024 : BUT informatique, Université du Havre</li>
-					<li>2018-2021 : BAC général mention bien, Lycée Blaise PASCAL (Rouen)</li>
-					<li>2014-2018 : DNB mention bien, Collège Jean-Jacques ROUSSEAU (Darnétal)</li>
-					<li>2005-2014 : École les Emmouquets (Roncherolles-sur-le-Vivier)</li>
+					<p>{{cv.getFormation()}}</p>
 				</ul>
 			</div>
 		</div>
@@ -54,3 +52,4 @@
 		</div>
 	</div>
 </div>
+{% endfor %}
