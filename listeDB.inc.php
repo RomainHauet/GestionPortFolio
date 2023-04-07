@@ -86,7 +86,7 @@ error_reporting(E_ALL);
 
         public function getUtilisateur($identifiant)
         {
-            $requete = 'select * from utilisateur where nom = ?';
+            $requete = 'select * from utilisateur where id = ?';
             return $this->execQuery($requete,array($identifiant),'Utilisateur');
         }
 
@@ -128,9 +128,9 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Credit');
         }
 
-        public function verifierUtilisateur($utilisateur, $motdepasse) {
-            $requete = 'select * from utilisateur where nom = ? and password = ?';
-            if($this->execQuery($requete,array($utilisateur, $motdepasse),'Utilisateur')) {return true;} else {return false;}
+        public function verifierUtilisateur($identifiant, $motdepasse) {
+            $requete = 'select * from utilisateur where id = ? and password = ?';
+            if($this->execQuery($requete,array($identifiant, $motdepasse),'Utilisateur')) {return true;} else {return false;}
         }
     }
 
