@@ -205,6 +205,11 @@ error_reporting(E_ALL);
             $this->projets = $projets;
         }
 
+        public function addCV($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets) {
+            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
+            $this->execMaj($requete,array($nom, $prenom, $age, $description, $etudes, $photoCV, $competence, $projets));
+        }
+
         public function getNom() { return $this->nom; }
         public function getPrenom() { return $this->prenom; }
         public function getAge() { return $this->age; }
