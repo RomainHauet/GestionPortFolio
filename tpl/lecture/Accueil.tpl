@@ -19,7 +19,7 @@
             </table>
         </div>
 
-        <table class="accueil">
+        <table class="propos">
             <tr>
                 <td><hr></td>
             </tr>
