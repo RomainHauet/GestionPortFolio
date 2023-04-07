@@ -104,6 +104,19 @@ h1.contact
   font-weight: bold;
 }
 
+h1.credits
+{
+  text-align: center;
+}
+
+h3.credits
+{
+  text-align: center;
+  font-weight: bold;
+}
+
+h5.credits {text-align: center;}
+
 header
 {
   position: fixed;
@@ -177,6 +190,11 @@ table tr td
 {
   text-align: center;
   border: none;
+}
+
+table.accueil tr td
+{
+  padding: 5%;
 }
 
 .accueil {background-color: #00CEFF; color: BLACK;}
