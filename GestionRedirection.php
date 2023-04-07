@@ -76,6 +76,7 @@
     $contacts = $db->getContact($identifiant);
     $credits = $db->getCredit($identifiant);
     
+    print_r($contacts);
     // On renomme les variables titre et page
     $page = $_REQUEST['page'];
     $titre = $titre.$page." : ".$identifiant;
