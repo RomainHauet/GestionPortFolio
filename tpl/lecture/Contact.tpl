@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td> 
-                <p> {{Contact.getEmail}} </p>
+                <p> {{Contact.getEmail()}} </p>
             </td>
             <td>
                 <p>LinkedIn</p>

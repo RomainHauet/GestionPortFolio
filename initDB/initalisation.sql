@@ -47,7 +47,7 @@ CREATE TABLE Contact (
 	id DECIMAL(10,0) PRIMARY KEY,
 	utilisateur VARCHAR REFERENCES Utilisateur(nom),
 	numerotel NUMERIC(100),
-	lienLinkedin VARCHAR(100)
+	lienLinkedin VARCHAR(100),
 	mail VARCHAR(100)
 );
 
@@ -223,7 +223,7 @@ VALUES
 		1,
 		'LIAM',
 		0771613722,
-		'lienLinkedinL'
+		'lienLinkedinL',
 		'Liam.deniau@free.fr'
 	);
 
@@ -234,7 +234,7 @@ VALUES
 		2,
 		'ROMAIN',
 		0656565656,
-		'lienLinkedinR'
+		'lienLinkedinR',
 		'Romainh@free.fr'
 	);
 
