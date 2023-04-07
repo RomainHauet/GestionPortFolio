@@ -80,6 +80,7 @@
     $page = $_REQUEST['page'];
     $titre = $titre.$page." : ".$identifiant;
     
+    print_r($contacts);
     // Generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre"       => $titre,

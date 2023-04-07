@@ -84,12 +84,6 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
-        public function getUtilisateur($identifiant)
-        {
-            $requete = 'select * from utilisateur where nom = ?';
-            return $this->execQuery($requete,array($identifiant),'Utilisateur');
-        }
-
         public function getProjets()
         {
             $requete = 'select * from projet';
@@ -114,15 +108,13 @@ error_reporting(E_ALL);
         }
 
         public function addCV($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome) {
-            $utilisateur = $this->getUtilisateur($identifiant);
-            $requete = 'insert into cv values (?, ?, ?, ?, ?, ?, ?, ?)';
-            $this->execMaj($requete,array($utilisateur, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome));
+            $requete = 'insert into cv values (?,?,?,?,?,?,?,?,?)';
+            $this->execMaj($requete,array($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome));
         }
 
         public function getContact($identifiant) {
             $requete = 'select * from contact where utilisateur = ?';
-            $utilisateur = $this->getUtilisateur($identifiant);
-            return $this->execQuery($requete,array($utilisateur),'Contact');
+            return $this->execQuery($requete,array($identifiant),'Contact');
         }
 
         public function getCredit($identifiant) {
@@ -139,31 +131,27 @@ error_reporting(E_ALL);
     class Utilisateur
     {
         private $id;
-        private $password;
-
         private $nom;
-
         private $prenom;
+        private $password;
+        private $description;
+        private $etude;
 
-        public function __construct($id ="", $password ="") {
+        public function __construct($id ="", $nom="", $prenom="", $password="", $description="", $etude="") {
             $this->id = $id;
+            $this->nom = $nom;
+            $this->prenom = $prenom;
             $this->password = $password;
+            $this->description = $description;
+            $this->etude = $etude;
         }
 
-        public function addUtilisateur($id, $password) {
-            $requete = 'insert into utilisateur values (?, ?)';
-            $this->execMaj($requete,array($id, $password));
-        }
+        public function getNom() { return $this->nom; }
+        public function getPrenom() { return $this->prenom; }
+        public function getPassword() { return $this->password; }
+        public function getDescription() { return $this->description; }
+        public function getEtude() { return $this->etude; }
 
-        public function setNom($nom) {
-            $requete = 'update utilisateur set nom = ? where id = ?';
-            $this->execMaj($requete,array($nom, $this->id));
-        }
-
-        public function setPrenom($prenom) {
-            $requete = 'update utilisateur set prenom = ? where id = ?';
-            $this->execMaj($requete,array($prenom, $this->id));
-        }
     }
 
     class Projet
@@ -172,21 +160,18 @@ error_reporting(E_ALL);
         private $nom;
         private $image;
         private $description;
-        private $competence;
 
-        public function __construct($utilisateur="", $nom="", $image="", $description="", $competence="") {
+        public function __construct($utilisateur="", $nom="", $image="", $description="") {
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->image = $image;
             $this->description = $description;
-            $this->competence = $competence;
         }
 
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
         public function getImage() { return $this->image; }
         public function getDescription() { return $this->description; }
-        public function getCompetence() { return $this->competence; }
     }
 
     class Competence
@@ -194,7 +179,6 @@ error_reporting(E_ALL);
         private $utilisateur;
         private $nom;
         private $description;
-        private $niveau;
 
         public function __construct($utilisateur="", $nom="", $description="") {
             $this->utilisateur = $utilisateur;
@@ -209,34 +193,38 @@ error_reporting(E_ALL);
 
     class CV
     {
+        private $utilisateur;
         private $nom;
         private $prenom;
         private $age;
         private $description;
-        private $etudes;
-        private $photoCV;
+        private $lienPhotoCV;
+        private $experience;
         private $competence;
-        private $projets;
+        private $diplome;
 
-        public function __construct($nom="", $prenom="", $age="", $description="", $etudes="", $photoCV="", $competence="", $projets="") {
+        public function __construct($utilisateur="", $nom="", $prenom="", $age="", $description="", $lienPhotoCV="", $experience="", $competence="", $diplome="") {
+            $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->prenom = $prenom;
             $this->age = $age;
             $this->description = $description;
-            $this->etudes = $etudes;
-            $this->photoCV = $photoCV;
+            $this->lienPhotoCV = $lienPhotoCV;
+            $this->experience = $experience;
             $this->competence = $competence;
-            $this->projets = $projets;
+            $this->diplome = $diplome;
         }
 
+        public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
         public function getPrenom() { return $this->prenom; }
         public function getAge() { return $this->age; }
         public function getDescription() { return $this->description; }
-        public function getEtudes() { return $this->etudes; }
-        public function getPhotoCV() { return $this->photoCV; }
-        public function getCompetence() { return $this->competence; }   
-        public function getProjets() { return $this->projets; } 
+        public function getLienPhotoCV() { return $this->lienPhotoCV; }
+        public function getExperience() { return $this->experience; }
+        public function getCompetence() { return $this->competence; }
+        public function getDiplome() { return $this->diplome; }
+
     }
 
     class Contact

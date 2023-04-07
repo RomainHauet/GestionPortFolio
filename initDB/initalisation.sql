@@ -15,13 +15,6 @@ CREATE TABLE Utilisateur (
 	etude VARCHAR(50)
 );
 
-CREATE TABLE Competence(
-	id DECIMAL(10,0) PRIMARY KEY,
-	Utilisateur VARCHAR REFERENCES Utilisateur(id),
-	nom VARCHAR(20),
-	description VARCHAR(500)
-);
-
 CREATE TABLE Projet (
 	id DECIMAL(10,0) PRIMARY KEY,
 	utilisateur VARCHAR REFERENCES Utilisateur(id),
@@ -30,10 +23,11 @@ CREATE TABLE Projet (
 	description VARCHAR(500)
 );
 
-CREATE TABLE Tache(
+CREATE TABLE Competence(
 	id DECIMAL(10,0) PRIMARY KEY,
-	projet DECIMAL(10,0) REFERENCES Projet(id),
-	competence DECIMAL(10,0) REFERENCES Competence(id)
+	Utilisateur VARCHAR REFERENCES Utilisateur(id),
+	nom VARCHAR(20),
+	description VARCHAR(500)
 );
 
 CREATE TABLE CV (
@@ -55,8 +49,13 @@ CREATE TABLE Contact (
 	mail VARCHAR(100)
 );
 
-CREATE TABLE Credit (
+CREATE TABLE Tache(
 	id DECIMAL(10,0) PRIMARY KEY,
+	projet DECIMAL(10,0) REFERENCES Projet(id),
+	competence DECIMAL(10,0) REFERENCES Competence(id)
+);
+
+CREATE TABLE Credit (
 	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	noms VARCHAR(100),
 	prenom VARCHAR(100),
@@ -92,5 +91,5 @@ INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','format
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
 INSERT INTO Contact VALUES ('ROMAIN',0656565656,'lienLinkedinR','Romainh@free.fr');
 
-INSERT INTO Credit VALUES (1,'LIAM','nom','prenom','listeCopyright');
-INSERT INTO Credit VALUES (2,'ROMAIN','nom','prenom','listeCopyright');
+INSERT INTO Credit VALUES ('LIAM','nom','prenom','listeCopyright');
+INSERT INTO Credit VALUES ('ROMAIN','nom','prenom','listeCopyright');
