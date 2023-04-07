@@ -37,6 +37,8 @@
               <h3>Liste de vos projets :</h3>
               <textarea name="projets" rows="10" cols="60"></textarea>
             </div>
+            <input type="hidden" name="page" value="CV">
+            <button>Valider</button>
           </form>
         </div>
       </div>
