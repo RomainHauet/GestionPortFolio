@@ -32,7 +32,7 @@
                     $_REQUEST['formation'],
                     $_REQUEST['photo'],
                     $_REQUEST['competences'],
-                    $_REQUEST['projets']
+                    $_REQUEST['diplome']
                 );
                 break;
             }
