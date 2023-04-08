@@ -1,11 +1,13 @@
+{% for credits in Credits %}
+
 <div class="cadre">
     <h1 class="credits">Les images suivantes ne nous appartiennent pas et ne peuvent pas être librement utilisée.</h1>
-    {% for image in credit%}
-        <p>{{image.nom}}</p>
-    {% endfor %}
 
-    <h3 class="credits">PortFolio créé par :</h3>
-    <h5 class="credits">{{identifiant}}</h5>
+        <p>{{credits.getListeCopyright()}}</p>
+
+
+    <h3 class="credits">PortFolio créé par : </h3>
+    <h5 class="credits">{{credits.getNoms()}}  {{credits.getPrenom()}}</h5>
 
     <h3 class="credits">Application créée par :</h3>
     <ul>
@@ -16,3 +18,5 @@
         <li>Uhl Matthew </li>
     </ul>
 </div>
+
+ {% endfor %}
