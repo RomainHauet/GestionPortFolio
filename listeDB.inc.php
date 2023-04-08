@@ -262,9 +262,9 @@ error_reporting(E_ALL);
 
     class Credit
     {
-        private noms;
-        private prenom;
-        private listeCopyright;
+        private $noms;
+        private $prenom;
+        private $listeCopyright;
 
         public function __construct($noms ="", $prenom="", $listeCopyright=""){
             $this->noms = $noms;
