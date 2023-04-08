@@ -259,4 +259,24 @@ error_reporting(E_ALL);
         public function getLienLinkedin() { return $this->lienLinkedin; }
         public function getMail() { return $this->mail; }
     }
+
+    class Credit
+    {
+        private noms;
+        private prenom;
+        private listeCopyright;
+
+        public function __construct($noms ="", $prenom="", $listeCopyright=""){
+            $this->noms = $noms;
+            $this->prenom = $prenom;
+            $this->listeCopyright = $listeCopyright;
+
+        }
+
+        public function getNoms() {return $this->noms; }
+        public function getPrenom() {return $this->prenom; }
+        public function getListeCopyright() {return $this->listeCopyright; }
+
+
+    }
 ?>
