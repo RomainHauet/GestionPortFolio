@@ -22,19 +22,121 @@
     switch($_POST['page'])
     {
         case "CV" :
+        {
+            $db->addCV(
+                $_REQUEST['identifiant'],
+                $_REQUEST['nom'],
+                $_REQUEST['prenom'],
+                $_REQUEST['age'],
+                $_REQUEST['description'],
+                $_REQUEST['formation'],
+                $_REQUEST['photo'],
+                $_REQUEST['competences'],
+                $_REQUEST['projets']
+            );
+            break;
+        }
+        case "Accueil" :
+        {
+            $db->addUtilisateur(
+                $_REQUEST['identifiant'],
+                $_REQUEST['nom'],
+                $_REQUEST['prenom'],
+                $_REQUEST['age'],
+                $_REQUEST['description'],
+                $_REQUEST['photo']
+            );
+            break;
+        }
+        case "Credits" :
+        {
+            $db->addCredits(
+                $_REQUEST['identifiant'],
+                $_REQUEST['noms'],
+                $_REQUEST['listeCopyright']
+            );
+            break;
+        }
+
+        case "Projet" :
+        {
+            if($_REQUEST['action'] == "ajouter")
             {
-                $db->addCV(
+                $db->addProjet(
                     $_REQUEST['identifiant'],
                     $_REQUEST['nom'],
-                    $_REQUEST['prenom'],
-                    $_REQUEST['age'],
-                    $_REQUEST['description'],
-                    $_REQUEST['formation'],
-                    $_REQUEST['photo'],
-                    $_REQUEST['competences'],
-                    $_REQUEST['projets']
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
                 );
                 break;
             }
+            else if($_REQUEST['action'] == "modifier")
+            {
+                $db->updateProjet(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "supprimer")
+            {
+                $db->deleteProjet(
+                    $_REQUEST['identifiant']
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+        }
+
+        case "Competence" :
+        {
+            if($_REQUEST['action'] == "ajouter")
+            {
+                $db->addCompetence(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "modifier")
+            {
+                $db->updateCompetence(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "supprimer")
+            {
+                $db->deleteCompetence(
+                    $_REQUEST['identifiant']
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+        }
+
+        case "Contact" :
+        {
+            $db->addContact(
+                $_REQUEST['identifiant'],
+                $_REQUEST['numerotel'],
+                $_REQUEST['lienLinkedin'],
+                $_REQUEST['mail']
+            );
+            break;
+        }
     }
+
+
 ?>
