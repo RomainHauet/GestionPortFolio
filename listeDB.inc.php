@@ -102,6 +102,18 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,null,'Projet');
         }
 
+        public function addProjet($nom, $description, $lienPhoto, $lienProjet)
+        {
+            $requete = 'insert into projet values (?,?,?,?,?)';
+            $this->execMaj($requete,array($nom, $description, $lienPhoto, $lienProjet));
+        }
+
+        public function updateProjet($id, $nom, $description, $lienPhoto, $lienProjet)
+        {
+            $requete = 'update projet set nom = ?, description = ?, lienPhoto = ?, lienProjet = ? where id = ?';
+            $this->execMaj($requete,array($nom, $description, $lienPhoto, $lienProjet, $id));
+        }
+
         public function getProjet($identifiant)
         {
             $requete = 'select * from projet where utilisateur = ?';

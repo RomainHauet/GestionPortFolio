@@ -17,7 +17,7 @@ CREATE TABLE Utilisateur (
 );
 
 CREATE TABLE Projet (
-	id DECIMAL(10,0) PRIMARY KEY,
+	id DECIMAL(10,0) PRIMARY KEY AUTO_INCREMENT,
 	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	nom VARCHAR(30),
 	image VARCHAR(500),
@@ -25,7 +25,7 @@ CREATE TABLE Projet (
 );
 
 CREATE TABLE Competence(
-	id DECIMAL(10,0) PRIMARY KEY,
+	id DECIMAL(10,0) PRIMARY KEY AUTO_INCREMENT,
 	Utilisateur VARCHAR REFERENCES Utilisateur(id),
 	nom VARCHAR(20),
 	description VARCHAR(500)
@@ -68,16 +68,16 @@ INSERT INTO	utilisateur	VALUES	( 'LOGANN', 'Gouley', 'Logann', '123', 'je suis u
 INSERT INTO	utilisateur	VALUES	( 'HUGO', 'Tassery', 'Hugo', '123', 'je suis un etudiant en informatique', 'je suis en machin année', 'https://www.linkedin.com/in/hugo-tassery-1b1b3a1a3/');
 
 
-INSERT INTO Projet VALUES (1,'LIAM'  ,'Les Aventuriers du rail','Lia.txt'       ,'creer le jeu les aventurier du rail massage'             );
-INSERT INTO Projet VALUES (2,'ROMAIN','Serpent numérique'      ,'Serpent.txt'   ,'creer le jeu prefere de plp dessin et compter jusqu’a 21');
-INSERT INTO	Projet VALUES (3,'LOGANN','Le jeu de la vie'       ,'JeuDeLaVie.txt','creer le jeu de la vie compter jusqu’a 8'                );
-INSERT INTO Projet VALUES (4,'HUGO'  ,'Anoui'                  ,'Anoui.txt'     ,'creer le jeu Anoui compter jusqu’a 2'                    );
+INSERT INTO Projet VALUES ('LIAM'  ,'Les Aventuriers du rail','Lia.txt'       ,'creer le jeu les aventurier du rail massage'             );
+INSERT INTO Projet VALUES ('ROMAIN','Serpent numérique'      ,'Serpent.txt'   ,'creer le jeu prefere de plp dessin et compter jusqu’a 21');
+INSERT INTO	Projet VALUES ('LOGANN','Le jeu de la vie'       ,'JeuDeLaVie.txt','creer le jeu de la vie compter jusqu’a 8'                );
+INSERT INTO Projet VALUES ('HUGO'  ,'Anoui'                  ,'Anoui.txt'     ,'creer le jeu Anoui compter jusqu’a 2'                    );
 
-INSERT INTO Competence VALUES (1,'LIAM'  ,'Java','creer le jeu les aventurier du rail massage'              );
-INSERT INTO Competence VALUES (2,'LIAM'  ,'C#','creer un jeu bien'                                          );
-INSERT INTO Competence VALUES (3,'ROMAIN','Java','creer le jeu prefere de plp. dessin et compter jusqu’a 21');
-INSERT INTO Competence VALUES (4,'LOGANN','Java','creer le jeu de la vie compter jusqu’a 8'                 );
-INSERT INTO Competence VALUES (5,'HUGO'  ,'Java','creer le jeu Anoui compter jusqu’a 2'                     );
+INSERT INTO Competence VALUES ('LIAM'  ,'Java','creer le jeu les aventurier du rail massage'              );
+INSERT INTO Competence VALUES ('LIAM'  ,'C#','creer un jeu bien'                                          );
+INSERT INTO Competence VALUES ('ROMAIN','Java','creer le jeu prefere de plp. dessin et compter jusqu’a 21');
+INSERT INTO Competence VALUES ('LOGANN','Java','creer le jeu de la vie compter jusqu’a 8'                 );
+INSERT INTO Competence VALUES ('HUGO'  ,'Java','creer le jeu Anoui compter jusqu’a 2'                     );
 
 INSERT INTO Tache VALUES (1,(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 1));
 INSERT INTO Tache VALUES (2,(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),(SELECT id FROM Competence WHERE nom = 'Java' and id = 2));
