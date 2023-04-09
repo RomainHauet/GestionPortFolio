@@ -8,6 +8,11 @@ error_reporting(E_ALL);
         private static $instance = null;
         private $connect = null;
 
+        private $nbProjet = 0;
+        
+        // declare et prend le nombre de competence deja dans la base de donnee
+        private $nbCompetence = 0;
+
         private function __construct()
         {
             $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
@@ -19,6 +24,18 @@ error_reporting(E_ALL);
             } catch (PDOException $e) {
                 echo "Erreur de connexion : " . $e->getMessage();
             }
+
+            // recupere le nombre de projet deja dans la base de donnee
+            $requete = 'select count(*) from projet';
+            $stmt = $this->connect->prepare($requete);
+            $stmt->execute();
+            $this->nbProjet = $stmt->fetchColumn();
+
+            // recupere le nombre de competence deja dans la base de donnee
+            $requete = 'select count(*) from competence';
+            $stmt = $this->connect->prepare($requete);
+            $stmt->execute();
+            $this->nbCompetence = $stmt->fetchColumn();
         }
 
         public static function getInstance()
@@ -105,7 +122,8 @@ error_reporting(E_ALL);
         public function addProjet($nom, $description, $lienPhoto, $lienProjet)
         {
             $requete = 'insert into projet values (?,?,?,?,?)';
-            $this->execMaj($requete,array($nom, $description, $lienPhoto, $lienProjet));
+            $this->execMaj($requete,array($this->nbProjet, $nom, $description, $lienPhoto, $lienProjet));
+            $this->nbProjet++;
         }
 
         public function updateProjet($id, $nom, $description, $lienPhoto, $lienProjet)
@@ -118,6 +136,7 @@ error_reporting(E_ALL);
         {
             $requete = 'delete from projet where id = ?';
             $this->execMaj($requete,array($id));
+            $this->nbProjet--;
         }
 
         public function getProjet($identifiant)
@@ -128,8 +147,9 @@ error_reporting(E_ALL);
 
         public function addCompetence($identifiant, $nom, $description, $lienPhoto)
         {
-            $requete = 'insert into competence values (?,?,?,?)';
-            $this->execMaj($requete,array($identifiant, $nom, $description, $lienPhoto));
+            $requete = 'insert into competence values (?,?,?,?,?)';
+            $this->execMaj($requete,array($this->nbCompetence, $identifiant, $nom, $description, $lienPhoto));
+            $this->nbCompetence++;
         }
 
         public function updateCompetence($id, $nom, $description, $lienPhoto)
@@ -142,6 +162,7 @@ error_reporting(E_ALL);
         {
             $requete = 'delete from competence where id = ?';
             $this->execMaj($requete,array($id));
+            $this->nbCompetence--;
         }
 
         public function getCompetence($identifiant)

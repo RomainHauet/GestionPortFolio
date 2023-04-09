@@ -97,5 +97,5 @@
         "Contacts"     => $contacts,
         "Credits"      => $credits,
         "Utilisateur"  => $utilisateur
-    )); 
+    ));
 ?>
