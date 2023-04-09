@@ -148,9 +148,6 @@
     // Chargement du template TemplateBase.tpl
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
-    // On récupère l'instance de la base de données
-    $db = DB::getInstance();
-
     // On récupère les informations de l'utilisateur
     $utilisateur = $db->getUtilisateur($_SESSION['identifiant']);
 
