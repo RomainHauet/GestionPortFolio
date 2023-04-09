@@ -10,10 +10,10 @@ error_reporting(E_ALL);
 
         private function __construct()
         {
-            $connStr = 'pgsql:host=woody port=5432 dbname=dl201710';
+            $connStr = 'pgsql:host=woody port=5432 dbname=hr202541';
 
             try {
-                $this->connect = new PDO($connStr, 'dl201710', '25052002');
+                $this->connect = new PDO($connStr, 'hr202541', 'aled');
                 $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
                 $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
             } catch (PDOException $e) {

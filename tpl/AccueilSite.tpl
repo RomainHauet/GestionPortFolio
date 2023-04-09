@@ -15,7 +15,7 @@
             {% endfor %}
         </div>
 
-        <div id="connection" class="flex">
+        <div class="flex">
             <div class="connection">
                 <form action="GestionRedirection.php" method="POST">
                     <h1>Connexion</h1>

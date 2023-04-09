@@ -1,6 +1,6 @@
 <div class="cadre">
     <div class="pageAc">
-        {{% for utilisateur in utilisateurs %}}
+        {% for utilisateur in utilisateurs %}
             <form action="ajoutDB.php" method="POST">
                 <div class ="infos">
                     <div class="photo_2">
@@ -51,6 +51,6 @@
                 <input type="hidden" name="page" value="Accueil">
                 <button>Enregistrer</button>
             </form>
-        {{% endfor %}}
+        {% endfor %}
     </div>
 </div>
