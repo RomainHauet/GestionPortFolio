@@ -48,6 +48,15 @@
             );
             break;
         }
+        case "Credits" :
+        {
+            $db->addCredits(
+                $_REQUEST['identifiant'],
+                $_REQUEST['noms'],
+                $_REQUEST['listeCopyright']
+            );
+            break;
+        }
     }
 
 

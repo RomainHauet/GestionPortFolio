@@ -133,6 +133,16 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Contact');
         }
 
+        public function addCredit($identifiant,$noms, $listeCopyright) {
+
+            // suprimer les anciens credits
+            $this->execMaj('delete from credit where utilisateur = ?',array($identifiant));
+
+            //rajoute le nouveau
+            $requete = 'insert into credit values (?,?,?)';
+            $this->execMaj($requete,array($identifiant, $noms, $listeCopyright));
+        }
+
         public function getCredit($identifiant) {
             $requete = 'select * from credit where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'Credit');
@@ -269,20 +279,14 @@ error_reporting(E_ALL);
     class Credit
     {
         private $noms;
-        private $prenom;
         private $listeCopyright;
 
-        public function __construct($noms ="", $prenom="", $listeCopyright=""){
+        public function __construct($noms ="", $listeCopyright=""){
             $this->noms = $noms;
-            $this->prenom = $prenom;
             $this->listeCopyright = $listeCopyright;
-
         }
 
         public function getNoms() {return $this->noms; }
-        public function getPrenom() {return $this->prenom; }
         public function getListeCopyright() {return $this->listeCopyright; }
-
-
     }
 ?>

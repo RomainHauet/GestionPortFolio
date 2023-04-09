@@ -59,7 +59,6 @@ CREATE TABLE Tache(
 CREATE TABLE Credit (
 	utilisateur VARCHAR REFERENCES Utilisateur(id),
 	noms VARCHAR(100),
-	prenom VARCHAR(100),
 	listeCopyright VARCHAR(500)
 );
 
@@ -93,5 +92,5 @@ INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','photo 
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
 INSERT INTO Contact VALUES ('ROMAIN',0656565656,'lienLinkedinR','Romainh@free.fr');
 
-INSERT INTO Credit VALUES ('LIAM','nom','prenom','listeCopyright');
-INSERT INTO Credit VALUES ('ROMAIN','nom','prenom','listeCopyright');
+INSERT INTO Credit VALUES ('LIAM','listenom','listeCopyright');
+INSERT INTO Credit VALUES ('ROMAIN','listenom','listeCopyright');
