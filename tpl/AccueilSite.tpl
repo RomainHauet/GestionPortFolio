@@ -1,5 +1,5 @@
 <div class="cadre">
-    <div class="infos">
+    <div class="cv">
         <div class="flex">
             {% for projet in Projets %}
                 <div class="description">
@@ -15,7 +15,7 @@
             {% endfor %}
         </div>
 
-        <div id="connection" class="flex">
+        <div class="flex">
             <div class="connection">
                 <form action="GestionRedirection.php" method="POST">
                     <h1>Connexion</h1>
