@@ -138,5 +138,41 @@
         }
     }
 
+    // pour pouvoir utiliser le loader de twig
+    require_once( "./Twig/lib/Twig/Autoloader.php" );
+
+    Twig_Autoloader::register();
+    // On indique que les templates seront charges depuis ./tpl/ 
+    $twig = new Twig_Environment( new Twig_Loader_Filesystem("./tpl"));
+
+    // Chargement du template TemplateBase.tpl
+    $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
+
+    // On récupère l'instance de la base de données
+    $db = DB::getInstance();
+
+    // On récupère les informations de l'utilisateur
+    $utilisateur = $db->getUtilisateur($_SESSION['identifiant']);
+
+    // On récupère les informations du CV
+    $cv = $db->getCV($_SESSION['identifiant']);
+    $credits = $db->getCredits($_SESSION['identifiant']);
+    $contact = $db->getContact($_SESSION['identifiant']);
+    $projets = $db->getProjets($_SESSION['identifiant']);
+    $competences = $db->getCompetences($_SESSION['identifiant']);
+
+    // Generation d'une vue a partir du template
+    echo $tpl->render( array(
+        "titre"        => $titre,
+        "typeLecture"  => "Ecriture",
+        "identifiant"  => $identifiant,
+        "page"         => $page,
+        "Projets"      => $projets,
+        "Competences"  => $competences,
+        "CV"           => $cv,
+        "Contacts"     => $contacts,
+        "Credits"      => $credits,
+        "Utilisateur"  => $utilisateur
+    ));
 
 ?>
