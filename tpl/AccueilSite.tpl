@@ -1,5 +1,5 @@
 <div class="cadre">
-    <div class="infos">
+    <div class="cv">
         <div class="flex">
             {% for projet in Projets %}
                 <div class="description">
