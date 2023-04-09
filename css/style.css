@@ -82,7 +82,7 @@ div.photo
 
 div.photo_2
 {
-  background-color: BLUE;
+  background-color: #07348F;
   width: 50%;
   height: 100%;
   padding: 5%;
@@ -123,6 +123,13 @@ div.mail, div.numero, div.linkedin
   margin-bottom: 15%;
   padding: 2%;
   background-color: #92D050;
+}
+
+div.connection
+{
+  margin-bottom: 15%;
+  padding: 2%;
+  background-color: #07348F;
 }
 
 h1.contact
