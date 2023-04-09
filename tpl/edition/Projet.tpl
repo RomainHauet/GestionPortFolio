@@ -15,7 +15,7 @@
         <button>Enregistrer</button>
     </form>
 
-    {% for projet in projets %}
+    {% for projet in Projets %}
         <form action="ajoutDB.php" method="POST">
             <div class="projet">
                 <h3>Nom du projet :</h3>
