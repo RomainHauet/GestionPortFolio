@@ -91,6 +91,51 @@
                 break;
             }
         }
+
+        case "Competence" :
+        {
+            if($_REQUEST['action'] == "ajouter")
+            {
+                $db->addCompetence(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "modifier")
+            {
+                $db->updateCompetence(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "supprimer")
+            {
+                $db->deleteCompetence(
+                    $_REQUEST['identifiant']
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+        }
+
+        case "Contact" :
+        {
+            $db->addContact(
+                $_REQUEST['identifiant'],
+                $_REQUEST['numerotel'],
+                $_REQUEST['lienLinkedin'],
+                $_REQUEST['mail']
+            );
+            break;
+        }
     }
 
 

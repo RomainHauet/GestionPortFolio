@@ -114,10 +114,34 @@ error_reporting(E_ALL);
             $this->execMaj($requete,array($nom, $description, $lienPhoto, $lienProjet, $id));
         }
 
+        public function deleteProjet($id)
+        {
+            $requete = 'delete from projet where id = ?';
+            $this->execMaj($requete,array($id));
+        }
+
         public function getProjet($identifiant)
         {
             $requete = 'select * from projet where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'Projet');
+        }
+
+        public function addCompetence($identifiant, $nom, $description, $lienPhoto)
+        {
+            $requete = 'insert into competence values (?,?,?,?)';
+            $this->execMaj($requete,array($identifiant, $nom, $description, $lienPhoto));
+        }
+
+        public function updateCompetence($id, $nom, $description, $lienPhoto)
+        {
+            $requete = 'update competence set nom = ?, description = ?, lienPhoto = ? where id = ?';
+            $this->execMaj($requete,array($nom, $description, $lienPhoto, $id));
+        }
+
+        public function deleteCompetence($id)
+        {
+            $requete = 'delete from competence where id = ?';
+            $this->execMaj($requete,array($id));
         }
 
         public function getCompetence($identifiant)
@@ -138,6 +162,15 @@ error_reporting(E_ALL);
             //rajoute le nouveau
             $requete = 'insert into cv values (?,?,?,?,?,?,?,?,?)';
             $this->execMaj($requete,array($identifiant, $nom, $prenom, $age, $description, $lienPhotoCV, $experience, $competence, $diplome));
+        }
+
+        public function addContact($identifiant, $numerotel, $lienLinkedin, $mail) {
+            // suprimer les anciens contacts
+            $this->execMaj('delete from contact where utilisateur = ?',array($identifiant));
+
+            //rajoute le nouveau
+            $requete = 'insert into contact values (?,?,?,?)';
+            $this->execMaj($requete,array($identifiant, $numerotel, $lienLinkedin, $mail));
         }
 
         public function getContact($identifiant) {
