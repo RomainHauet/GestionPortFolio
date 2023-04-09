@@ -1,5 +1,5 @@
 <div class="cadre">
-    {{% for Credit in Credits %}}
+    {% for Credit in Credits %}
         <form method="POST">
             <div class="noms">
                 <h3>Insérez votre nom pour les crédits :</h3>
@@ -13,5 +13,5 @@
             <input type="hidden" name="page" value="Credits"/>
             <button name="buttonAjouter">Enregistrer</button>
         </form>
-    {{% endfor %}}
+    {% endfor %}
 </div>
