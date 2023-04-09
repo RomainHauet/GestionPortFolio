@@ -1,13 +1,19 @@
 <div class="cadre">
     <form action="ajoutDB.php" method="POST">
-        <h3>Insérer nom projet</h3>
-        <textarea name="nom"></textarea>
+        <div class="projet">
+            <h3>Insérer nom projet</h3>
+            <textarea name="nom"></textarea>
+        </div>
         
-        <h3>Insérer description projet</h3>
-        <textarea name="description"></textarea>
+        <div class="description_p">
+            <h3>Insérer description projet</h3>
+            <textarea name="description"></textarea>
+        </div>
 
-        <h3> Insérer image projet</h3>
-        <input type="file" name="image" id="image" accept="image/png, image/jpeg">
+        <div class="projet">
+            <h3> Insérer image projet</h3>
+            <input type="file" name="image" id="image" accept="image/png, image/jpeg">
+        </div>
         
         <input type="hidden" name="identifiant" value="{{identifiant}}">
         <input type="hidden" name="page" value="Projet">

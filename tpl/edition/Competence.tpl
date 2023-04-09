@@ -1,10 +1,14 @@
 <div class="cadre">
     <form action="ajoutDB.php" method="POST">
-        <h3>Insérer nom competence</h3>
-        <textarea name="nom"></textarea>
+        <div class="competence">
+            <h3>Insérer nom competence</h3>
+            <textarea name="nom"></textarea>
+        </div>
         
-        <h3>Insérer description competence</h3>
-        <textarea name="description"></textarea>
+        <div class="description_c">
+            <h3>Insérer description competence</h3>
+            <textarea name="description"></textarea>
+        </div>
 
         <input type="hidden" name="identifiant" value="{{identifiant}}">
         <input type="hidden" name="page" value="Competence">
