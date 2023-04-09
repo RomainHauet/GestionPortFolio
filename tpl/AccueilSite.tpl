@@ -1,3 +1,7 @@
+<header class="accueil">
+    <h3 class="credits">Bienvenue sur le créateur de PortFolio !</h3>-
+</header>
+
 <div class="cadre">
     <div class="cv">
         <div class="flex">
