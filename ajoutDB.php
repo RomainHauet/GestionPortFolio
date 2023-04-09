@@ -57,6 +57,40 @@
             );
             break;
         }
+
+        case "Projet" :
+        {
+            if($_REQUEST['action'] == "ajouter")
+            {
+                $db->addProjet(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "modifier")
+            {
+                $db->updateProjet(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+            else if($_REQUEST['action'] == "supprimer")
+            {
+                $db->deleteProjet(
+                    $_REQUEST['identifiant']
+                    $_REQUEST['nom'],
+                    $_REQUEST['image'],
+                    $_REQUEST['description']
+                );
+                break;
+            }
+        }
     }
 
 
