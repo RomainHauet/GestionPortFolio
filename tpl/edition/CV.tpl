@@ -13,15 +13,15 @@
               </div>
               <div class="age">
                 <h3>Âge :</h3>
-                <textarea name="age" rows="1" cols="60"></textarea>
+                <textarea name="age" rows="1" cols="60">{{cv.getAge()}}</textarea>
               </div>
               <div class="description">
                 <h3>Votre description :</h3>
-                <textarea name="description" rows="10" cols="60"></textarea>
+                <textarea name="description" rows="10" cols="60">{{cv.getDescription()}}</textarea>
               </div>
               <div class="formation">
                 <h3>Liste de vos diplômes / formations :</h3>
-                <textarea name="formation" rows="10" cols="60"></textarea>
+                <textarea name="formation" rows="10" cols="60">{{cv.getFormation()}}</textarea>
               </div>
             </div>
 
@@ -32,11 +32,11 @@
               </div>
               <div class="competences">
                 <h3>Liste de vos compétences :</h3>
-                <textarea name="competences" rows="10" cols="60"></textarea>
+                <textarea name="competences" rows="10" cols="60">{{cv.getCompetence()}}</textarea>
               </div>
               <div class="projets">
                 <h3>Liste de vos projets :</h3>
-                <textarea name="projets" rows="10" cols="60"></textarea>
+                <textarea name="projets" rows="10" cols="60">{{cv.getProjet()}}</textarea>
               </div>
               <input type="hidden" name="identifiant" value="{{identifiant}}">
               <input type="hidden" name="page" value="CV">

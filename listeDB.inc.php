@@ -84,6 +84,12 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
+        public function addUtilisateur($nom="", $prenom="", $password="", $description="", $etude="", $liens="")
+        {
+            $requete = 'insert into utilisateur values (?,?,?,?,?,?,?)';
+            $this->execMaj($requete,array($nom,$prenom,$password,$description,$etude,$liens));
+        }
+
         public function getUtilisateur($identifiant)
         {
             $requete = 'select * from utilisateur where id = ?';

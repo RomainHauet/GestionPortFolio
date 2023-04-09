@@ -22,19 +22,33 @@
     switch($_POST['page'])
     {
         case "CV" :
-            {
-                $db->addCV(
-                    $_REQUEST['identifiant'],
-                    $_REQUEST['nom'],
-                    $_REQUEST['prenom'],
-                    $_REQUEST['age'],
-                    $_REQUEST['description'],
-                    $_REQUEST['formation'],
-                    $_REQUEST['photo'],
-                    $_REQUEST['competences'],
-                    $_REQUEST['projets']
-                );
-                break;
-            }
+        {
+            $db->addCV(
+                $_REQUEST['identifiant'],
+                $_REQUEST['nom'],
+                $_REQUEST['prenom'],
+                $_REQUEST['age'],
+                $_REQUEST['description'],
+                $_REQUEST['formation'],
+                $_REQUEST['photo'],
+                $_REQUEST['competences'],
+                $_REQUEST['projets']
+            );
+            break;
+        }
+        case "Accueil" :
+        {
+            $db->addUtilisateur(
+                $_REQUEST['identifiant'],
+                $_REQUEST['nom'],
+                $_REQUEST['prenom'],
+                $_REQUEST['age'],
+                $_REQUEST['description'],
+                $_REQUEST['photo']
+            );
+            break;
+        }
     }
+
+
 ?>
