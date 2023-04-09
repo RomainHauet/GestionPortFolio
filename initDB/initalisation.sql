@@ -51,7 +51,7 @@ CREATE TABLE Contact (
 );
 
 CREATE TABLE Tache(
-	id DECIMAL(10,0) PRIMARY KEY,
+	id DECIMAL(10,0) PRIMARY KEY AUTO_INCREMENT,
 	projet DECIMAL(10,0) REFERENCES Projet(id),
 	competence DECIMAL(10,0) REFERENCES Competence(id)
 );
@@ -79,12 +79,12 @@ INSERT INTO Competence VALUES ('ROMAIN','Java','creer le jeu prefere de plp. des
 INSERT INTO Competence VALUES ('LOGANN','Java','creer le jeu de la vie compter jusqu’a 8'                 );
 INSERT INTO Competence VALUES ('HUGO'  ,'Java','creer le jeu Anoui compter jusqu’a 2'                     );
 
-INSERT INTO Tache VALUES (1,(SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 1));
-INSERT INTO Tache VALUES (2,(SELECT id FROM Projet WHERE nom = 'Serpent numérique'),(SELECT id FROM Competence WHERE nom = 'Java' and id = 2));
-INSERT INTO Tache VALUES (3,(SELECT id FROM Projet WHERE nom = 'Le jeu de la vie'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 3));
-INSERT INTO Tache VALUES (4,(SELECT id FROM Projet WHERE nom LIKE 'Les Aventuriers du rail'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
-INSERT INTO Tache VALUES (5,(SELECT id FROM Projet WHERE nom LIKE 'Serpent numérique'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
-INSERT INTO Tache VALUES (6,(SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vie'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom = 'Les Aventuriers du rail'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 1));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom = 'Serpent numérique'),(SELECT id FROM Competence WHERE nom = 'Java' and id = 2));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom = 'Le jeu de la vie'),(SELECT DISTINCT id FROM Competence WHERE nom = 'Java' AND id = 3));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom LIKE 'Les Aventuriers du rail'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom LIKE 'Serpent numérique'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
+INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vie'),(SELECT id FROM Competence WHERE nom LIKE 'Travail en équipe'));
 
 INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam genre toute ma vie c est incroyable je suis le boss ca marche whouhou yes trop bien c est genial','photo liam','experience Liam','competence liam','diplome Liam');
 INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','photo Romain','experience Romain','competence romain','diplome romain');
