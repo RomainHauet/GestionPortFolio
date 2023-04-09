@@ -1,6 +1,6 @@
 <div class="cadre">
     <div class="pageAc">
-        {% for utilisateur in utilisateurs %}
+        {% for user in Utilisateur %}
             <form action="ajoutDB.php" method="POST">
                 <div class ="infos">
                     <div class="photo_2">
@@ -10,13 +10,13 @@
                         <tr>
                             <td>
                                 <h3>Nom :</h3>
-                                <textarea name="nom" rows="1" cols="60">{{utilisateur.getNom()}}</textarea>
+                                <textarea name="nom" rows="1" cols="60">{{user.getNom()}}</textarea>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <h3>Prénom :</h3>
-                                <textarea name="prenom" rows="1" cols="60">{{utilisateur.getPrenom()}}</textarea>
+                                <textarea name="prenom" rows="1" cols="60">{{user.getPrenom()}}</textarea>
                             </td>
                         </tr>
                     </table>
@@ -24,7 +24,7 @@
                         <tr>
                             <td>
                                 <h3>Niveau d'études :</h3>
-                                <textarea name="niveau" rows="1" cols="60">{{utilisateur.getEtude()}}</textarea>
+                                <textarea name="etude" rows="1" cols="60">{{user.getEtude()}}</textarea>
                             </td>
                         </tr>
                     </table>
@@ -37,13 +37,13 @@
                     <tr>
                         <td>
                             <h3>A propos de moi</h3>
-                            <textarea name="description" rows="10" cols="60">{{utilisateur.getDescription()}}</textarea>
+                            <textarea name="description" rows="10" cols="60">{{user.getDescription()}}</textarea>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <h3>Pour plus d'informations :</h3>
-                            <textarea name="liens" rows="10" cols="60">{{utilisateur.getLiens()}}</textarea>
+                            <textarea name="liens" rows="10" cols="60">{{user.getLiens()}}</textarea>
                         </td>    
                     </tr>
                 </table>

@@ -39,5 +39,5 @@
             <input type="hidden" name="action" value="supprimer">
             <button>Supprimer</button>
         </form>
-    {{% endfor %}}
+    {% endfor %}
 </div>

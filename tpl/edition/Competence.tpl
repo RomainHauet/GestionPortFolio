@@ -12,7 +12,7 @@
         <button>Enregistrer</button>
     </form>
 
-    {{% for competence in Competences %}}
+    {% for competence in Competences %}
         <form action="ajoutDB.php" method="POST">
             <div class="competence">
                 <h3>Nom de la compétence :</h3>
@@ -37,5 +37,5 @@
             <input type="hidden" name="id" value="{{competence.getId()}}">
             <button>Supprimer</button>
         </form>
-    {{% endfor %}}
+    {% endfor %}
 </div>
