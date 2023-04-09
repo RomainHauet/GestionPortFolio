@@ -8,12 +8,7 @@
         header('Location: PageConnection.php');
         exit();
     }
-
-    session_start();
-
-    // pour pouvoir utiliser le loader de twig
-    require_once( "./Twig/lib/Twig/Autoloader.php" );
-
+    
     include './listeDB.inc.php';
 
     // on ajoute les information recu dans la base de données
@@ -21,6 +16,19 @@
 
     switch($_POST['page'])
     {
+        case "Accueuil" :
+        {
+            $db->addUtilisateur(
+                $_REQUEST['identifiant'],
+                $_REQUEST['nom'],
+                $_REQUEST['prenom'],
+                $_REQUEST['password'],
+                $_REQUEST['description'],
+                $_REQUEST['etude'],
+                $_REQUEST['liens']
+            );
+            break;
+        }
         case "CV" :
         {
             $db->addCV(
@@ -137,6 +145,9 @@
             break;
         }
     }
+
+    // pour pouvoir utiliser le loader de twig
+    require_once( "./Twig/lib/Twig/Autoloader.php" );
 
     Twig_Autoloader::register();
     // On indique que les templates seront charges depuis ./tpl/ 

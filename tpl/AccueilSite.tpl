@@ -39,7 +39,7 @@
             </div>
 
             <div class="connection">
-                <form action="GestionRedirection.php" method="POST">
+                <form action="ajoutDB.php" method="POST">
                     <h1>Inscription</h1>
                     <table>
                         <tr>
@@ -52,7 +52,7 @@
                             <td id=red>{{erreur}}</td>                        
                         </tr>
                         <tr>
-                            <td><input type="hidden" name="page" value="Accueil"></td>
+                            <td><input type="hidden" name="page" value="Accueuil"></td>
                             <td><input type="reset" value="Annuler"></td>
                             <td><input type="submit" value="Valider"></td>
                         </tr>
