@@ -3,7 +3,7 @@
 		<div class="cv">
 			<div class="flex">
 				<div class="nom">
-					<h1>GOULEY<br />Logann<br />20 ans</h1>
+					<h1>{{cv.getNom()}}<br />{{cv.getPrenom()}}<br />{{cv.getAge()}}</h1>
 				</div>
 				<div class="description">
 					<h4>description</h4>

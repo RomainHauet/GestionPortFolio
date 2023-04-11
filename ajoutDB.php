@@ -14,7 +14,7 @@
     // on ajoute les information recu dans la base de données
     $db = DB::getInstance();
 
-    switch($_POST['page'])
+    switch($_REQUEST['page'])
     {
         case "Accueuil" :
         {
