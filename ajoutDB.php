@@ -170,7 +170,7 @@
         "CV"           => $cv,
         "Contacts"     => $contacts,
         "Credits"      => $credits,
-        "Utilisateur"  => $utilisateur,
+        "Utilisateurs"  => $utilisateur,
     ));
 
 ?>

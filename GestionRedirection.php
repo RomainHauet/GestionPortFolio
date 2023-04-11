@@ -36,10 +36,10 @@
         // On verifie qu'il existe et on verifie que le mot de passe et valide
         if(!$db->verifierUtilisateur($identifiant, $motDePasse))
         {
-            $projets = $db->getProjets();
+            $utilisateur = $db->getUtilisateurs();
             echo $tpl->render( array(
                 "titre" => "Accueil du site",
-                "Projets" => $projets,
+                "Utilisateurs" => $utilisateur,
                 "erreur" => "Identifiant ou mot de passe invalide"));
         }
         
@@ -96,6 +96,6 @@
         "CV"           => $cv,
         "Contacts"     => $contacts,
         "Credits"      => $credits,
-        "Utilisateur"  => $utilisateur
+        "Utilisateurs" => $utilisateur
     ));
 ?>
