@@ -130,14 +130,14 @@ error_reporting(E_ALL);
         public function addProjet($nom, $description, $lienPhoto, $lienProjet)
         {
             $requete = 'insert into projet values (?,?,?,?,?)';
-            $this->execMaj($requete,array($this->nbProjet, $nom, $description, $lienPhoto, $lienProjet));
             $this->nbProjet++;
+            $this->execMaj($requete,array($this->nbProjet, $nom, $description, $lienPhoto, $lienProjet));
         }
 
-        public function updateProjet($id, $nom, $description, $lienPhoto, $lienProjet)
+        public function updateProjet($id, $nom, $image, $description)
         {
-            $requete = 'update projet set nom = ?, description = ?, lienPhoto = ?, lienProjet = ? where id = ?';
-            $this->execMaj($requete,array($nom, $description, $lienPhoto, $lienProjet, $id));
+            $requete = 'update projet set nom = ?, image = ?, description = ? where id = ?';
+            $this->execMaj($requete,array($nom, $image, $description, $id));
         }
 
         public function deleteProjet($id)
@@ -153,17 +153,17 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Projet');
         }
 
-        public function addCompetence($identifiant, $nom, $description, $lienPhoto)
+        public function addCompetence($identifiant, $nom, $description)
         {
-            $requete = 'insert into competence values (?,?,?,?,?)';
-            $this->execMaj($requete,array($this->nbCompetence, $identifiant, $nom, $description, $lienPhoto));
+            $requete = 'insert into competence values (?,?,?,?)';
             $this->nbCompetence++;
+            $this->execMaj($requete,array($this->nbCompetence, $identifiant, $nom, $description));
         }
 
-        public function updateCompetence($id, $nom, $description, $lienPhoto)
+        public function updateCompetence($id, $nom, $description)
         {
-            $requete = 'update competence set nom = ?, description = ?, lienPhoto = ? where id = ?';
-            $this->execMaj($requete,array($nom, $description, $lienPhoto, $id));
+            $requete = 'update competence set nom = ?, description = ? where id = ?';
+            $this->execMaj($requete,array($nom, $description, $id));
         }
 
         public function deleteCompetence($id)
@@ -183,7 +183,8 @@ error_reporting(E_ALL);
             $requete = 'select * from cv where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'CV');
         }
-        public function addCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets) {
+        public function addCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets)
+        {
             // suprimer les anciens CV
             $this->execMaj('delete from cv where utilisateur = ?',array($identifiant));
 
@@ -192,13 +193,10 @@ error_reporting(E_ALL);
             $this->execMaj($requete,array($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets));
         }
 
-        public function addContact($identifiant, $numerotel, $lienLinkedin, $mail) {
-            // suprimer les anciens contacts
-            $this->execMaj('delete from contact where utilisateur = ?',array($identifiant));
-
-            //rajoute le nouveau
-            $requete = 'insert into contact values (?,?,?,?)';
-            $this->execMaj($requete,array($identifiant, $numerotel, $lienLinkedin, $mail));
+        public function addContact($identifiant, $numerotel, $lienLinkedin, $mail) 
+        {
+            $requete = 'update contact set numerotel = ?, lienLinkedin = ?, mail = ? where utilisateur = ?';
+            $this->execMaj($requete,array($numerotel, $lienLinkedin, $mail, $identifiant));
         }
 
         public function getContact($identifiant) {
@@ -208,8 +206,6 @@ error_reporting(E_ALL);
 
         public function addCredit($identifiant,$noms, $listeCopyright) 
         {
-
-            //rajoute le nouveau
             $requete = 'update credit set noms = ?, listeCopyright = ? where utilisateur = ?';
             $this->execMaj($requete,array($noms, $listeCopyright, $identifiant));
         }
@@ -257,18 +253,21 @@ error_reporting(E_ALL);
 
     class Projet
     {
+        private $id;
         private $utilisateur;
         private $nom;
         private $image;
         private $description;
 
-        public function __construct($utilisateur="", $nom="", $image="", $description="") {
+        public function __construct($id="", $utilisateur="", $nom="", $image="", $description="") {
+            $this->id = $id;
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->image = $image;
             $this->description = $description;
         }
 
+        public function getId() { return $this->id; }
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
         public function getImage() { return $this->image; }
@@ -277,16 +276,19 @@ error_reporting(E_ALL);
 
     class Competence
     {
+        private $id;
         private $utilisateur;
         private $nom;
         private $description;
 
-        public function __construct($utilisateur="", $nom="", $description="") {
+        public function __construct($id="", $utilisateur="", $nom="", $description="") {
+            $this->id = $id;
             $this->utilisateur = $utilisateur;
             $this->nom = $nom;
             $this->description = $description;
         }
 
+        public function getId() { return $this->id; }
         public function getUtilisateur() { return $this->utilisateur; }
         public function getNom() { return $this->nom; }
         public function getDescription() { return $this->description; }
@@ -347,16 +349,20 @@ error_reporting(E_ALL);
         public function getMail() { return $this->mail; }
     }
 
-    class Credit
+    class Credit     
     {
+        private $utilisateur;
         private $noms;
         private $listeCopyright;
 
-        public function __construct($noms ="", $listeCopyright=""){
+        public function __construct($utilisateur="", $noms="", $listeCopyright="") {
+            $this->utilisateur = $utilisateur;
             $this->noms = $noms;
             $this->listeCopyright = $listeCopyright;
         }
 
+
+        public function getUtilisateur() {return $this->utilisateur; }
         public function getNoms() {return $this->noms; }
         public function getListeCopyright() {return $this->listeCopyright; }
     }
