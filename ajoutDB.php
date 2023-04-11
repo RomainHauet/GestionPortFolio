@@ -14,7 +14,7 @@
     // on ajoute les information recu dans la base de données
     $db = DB::getInstance();
 
-    switch($_REQUEST['page'])
+    switch($_POST['page'])
     {
         case "Accueuil" :
         {
@@ -154,20 +154,24 @@
     // Chargement du template TemplateBase.tpl
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
+    $identifiant = $_REQUEST['identifiant'];
+    $typeLecture = "edition";
+    $page = $_REQUEST['page'];
+    $titre = $typeLecture." ".$page." : ".$identifiant;
     // On récupère les informations de l'utilisateur
     $utilisateur = $db->getUtilisateur($_REQUEST['identifiant']);
 
     // On récupère les informations du CV
-    $cv = $db->getCV($_REQUEST[['identifiant']);
-    $credits = $db->getCredits($_REQUEST['identifiant']);
-    $contact = $db->getContact($_REQUEST['identifiant']);
-    $projets = $db->getProjets($_REQUEST['identifiant']);
-    $competences = $db->getCompetences($_REQUEST['identifiant']);
+    $cv = $db->getCV($_REQUEST['identifiant']);
+    $credits = $db->getCredit($_REQUEST['identifiant']);
+    $contacts = $db->getContact($_REQUEST['identifiant']);
+    $projets = $db->getProjet($_REQUEST['identifiant']);
+    $competences = $db->getCompetence($_REQUEST['identifiant']);
 
     // Generation d'une vue a partir du template
     echo $tpl->render( array(
         "titre"        => $titre,
-        "typeLecture"  => "Ecriture",
+        "typeLecture"  => $typeLecture,
         "identifiant"  => $identifiant,
         "page"         => $page,
         "Projets"      => $projets,
@@ -175,7 +179,7 @@
         "CV"           => $cv,
         "Contacts"     => $contacts,
         "Credits"      => $credits,
-        "Utilisateur"  => $utilisateur
+        "Utilisateur"  => $utilisateur,
     ));
 
 ?>
