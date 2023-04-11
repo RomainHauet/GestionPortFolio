@@ -1,6 +1,6 @@
 <div class="cadre">
     <div class="pageAc">
-        {% for user in Utilisateur %}
+        {% for user in Utilisateurs %}
             <form action="ajoutDB.php" method="POST">
                 <div class ="infos">
                     <div class="photo_2">
