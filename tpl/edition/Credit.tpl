@@ -1,9 +1,9 @@
 <div class="cadre">
     {% for Credit in Credits %}
-        <form method="POST">
+        <form action="ajoutDB.php" method="POST">
             <div class="noms">
                 <h3>Insérez votre nom pour les crédits :</h3>
-                <textarea name="nom" rows="1" cols="60">{{Credit.getNoms()}}</textarea>
+                <textarea name="noms" rows="1" cols="60">{{Credit.getNoms()}}</textarea>
             </div>
             <div class="lien">
                 <h3>Insérez chaque lien d'images non-libre :</h3>

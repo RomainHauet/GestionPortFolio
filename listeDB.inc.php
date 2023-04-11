@@ -101,16 +101,24 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
-        public function addUtilisateur($nom="", $prenom="", $password="", $description="", $etude="", $liens="")
+        public function addUtilisateur($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
         {
-            $requete = 'insert into utilisateur values (?,?,?,?,?,?,?)';
-            $this->execMaj($requete,array($nom,$prenom,$password,$description,$etude,$liens));
+            $requete = 'update utilisateur set nom = ?, prenom = ?, password = ?, description = ?, etude = ?, liens = ? where id = ?';
+            $this->execMaj($requete,array($nom,$prenom,$password,$description,$etude,$liens,$id));
         }
 
         public function getUtilisateur($identifiant)
         {
             $requete = 'select * from utilisateur where id = ?';
             return $this->execQuery($requete,array($identifiant),'Utilisateur');
+        }
+
+        public function getPassword($identifiant)
+        {
+            $requete = 'select password from utilisateur where id = ?';
+            $stmt = $this->connect->prepare($requete);
+            $stmt->execute(array($identifiant));
+            return $stmt->fetchColumn();
         }
 
         public function getProjets()
@@ -198,14 +206,12 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Contact');
         }
 
-        public function addCredit($identifiant,$noms, $listeCopyright) {
-
-            // suprimer les anciens credits
-            $this->execMaj('delete from credit where utilisateur = ?',array($identifiant));
+        public function addCredit($identifiant,$noms, $listeCopyright) 
+        {
 
             //rajoute le nouveau
-            $requete = 'insert into credit values (?,?,?)';
-            $this->execMaj($requete,array($identifiant, $noms, $listeCopyright));
+            $requete = 'update credit set noms = ?, listeCopyright = ? where utilisateur = ?';
+            $this->execMaj($requete,array($noms, $listeCopyright, $identifiant));
         }
 
         public function getCredit($identifiant) {

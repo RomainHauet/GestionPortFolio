@@ -16,13 +16,14 @@
 
     switch($_POST['page'])
     {
-        case "Accueuil" :
+        case "Accueil" :
         {
+            $password = $db->getPassword($_REQUEST['identifiant']);
             $db->addUtilisateur(
                 $_REQUEST['identifiant'],
                 $_REQUEST['nom'],
                 $_REQUEST['prenom'],
-                $_REQUEST['password'],
+                $password,
                 $_REQUEST['description'],
                 $_REQUEST['etude'],
                 $_REQUEST['liens']
@@ -44,19 +45,9 @@
             );
             break;
         }
-        case "Accueil" :
-        {
-            $db->addUtilisateur(
-                $_REQUEST['identifiant'],
-                $_REQUEST['nom'],
-                $_REQUEST['prenom'],
-                $_REQUEST['description'],
-            );
-            break;
-        }
         case "Credits" :
         {
-            $db->addCredits(
+            $db->addCredit(
                 $_REQUEST['identifiant'],
                 $_REQUEST['noms'],
                 $_REQUEST['listeCopyright']
