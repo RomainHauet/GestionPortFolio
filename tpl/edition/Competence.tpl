@@ -11,7 +11,7 @@
         </div>
 
         <input type="hidden" name="identifiant" value="{{identifiant}}">
-        <input type="hidden" name="page" value="Competence">
+        <input type="hidden" name="page" value="Competences">
         <input type="hidden" name="action" value="ajouter">
         <button>Enregistrer</button>
     </form>
@@ -29,14 +29,16 @@
             </div>
 
             <input type="hidden" name="identifiant" value="{{identifiant}}">
-            <input type="hidden" name="page" value="Competence">
+            <input type="hidden" name="page" value="Competences">
+            <input type="hidden" name="id" value="{{competence.getId()}}">gvtbyhujn,ikujnh
             <input type="hidden" name="action" value="modifier">
+            
             <button>Enregistrer</button>
         </form>
 
         <form action="ajoutDB.php" method="POST">
             <input type="hidden" name="identifiant" value="{{identifiant}}">
-            <input type="hidden" name="page" value="Competence">
+            <input type="hidden" name="page" value="Competences">
             <input type="hidden" name="action" value="supprimer">
             <input type="hidden" name="id" value="{{competence.getId()}}">
             <button>Supprimer</button>

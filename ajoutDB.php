@@ -55,8 +55,9 @@
             break;
         }
 
-        case "Projet" :
+        case "Projets" :
         {
+            print_r($_REQUEST['action']);
             if($_REQUEST['action'] == "ajouter")
             {
                 $db->addProjet(
@@ -70,7 +71,7 @@
             else if($_REQUEST['action'] == "modifier")
             {
                 $db->updateProjet(
-                    $_REQUEST['identifiant'],
+                    $_REQUEST['id'],
                     $_REQUEST['nom'],
                     $_REQUEST['image'],
                     $_REQUEST['description']
@@ -79,24 +80,21 @@
             }
             else if($_REQUEST['action'] == "supprimer")
             {
+                print_r("Supprimer");
                 $db->deleteProjet(
-                    $_REQUEST['identifiant'],
-                    $_REQUEST['nom'],
-                    $_REQUEST['image'],
-                    $_REQUEST['description']
+                    $_REQUEST['id']
                 );
                 break;
             }
         }
 
-        case "Competence" :
+        case "Competences" :
         {
             if($_REQUEST['action'] == "ajouter")
             {
                 $db->addCompetence(
                     $_REQUEST['identifiant'],
                     $_REQUEST['nom'],
-                    $_REQUEST['image'],
                     $_REQUEST['description']
                 );
                 break;
@@ -104,9 +102,8 @@
             else if($_REQUEST['action'] == "modifier")
             {
                 $db->updateCompetence(
-                    $_REQUEST['identifiant'],
+                    $_REQUEST['id'],
                     $_REQUEST['nom'],
-                    $_REQUEST['image'],
                     $_REQUEST['description']
                 );
                 break;
@@ -114,10 +111,7 @@
             else if($_REQUEST['action'] == "supprimer")
             {
                 $db->deleteCompetence(
-                    $_REQUEST['identifiant'],
-                    $_REQUEST['nom'],
-                    $_REQUEST['image'],
-                    $_REQUEST['description']
+                    $_REQUEST['id'],
                 );
                 break;
             }
