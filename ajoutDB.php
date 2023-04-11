@@ -50,9 +50,7 @@
                 $_REQUEST['identifiant'],
                 $_REQUEST['nom'],
                 $_REQUEST['prenom'],
-                $_REQUEST['age'],
                 $_REQUEST['description'],
-                $_REQUEST['photo']
             );
             break;
         }
@@ -91,7 +89,7 @@
             else if($_REQUEST['action'] == "supprimer")
             {
                 $db->deleteProjet(
-                    $_REQUEST['identifiant']
+                    $_REQUEST['identifiant'],
                     $_REQUEST['nom'],
                     $_REQUEST['image'],
                     $_REQUEST['description']
@@ -125,7 +123,7 @@
             else if($_REQUEST['action'] == "supprimer")
             {
                 $db->deleteCompetence(
-                    $_REQUEST['identifiant']
+                    $_REQUEST['identifiant'],
                     $_REQUEST['nom'],
                     $_REQUEST['image'],
                     $_REQUEST['description']
@@ -157,14 +155,14 @@
     $tpl = $twig->loadTemplate( "TemplateBase.tpl" );
 
     // On récupère les informations de l'utilisateur
-    $utilisateur = $db->getUtilisateur($_SESSION['identifiant']);
+    $utilisateur = $db->getUtilisateur($_REQUEST['identifiant']);
 
     // On récupère les informations du CV
-    $cv = $db->getCV($_SESSION['identifiant']);
-    $credits = $db->getCredits($_SESSION['identifiant']);
-    $contact = $db->getContact($_SESSION['identifiant']);
-    $projets = $db->getProjets($_SESSION['identifiant']);
-    $competences = $db->getCompetences($_SESSION['identifiant']);
+    $cv = $db->getCV($_REQUEST[['identifiant']);
+    $credits = $db->getCredits($_REQUEST['identifiant']);
+    $contact = $db->getContact($_REQUEST['identifiant']);
+    $projets = $db->getProjets($_REQUEST['identifiant']);
+    $competences = $db->getCompetences($_REQUEST['identifiant']);
 
     // Generation d'une vue a partir du template
     echo $tpl->render( array(

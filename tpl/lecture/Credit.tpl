@@ -7,7 +7,7 @@
 
 
     <h3 class="credits">PortFolio créé par : </h3>
-    <h5 class="credits">{{credits.getNoms()}}  {{credits.getPrenom()}}</h5>
+    <h5 class="credits">{{credits.getNoms()}}</h5>
 
     <h3 class="credits">Application créée par :</h3>
     <ul>
