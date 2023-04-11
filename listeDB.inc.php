@@ -113,18 +113,18 @@ error_reporting(E_ALL);
             return $this->execQuery($requete,array($identifiant),'Utilisateur');
         }
 
+        public function getUtilisateurs()
+        {
+            $requete = 'select * from utilisateur';
+            return $this->execQuery($requete,null,'Utilisateur');
+        }
+
         public function getPassword($identifiant)
         {
             $requete = 'select password from utilisateur where id = ?';
             $stmt = $this->connect->prepare($requete);
             $stmt->execute(array($identifiant));
             return $stmt->fetchColumn();
-        }
-
-        public function getProjets()
-        {
-            $requete = 'select * from projet';
-            return $this->execQuery($requete,null,'Projet');
         }
 
         public function addProjet($nom, $description, $lienPhoto, $lienProjet)
@@ -242,6 +242,7 @@ error_reporting(E_ALL);
             $this->liens = $liens;
         }
 
+        public function getId() { return $this->id; }
         public function getNom() { return $this->nom; }
         public function getPrenom() { return $this->prenom; }
         public function getPassword() { return $this->password; }
