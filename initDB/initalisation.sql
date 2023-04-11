@@ -94,7 +94,9 @@ INSERT INTO CV VALUES ('HUGO','Tassery','HUGO',23,'description hugo','photo hugo
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
 INSERT INTO Contact VALUES ('ROMAIN',0656565656,'lienLinkedinR','Romainh@free.fr');
 INSERT INTO Contact VALUES ('HUGO',0656565656,'lienLinkedinH','hugo.tassery@free.fr');
+INSERT INTO Contact VALUES ('LOGANN',0656565656,'lienLinkedinL','logann@rf.fr');
 
 INSERT INTO Credit VALUES ('LIAM','listenom','listeCopyright');
 INSERT INTO Credit VALUES ('ROMAIN','listenom','listeCopyright');
 INSERT INTO Credit VALUES ('HUGO','listenom','listeCopyright');
+INSERT INTO Credit VALUES ('LOGANN','listenom','listeCopyright');
