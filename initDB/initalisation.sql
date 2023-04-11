@@ -88,9 +88,13 @@ INSERT INTO Tache VALUES ((SELECT id FROM Projet WHERE nom LIKE 'Le jeu de la vi
 
 INSERT INTO CV VALUES ('LIAM','Deniau','LIAM',26,'description liam genre toute ma vie c est incroyable je suis le boss ca marche whouhou yes trop bien c est genial','photo liam','experience Liam','competence liam','diplome Liam');
 INSERT INTO CV VALUES ('ROMAIN','HAUET','ROMAIN',23,'description romain','photo Romain','experience Romain','competence romain','diplome romain');
+INSERT INTO CV VALUES ('LOGANN','Gouley','LOGANN',23,'description logann','photo logann','experience logann','competence logann','diplome logann');
+INSERT INTO CV VALUES ('HUGO','Tassery','HUGO',23,'description hugo','photo hugo','experience hugo','competence hugo','diplome hugo');
 
 INSERT INTO Contact VALUES ('LIAM',0771613722,'lienLinkedinL','Liam.deniau@free.fr');
 INSERT INTO Contact VALUES ('ROMAIN',0656565656,'lienLinkedinR','Romainh@free.fr');
+INSERT INTO Contact VALUES ('HUGO',0656565656,'lienLinkedinH','hugo.tassery@free.fr');
 
 INSERT INTO Credit VALUES ('LIAM','listenom','listeCopyright');
 INSERT INTO Credit VALUES ('ROMAIN','listenom','listeCopyright');
+INSERT INTO Credit VALUES ('HUGO','listenom','listeCopyright');
