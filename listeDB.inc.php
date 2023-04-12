@@ -101,7 +101,7 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
-        public function addUtilisateurSite($nom="", $password="")
+        public function addUtilisateurSite($nom, $password)
         {
             $requete = 'insert into utilisateur values (?,?,?,?,?,?,?)';
             $this->execMaj($requete,array($nom,$nom,"",$password,"","",""));
@@ -119,7 +119,7 @@ error_reporting(E_ALL);
             $this->execMaj($requete,array($nom,"",""));
         }
 
-        public function updateUtilisateur($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
+        public function updateUtilisateur($id, $nom, $prenom, $password, $description, $etude, $liens)
         {
             $requete = 'update utilisateur set nom = ?, prenom = ?, password = ?, description = ?, etude = ?, liens = ? where id = ?';
             $this->execMaj($requete,array($nom,$prenom,$password,$description,$etude,$liens,$id));
