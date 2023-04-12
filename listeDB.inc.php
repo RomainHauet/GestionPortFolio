@@ -201,10 +201,12 @@ error_reporting(E_ALL);
             $requete = 'select * from cv where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'CV');
         }
-        public function updateCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets)
+
+        // $utilisateur="", $nom="", $prenom="", $age="", $description="", $formation="", $lienPhotoCV="", $competence="", $projet=""
+        public function updateCV($identifiant, $nom, $prenom, $age, $description, $formation, $lienPhotoCV, $competence, $projet) 
         {
-            $requete = 'update cv set nom = ?, prenom = ?, age = ?, description = ?, formation = ?, photo = ?, competences = ?, projets = ? where utilisateur = ?';
-            $this->execMaj($requete,array($nom, $prenom, $age, $description, $formation, $photo, $competences, $projets, $identifiant));
+            $requete = 'update cv set nom = ?, prenom = ?, age = ?, description = ?, formation = ?, lienPhotoCV = ?, competence = ?, projet = ? where utilisateur = ?';
+            $this->execMaj($requete,array($nom, $prenom, $age, $description, $formation, $lienPhotoCV, $competence, $projet, $identifiant));
         }
 
         public function addContact($identifiant, $numerotel, $lienLinkedin, $mail) 
