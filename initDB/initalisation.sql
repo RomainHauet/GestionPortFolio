@@ -157,7 +157,7 @@ INSERT INTO Contact VALUES
 (
     'ROMAIN',
     '0658809784',
-    'https://www.linkedin.com/in/romain-hauet/',
+    'https://www.linkedin.com/romain-hauet/',
     'hauetromain@gmail.com'
 );
 
