@@ -50,14 +50,16 @@
         }
         case "CV" :
         {
-            //$id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
-            $db->updateCV(
+            $db->addCV(
                 $_REQUEST['identifiant'],
                 $_REQUEST['nom'],
                 $_REQUEST['prenom'],
+                $_REQUEST['age'],
                 $_REQUEST['description'],
-                $_REQUEST['etude'],
-                $_REQUEST['liens']
+                $_REQUEST['formation'],
+                $_REQUEST['photo'],
+                $_REQUEST['competences'],
+                $_REQUEST['projets']
             );
             break;
         }
