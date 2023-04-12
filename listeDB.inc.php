@@ -101,6 +101,13 @@ error_reporting(E_ALL);
             return $stmt->rowCount();
         }
 
+        public function addUtilisateurSite($nom="", $password="")
+        {
+            $requete = 'insert into utilisateur values (?,?,?,?,?,?,?)';
+            $this->nbUtilisateur++;
+            $this->execMaj($requete,array($this->nbUtilisateur,$nom,"",$password,"","",""));
+        }
+
         public function addUtilisateur($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
         {
             $requete = 'update utilisateur set nom = ?, prenom = ?, password = ?, description = ?, etude = ?, liens = ? where id = ?';

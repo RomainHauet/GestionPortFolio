@@ -18,16 +18,27 @@
     {
         case "Accueil" :
         {
-            $password = $db->getPassword($_REQUEST['identifiant']);
-            $db->addUtilisateur(
-                $_REQUEST['identifiant'],
-                $_REQUEST['nom'],
-                $_REQUEST['prenom'],
-                $password,
-                $_REQUEST['description'],
-                $_REQUEST['etude'],
-                $_REQUEST['liens']
-            );
+            if(isset($_REQUEST['motdepasse']))
+            {
+                $db->addUtilisateurSite(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['motdepasse']
+                ); 
+            }
+            else
+            {
+                $password = $db->getPassword($_REQUEST['identifiant']);
+                $db->addUtilisateur(
+                    $_REQUEST['identifiant'],
+                    $_REQUEST['nom'],
+                    $_REQUEST['prenom'],
+                    $password,
+                    $_REQUEST['description'],
+                    $_REQUEST['etude'],
+                    $_REQUEST['liens']
+                );
+            }
+
             break;
         }
         case "CV" :
