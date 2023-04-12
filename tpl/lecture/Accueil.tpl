@@ -35,7 +35,7 @@
                 <td><h3>Pour plus d'informations :</h3></td>
             </tr>
             <tr>
-                <td><a href="{{utilisateur.getLiens()}}">Linkedin</a></td>
+                <td><button><a href="{{utilisateur.getLiens()}}">Linkedin</a></button></td>
             </tr> 
         </table>
     </div>
