@@ -43,7 +43,7 @@
         }
         case "CV" :
         {
-            $db->addCV(
+            $db->updateCV(
                 $_REQUEST['identifiant'],
                 $_REQUEST['nom'],
                 $_REQUEST['prenom'],

@@ -201,7 +201,7 @@ error_reporting(E_ALL);
             $requete = 'select * from cv where utilisateur = ?';
             return $this->execQuery($requete,array($identifiant),'CV');
         }
-        public function addCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets)
+        public function updateCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets)
         {
             $requete = 'update cv set nom = ?, prenom = ?, age = ?, description = ?, formation = ?, photo = ?, competences = ?, projets = ? where utilisateur = ?';
             $this->execMaj($requete,array($nom, $prenom, $age, $description, $formation, $photo, $competences, $projets, $identifiant));
