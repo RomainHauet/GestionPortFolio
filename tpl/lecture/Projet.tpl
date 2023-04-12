@@ -2,11 +2,11 @@
 
 <div class="cadre">
     <h1>{{projet.getNom()}}</h1>
-    <img src="" alt="projet">
+    <img src="" alt="imageProjet">
     <p>{{projet.getDescription()}}</p>
 
     <table>
-            <tr><button name="button">Projet lié</button></tr>
+            <tr><button name="button">Projet liÃ©</button></tr>
     </table>
 </div>
 
