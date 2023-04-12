@@ -18,14 +18,16 @@
     {
         case "Accueil" :
         {
-            if(isset($_REQUEST['motdepasse']))
+            // recherche si l'utilisateur existe deja
+            $utilisateur = $db->getUtilisateur($_REQUEST['identifiant']);
+            if($utilisateur == null)
             {
                 $db->addUtilisateurSite(
                     $_REQUEST['identifiant'],
                     $_REQUEST['motdepasse']
                 ); 
             }
-            else
+            elseif(isset($_REQUEST['motdepasse']))
             {
                 $password = $db->getPassword($_REQUEST['identifiant']);
                 $db->updateUtilisateur(
@@ -37,6 +39,11 @@
                     $_REQUEST['etude'],
                     $_REQUEST['liens']
                 );
+            }
+            else
+            {
+                // redirection vers la page de connection
+                header('Location: PageConnection.php');
             }
 
             break;
