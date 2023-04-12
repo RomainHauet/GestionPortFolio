@@ -175,12 +175,12 @@ INSERT INTO Competence VALUES (1,'MATTHEW','Java','Programmer des application en
 
 INSERT INTO Projet VALUES (1,'MATTHEW'  ,'Les Aventuriers du rail','Lia.txt','creer le jeu les aventurier du rail ');
 INSERT INTO Projet VALUES (2,'MATTHEW','Serpent numérique','Serpent.txt','creer le jeu de calcul');
-INSERT INTO CV VALUES ('MATTHEW','UHL','MATTHEW',20,'Étudiant en B.U.T informatique je me suis dirigé dans cette filière intéressé par la programmation que j ai étudié pendant 3 ans jusque ici c est pour cela que je souhaiterais un stage qui pourras m en apprendre encore plus sur l informatique et tout les horizons explorable en cette matière.','Baccalauréat STI2D
+INSERT INTO CV VALUES ('MATTHEW','UHL','MATTHEW',20,'Étudiant en B.U.T informatique je me suis dirigé dans cette filière intéressé par la programmation dont nous avons pu étudié les fondements pendant 3 ans jusque là.','Baccalauréat STI2D
 Lycée Jules Siegfried
 BUT Informatique
  IUT Le Havre','Photo-Matthew.jpg','Création de diagramme UML
 Codage en JAVA
-Gestion et création de base de données SQL','Projet informatique en équipe de 5 ou nous avons été mené à produire des sites web, gérer et créer des bases de données, développer des application en java tel qu une reproduction du jeu "Les aventuriers du rail" où un générateur de plateau pour le dit jeu, et même installer des machines virtuelles');
+Gestion et création de base de données SQL','Projet informatique en équipe de 5 ou nous avons été mené à produire des sites web, gérer et créer des bases de données, développer des application en java tel que la reproduction du jeu "Les aventuriers du rail" où un générateur de plateau pour le dit jeu, et même installer des machines virtuelles');
 INSERT INTO Contact VALUES ('MATTHEW','0673632644','https://www.linkedin.com/in/matthew-uhl-653147255/','matthew.uhl@etu.univ-lehavre.fr');
 
 INSERT INTO Credit VALUES ('MATTHEW','Matthew','Copyright');

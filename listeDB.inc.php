@@ -112,10 +112,10 @@ error_reporting(E_ALL);
 
             // ajoute contact avec l'utilisateur
             $requete = 'insert into contact values (?,?,?)';
-            $this->execMaj($requete,array($nom,"",""));
+            $this->execMaj($requete,array($nom,0,""));
 
-            // ajoute competence avec l'utilisateur
-            $requete = 'insert into competence values (?,?,?)';
+            // ajoute credits avec l'utilisateur
+            $requete = 'insert into credit values (?,?,?)';
             $this->execMaj($requete,array($nom,"",""));
         }
 

@@ -1,4 +1,4 @@
-{% for utilisateur in Utilisateur %}
+{% for utilisateur in Utilisateurs %}
 
 <div class="cadre">
     <div class="pageAc">
