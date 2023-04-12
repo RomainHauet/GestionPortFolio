@@ -8,7 +8,7 @@
                     <img src="images/mail.png" alt="mail">
                 </td>
                 <td>
-                    <a href={{contact.getLienLinkedin()}}><img src="images/linkedin.png" alt="linkedin"></a>
+                    <a href={{contact.getLienLinkedin()}} ><img src="images/linkedin.png" alt="linkedin"></a>
                 </td>
                 <td> 
                     <img src="images/phone.png" alt="phone">
