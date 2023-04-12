@@ -28,7 +28,7 @@
             else
             {
                 $password = $db->getPassword($_REQUEST['identifiant']);
-                $db->addUtilisateur(
+                $db->updateUtilisateur(
                     $_REQUEST['identifiant'],
                     $_REQUEST['nom'],
                     $_REQUEST['prenom'],

@@ -104,11 +104,22 @@ error_reporting(E_ALL);
         public function addUtilisateurSite($nom="", $password="")
         {
             $requete = 'insert into utilisateur values (?,?,?,?,?,?,?)';
-            $this->nbUtilisateur++;
-            $this->execMaj($requete,array($this->nbUtilisateur,$nom,"",$password,"","",""));
+            $this->execMaj($requete,array($nom,$nom,"",$password,"","",""));
+
+            // ajoute le cv avec l'utilisateur
+            $requete = 'insert into cv values (?,?,?)';
+            $this->execMaj($requete,array($nom,"",""));
+
+            // ajoute contact avec l'utilisateur
+            $requete = 'insert into contact values (?,?,?)';
+            $this->execMaj($requete,array($nom,"",""));
+
+            // ajoute competence avec l'utilisateur
+            $requete = 'insert into competence values (?,?,?)';
+            $this->execMaj($requete,array($nom,"",""));
         }
 
-        public function addUtilisateur($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
+        public function updateUtilisateur($id ="", $nom="", $prenom="", $password="", $description="", $etude="", $liens="")
         {
             $requete = 'update utilisateur set nom = ?, prenom = ?, password = ?, description = ?, etude = ?, liens = ? where id = ?';
             $this->execMaj($requete,array($nom,$prenom,$password,$description,$etude,$liens,$id));
@@ -192,12 +203,8 @@ error_reporting(E_ALL);
         }
         public function addCV($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets)
         {
-            // suprimer les anciens CV
-            $this->execMaj('delete from cv where utilisateur = ?',array($identifiant));
-
-            //rajoute le nouveau
-            $requete = 'insert into cv values (?,?,?,?,?,?,?,?,?)';
-            $this->execMaj($requete,array($identifiant, $nom, $prenom, $age, $description, $formation, $photo, $competences, $projets));
+            $requete = 'update cv set nom = ?, prenom = ?, age = ?, description = ?, formation = ?, photo = ?, competences = ?, projets = ? where utilisateur = ?';
+            $this->execMaj($requete,array($nom, $prenom, $age, $description, $formation, $photo, $competences, $projets, $identifiant));
         }
 
         public function addContact($identifiant, $numerotel, $lienLinkedin, $mail) 
